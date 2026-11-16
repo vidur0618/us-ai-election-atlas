@@ -3,7 +3,7 @@
   "reviewed_on": "2026-11-16",
   "baseline_commit": "8e624b3f10eb031230565c131f866cd952e3c4d3",
   "baseline_sha256": "31fa31c14f26ec3d9404c0c549d088dacfd4f8dcf70f8e8f7102dab77607114a",
-  "canonical_sha256": "1f88f532625a10a0c42d21ff52f821e7077289838f26852196ce65f6718f0b31",
+  "canonical_sha256": "d85f5d4c5462cd4fc738ef39578ce29eec1fceeabc0800d96113c184720d30d0",
   "before_counts": {
     "states": 51,
     "ballots": 67,
@@ -33,12 +33,12 @@
     "elections": 22,
     "election_choices": 95,
     "recalls": 10,
-    "policies": 149,
+    "policies": 150,
     "polls": 89,
     "exclusions": 18,
     "gaps": 10,
     "data_dictionary": 18,
-    "sources": 385,
+    "sources": 386,
     "tracker_results": 1064,
     "tracker_candidates_on_record": 892,
     "tracker_winner_index": 370,
@@ -50,7 +50,7 @@
     "reviewed_on": "2026-11-16",
     "baseline_date": "2026-11-13",
     "existing_records_with_dispositions": 353,
-    "added_core_records": 18,
+    "added_core_records": 19,
     "review_log": "review-2026-11-16.json",
     "meaning": "Field-specific evidence review. Source snapshots retain their own dates; review is not certification or proof of national completeness.",
     "not_individually_reaudited": [
@@ -1537,7 +1537,13 @@
       "operation": "add",
       "table": "policies",
       "record_id": "OR_2026_10_09_DEQ_permit_pause",
-      "reason": "Previously omitted Governor letter; specified permits, not a blanket construction ban."
+      "reason": "Previously omitted Governor action; preserve its instrument-specific scope and stated duration."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "OR_2026_09_08_state_land_pause",
+      "reason": "Previously omitted Governor action; preserve its instrument-specific scope and stated duration."
     },
     {
       "operation": "update",

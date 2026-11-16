@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "AI, data centers and the 2026 US midterms",
-    "version": "2026-11-16-review-v1",
+    "version": "2026-11-16-review-v2",
     "as_of": "2026-11-16",
     "coverage": "Audited union of identified direct questions, selected policy-relevant elections/recalls, state-control changes and selected bills. Not a certified exhaustive national election census.",
     "ballot_records": 71,
@@ -9,11 +9,11 @@
     "nov3_targeted_dc_questions": 48,
     "nov3_targeted_more_restrictive": 46,
     "state_jurisdictions_indexed": 51,
-    "policy_records": 149,
+    "policy_records": 150,
     "selected_candidate_contests": 22,
     "recall_officials": 10,
     "poll_observations": 89,
-    "source_registry_count": 385,
+    "source_registry_count": 386,
     "counting_rules": [
       "Every record retains its scope, source quality and date. This is an audited research inventory, not a certified exhaustive registry of all local elections nationwide.",
       "Count questions, elections and elected offices separately. Multiple questions in one town do not represent distinct groups of voters.",
@@ -120,12 +120,12 @@
       "elections": 22,
       "election_choices": 95,
       "recalls": 10,
-      "policies": 149,
+      "policies": 150,
       "polls": 89,
       "exclusions": 18,
       "gaps": 10,
       "data_dictionary": 18,
-      "sources": 385,
+      "sources": 386,
       "tracker_results": 1064,
       "tracker_candidates_on_record": 892,
       "tracker_winner_index": 370,
@@ -137,7 +137,7 @@
       "reviewed_on": "2026-11-16",
       "baseline_date": "2026-11-13",
       "existing_records_with_dispositions": 353,
-      "added_core_records": 18,
+      "added_core_records": 19,
       "review_log": "review-2026-11-16.json",
       "meaning": "Field-specific evidence review. Source snapshots retain their own dates; review is not certification or proof of national completeness.",
       "not_individually_reaudited": [
@@ -903,12 +903,13 @@
       "earlier_2026_questions": 0,
       "scheduled_after_cutoff": 0,
       "recall_officials": 0,
-      "selected_policy_records": 1,
+      "selected_policy_records": 2,
       "control_context": "No control-change claim made in this dossier.",
       "coverage_statement": "No qualifying direct ballot question identified in the reviewed national and local sources; not a certified zero.",
       "ballot_record_ids": [],
       "policy_record_ids": [
-        "OR_2026_10_09_DEQ_permit_pause"
+        "OR_2026_10_09_DEQ_permit_pause",
+        "OR_2026_09_08_state_land_pause"
       ],
       "tracker_result_rows": 24,
       "tracker_nov3_position_rows": 21
@@ -17937,6 +17938,10 @@
     },
     {
       "record_id": "OR_2026_10_09_DEQ_permit_pause",
+      "policy_family_id": "OR_DATA_CENTER_ADMINISTRATIVE_PAUSES_2026",
+      "related_record_ids": [
+        "OR_2026_09_08_state_land_pause"
+      ],
       "state": "OR",
       "instrument": "Governor letter to DEQ, October 9, 2026",
       "title": "Data-center air and water permit pause",
@@ -17971,15 +17976,66 @@
       "priority": "selected_policy",
       "reviewed_at": "2026-11-16",
       "web_ref_ids": [
-        "turn274view0"
+        "turn9view0"
       ],
       "review": {
         "reviewed_on": "2026-11-16",
         "disposition": "primary_document_rechecked",
-        "scope": "Governor letter scope, date and requested end date",
+        "scope": "Governor action scope, date and stated duration",
         "limitations": "Applies to specified DEQ permits, not an independently established blanket construction ban. Letter states no MW threshold. Agency implementation and potential subsequent modification need ongoing monitoring.",
         "source_urls": [
           "https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf"
+        ]
+      }
+    },
+    {
+      "record_id": "OR_2026_09_08_state_land_pause",
+      "policy_family_id": "OR_DATA_CENTER_ADMINISTRATIVE_PAUSES_2026",
+      "related_record_ids": [
+        "OR_2026_10_09_DEQ_permit_pause"
+      ],
+      "state": "OR",
+      "instrument": "Governor direction to state agencies, September 8, 2026",
+      "title": "State-owned land requests paused for data-center projects",
+      "session": "2026 executive action / 2027 agenda",
+      "status": "Governor-directed administrative pause",
+      "status_date": "2026-09-08",
+      "effective_date": null,
+      "summary": "Governor Kotek directed state agencies to immediately pause unapproved requests for easements, rights-of-way, leases, rentals, land-use permits, and sales or transfers of state-owned property for data-center projects. The stated pause runs through July 1, 2027, or until statewide action from the Governor's Office or Legislature directs otherwise.",
+      "sponsors": "Governor Tina Kotek",
+      "topics": [
+        "state-owned land",
+        "permitting",
+        "data center development"
+      ],
+      "verification": "Official Governor's Office release dated September 8, 2026, reviewed November 16, 2026.",
+      "legislative_votes": [],
+      "public_vote": false,
+      "sources": [
+        "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers"
+      ],
+      "source_ids": [
+        "S_dc48a40db3"
+      ],
+      "notes": "Covers the specified unapproved requests involving state-owned property, not a blanket construction ban. The official release establishes the Governor's direction; agency implementation and any later modification were not independently verified. This action is distinct from the October 9 DEQ permit-pause letter, and both belong to one related administrative policy family. The source describes the direction as immediate; a separately issued legal instrument and effective-date provision were not reviewed.",
+      "deadlines": [
+        {
+          "date": "2027-07-01",
+          "event": "Stated endpoint of state-land request pause unless superseded by statewide action from the Governor's Office or Legislature"
+        }
+      ],
+      "priority": "selected_policy",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn8view3"
+      ],
+      "review": {
+        "reviewed_on": "2026-11-16",
+        "disposition": "primary_document_rechecked",
+        "scope": "Governor action scope, date and stated duration",
+        "limitations": "Covers the specified unapproved requests involving state-owned property, not a blanket construction ban. The official release establishes the Governor's direction; agency implementation and any later modification were not independently verified. This action is distinct from the October 9 DEQ permit-pause letter, and both belong to one related administrative policy family. The source describes the direction as immediate; a separately issued legal instrument and effective-date provision were not reviewed.",
+        "source_urls": [
+          "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers"
         ]
       }
     }
@@ -26230,6 +26286,38 @@
       }
     },
     {
+      "source_id": "S_dc48a40db3",
+      "url": "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers",
+      "title": "Oregon Governor — pause on state-land requests for data centers",
+      "type": "primary_governor",
+      "retrieved_as_of": "2026-11-16",
+      "source_date": "2026-09-08",
+      "last_reviewed_on": "2026-11-16",
+      "reference_ids": [
+        "turn8view3"
+      ],
+      "review": {
+        "support": "Specified unapproved requests involving state-owned property; immediate direction; July 1, 2027 or superseding statewide action.",
+        "limits": "Release establishes the direction, not independent verification of agency implementation or continuing legal operation."
+      }
+    },
+    {
+      "source_id": "S_c0f3515612",
+      "url": "https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf",
+      "title": "Oregon Governor — October 9 letter to DEQ on data-center permits",
+      "type": "primary_governor",
+      "retrieved_as_of": "2026-11-16",
+      "source_date": "2026-10-09",
+      "last_reviewed_on": "2026-11-16",
+      "reference_ids": [
+        "turn9view0"
+      ],
+      "review": {
+        "support": "Specified air and water-discharge permit applications, including municipal wastewater permits; requested pause to July 1, 2027.",
+        "limits": "Primary letter hosted by OPB; agency implementation and subsequent modification require separate review."
+      }
+    },
+    {
       "source_id": "S_5e055e0397",
       "url": "https://www.thegraphic.org/2026/09/29/clarksville-sets-december-election-for-referendum-voters-to-decide-fate-of-revenue-bonds/",
       "title": "www.thegraphic.org",
@@ -26584,14 +26672,6 @@
       "url": "https://capitol.texas.gov/billlookup/BillSummary.aspx?Bill=SB1188&LegSess=89R",
       "title": "Texas Legislature · bill history",
       "type": "primary_legislature",
-      "retrieved_as_of": null,
-      "source_date": null
-    },
-    {
-      "source_id": "S_c0f3515612",
-      "url": "https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf",
-      "title": "www.opb.org",
-      "type": "research_source",
       "retrieved_as_of": null,
       "source_date": null
     }

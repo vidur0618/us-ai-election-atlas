@@ -15,16 +15,16 @@ This is a field-specific review of the existing research inventory. It does not 
 | November 3 questions, all scopes | 56 | 60 |
 | Earlier questions | 7 | 7 |
 | Scheduled questions | 4 | 4 |
-| Selected policy records | 138 | 149 |
+| Selected policy records | 138 | 150 |
 | Selected candidate contests | 21 | 22 |
 | Candidate choices | 90 | 95 |
 | Recall/replacement records | 10 | 10 |
 | Control-change records | 15 | 16 |
 | Chamber snapshots | 13 | 14 |
 | Poll observations | 89 | 89 |
-| Source-registry entries | 316 | 385 |
+| Source-registry entries | 316 | 386 |
 
-The audit gives a disposition for all **353 pre-existing core records** across ballots, recalls, selected elections, control changes, chambers, policies and polling. It adds **18 core records** and four related-scope exclusions. The comparable November development cohort remains **48 questions**, with **46 more-restrictive winning positions**, including advisory preferences. There are 38 binding and 10 advisory questions in that cohort; it is not a count of 46 enacted bans.
+The audit gives a disposition for all **353 pre-existing core records** across ballots, recalls, selected elections, control changes, chambers, policies and polling. It adds **19 core records** and four related-scope exclusions. The comparable November development cohort remains **48 questions**, with **46 more-restrictive winning positions**, including advisory preferences. There are 38 binding and 10 advisory questions in that cohort; it is not a count of 46 enacted bans.
 
 The external candidate tracker remains at 1,064 result rows and 892 position rows, including 75 position-only rows. Those rows were preserved, not independently re-researched one by one. They remain labeled as a separate discovery source and cannot supersede verified selected results automatically.
 
@@ -84,7 +84,7 @@ Two distinct administrative records cover the August 3 grid-interconnection audi
 
 **Virginia:** HB507's implementing regulation became effective **4 November**, replacing the obsolete pending-publication description. The statute's permit-application date remains a distinct field. [Official Town Hall record](https://townhall.virginia.gov/l/viewaction.cfm?actionid=7091).
 
-**Oregon:** added Governor Kotek's 9 October letter asking DEQ to pause specified air and water-discharge permitting until 1 July 2027. Its scope is specified permits, including relevant wastewater permits, not an independently established blanket construction ban. [Primary letter](https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf).
+**Oregon:** two distinct administrative actions are now recorded and linked to one policy family. The [8 September Governor direction](https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers) pauses specified unapproved requests involving state-owned property through 1 July 2027, or until superseding statewide action. The [9 October letter to DEQ](https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf) requests a pause on specified air and water-discharge permits, including relevant municipal wastewater permits, until 1 July 2027. Neither record establishes a blanket statewide construction ban or independently verifies implementation. The September record is a historical coverage addition found during the final check, not a new November enactment.
 
 **Iowa:** upgraded three discovery-only records using official histories. SSB3181/SF2498's original data-center terms cannot be assigned to enacted HF2757 after its text and scope changed. The obsolete proposal is identified as superseded/withdrawn.
 
@@ -107,7 +107,7 @@ Priority unresolved items are:
 
 ## Interface changes implemented
 
-- Light theme for new visits; a reader's explicit saved theme choice remains respected.
+- Light theme for new visits; a reader's explicit saved theme choice remains respected. The action-labeled theme button no longer announces a contradictory pressed state to screen readers.
 - Orange/amber Bills choropleth and policy bars, with separate readable foreground colors.
 - Larger state abbreviations, including an additional narrow-phone treatment.
 - Period selector removed. All recorded dates remain available, and cards retain their election dates.
@@ -130,3 +130,9 @@ The review package contains:
 The older DOCX, XLSX and ZIP downloads remain historical 13 November artifacts and are no longer presented as current research downloads in the compact notes panel. The refreshed JSON and fact-check log are the current export pair.
 
 For the next pass, implement **evidence/change history and a policy implementation monitor first**. The companion implementation-options document gives four scoped packages, concrete fields, charts, source families, estimated effort and a reviewed-data workflow compatible with GitHub Pages.
+
+## Final targeted check
+
+The final check reopened the official Chicago summary, the official Alaska summary, Virginia Action 7091, the two Oregon primary documents, and the Texas Senate filing report. The AP-attributed Texas House snapshot was also rechecked. No newer contradictory count was identified in that targeted check. This supplements the field-specific audit; it does not reclassify all records as freshly fetched primary evidence.
+
+The browser review confirmed both Oregon administrative records, 150 policies and 386 sources in Research notes, working theme changes, and the absence of a pressed-state claim on the theme action button. The existing desktop, annotation-width and phone checks remain in the validation receipt.

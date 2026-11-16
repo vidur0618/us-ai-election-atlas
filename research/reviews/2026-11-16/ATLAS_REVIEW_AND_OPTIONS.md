@@ -15,16 +15,16 @@ This is a field-specific review of the existing research inventory. It does not 
 | November 3 questions, all scopes | 56 | 60 |
 | Earlier questions | 7 | 7 |
 | Scheduled questions | 4 | 4 |
-| Selected policy records | 138 | 149 |
+| Selected policy records | 138 | 150 |
 | Selected candidate contests | 21 | 22 |
 | Candidate choices | 90 | 95 |
 | Recall/replacement records | 10 | 10 |
 | Control-change records | 15 | 16 |
 | Chamber snapshots | 13 | 14 |
 | Poll observations | 89 | 89 |
-| Source-registry entries | 316 | 385 |
+| Source-registry entries | 316 | 386 |
 
-The audit gives a disposition for all **353 pre-existing core records** across ballots, recalls, selected elections, control changes, chambers, policies and polling. It adds **18 core records** and four related-scope exclusions. The comparable November development cohort remains **48 questions**, with **46 more-restrictive winning positions**, including advisory preferences. There are 38 binding and 10 advisory questions in that cohort; it is not a count of 46 enacted bans.
+The audit gives a disposition for all **353 pre-existing core records** across ballots, recalls, selected elections, control changes, chambers, policies and polling. It adds **19 core records** and four related-scope exclusions. The comparable November development cohort remains **48 questions**, with **46 more-restrictive winning positions**, including advisory preferences. There are 38 binding and 10 advisory questions in that cohort; it is not a count of 46 enacted bans.
 
 The external candidate tracker remains at 1,064 result rows and 892 position rows, including 75 position-only rows. Those rows were preserved, not independently re-researched one by one. They remain labeled as a separate discovery source and cannot supersede verified selected results automatically.
 
@@ -84,7 +84,7 @@ Two distinct administrative records cover the August 3 grid-interconnection audi
 
 **Virginia:** HB507's implementing regulation became effective **4 November**, replacing the obsolete pending-publication description. The statute's permit-application date remains a distinct field. [Official Town Hall record](https://townhall.virginia.gov/l/viewaction.cfm?actionid=7091).
 
-**Oregon:** added Governor Kotek's 9 October letter asking DEQ to pause specified air and water-discharge permitting until 1 July 2027. Its scope is specified permits, including relevant wastewater permits, not an independently established blanket construction ban. [Primary letter](https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf).
+**Oregon:** two distinct administrative actions are now recorded and linked to one policy family. The [8 September Governor direction](https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers) pauses specified unapproved requests involving state-owned property through 1 July 2027, or until superseding statewide action. The [9 October letter to DEQ](https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf) requests a pause on specified air and water-discharge permits, including relevant municipal wastewater permits, until 1 July 2027. Neither record establishes a blanket statewide construction ban or independently verifies implementation. The September record is a historical coverage addition found during the final check, not a new November enactment.
 
 **Iowa:** upgraded three discovery-only records using official histories. SSB3181/SF2498's original data-center terms cannot be assigned to enacted HF2757 after its text and scope changed. The obsolete proposal is identified as superseded/withdrawn.
 
@@ -107,7 +107,7 @@ Priority unresolved items are:
 
 ## Interface changes implemented
 
-- Light theme for new visits; a reader's explicit saved theme choice remains respected.
+- Light theme for new visits; a reader's explicit saved theme choice remains respected. The action-labeled theme button no longer announces a contradictory pressed state to screen readers.
 - Orange/amber Bills choropleth and policy bars, with separate readable foreground colors.
 - Larger state abbreviations, including an additional narrow-phone treatment.
 - Period selector removed. All recorded dates remain available, and cards retain their election dates.
@@ -131,6 +131,11 @@ The older DOCX, XLSX and ZIP downloads remain historical 13 November artifacts a
 
 For the next pass, implement **evidence/change history and a policy implementation monitor first**. The companion implementation-options document gives four scoped packages, concrete fields, charts, source families, estimated effort and a reviewed-data workflow compatible with GitHub Pages.
 
+## Final targeted check
+
+The final check reopened the official Chicago summary, the official Alaska summary, Virginia Action 7091, the two Oregon primary documents, and the Texas Senate filing report. The AP-attributed Texas House snapshot was also rechecked. No newer contradictory count was identified in that targeted check. This supplements the field-specific audit; it does not reclassify all records as freshly fetched primary evidence.
+
+The browser review confirmed both Oregon administrative records, 150 policies and 386 sources in Research notes, working theme changes, and the absence of a pressed-state claim on the theme action button. The existing desktop, annotation-width and phone checks remain in the validation receipt.
 
 ---
 
@@ -265,3 +270,114 @@ Keep the public application static. Monitoring runs outside the page, and the pa
 Check cadences should be configurable suggestions: daily during active counting or a legislative session, less often for settled historical records. A successful fetch does not automatically mean a record is current; a changed hash does not necessarily mean a substantive change. JavaScript-only results pages and inaccessible documents need a documented manual path.
 
 Before expanding, the next pass should demonstrate three things: a corrected result can be traced to its prior value; a legal instrument can be followed through a distinct implementation event; and a saved comparison can be reproduced from its release identifier. Across all packages, charts should have a readable table alternative, keyboard access, clear light-mode contrast and labels that do not depend on color alone.
+
+## Additional priorities for the next implementation pass
+
+**Future work:** the proposals below extend the four packages above. They are recommendations for a subsequent implementation pass and are not features delivered by the current review.
+
+The next release should make each state briefing answer four questions: **What applies now? What is proposed? Who makes the next decision? What evidence supports the answer?** Preserve the sparse opening screen and put detailed research behind consistent Evidence, Timeline and Compare actions.
+
+### 1. Make coverage and missingness visible
+
+The current map measures the volume of selected records in this inventory. That volume reflects research coverage, inclusion rules and instrument types as well as policy activity. A state with many prefiled proposals should not appear to have stronger operative requirements merely because its inventory is larger.
+
+Add a short visible coverage label beside the map legend, with a fuller coverage panel available on demand. Store the instrument types and jurisdictions searched, the source set used, the last systematic search, and known gaps. Any national or cross-state comparison should retain the release's inclusion rules and coverage boundaries.
+
+Use distinct data and display states:
+
+| Coverage or value state | Intended meaning |
+|---|---|
+| Records identified | The inventory contains matching sourced records |
+| No matching record in a defined review | A stated set of sources was searched, with no match under the inclusion rule |
+| Not systematically reviewed | The inventory cannot establish presence or absence |
+| Source inaccessible | A needed source could not be checked in the current pass |
+| Not reported | The inspected source does not supply this value |
+| Not applicable | The field does not apply to this record |
+| Verified zero | The source establishes an actual numerical zero |
+
+Keep the value field null where appropriate, but add a structured `missing_reason` rather than asking one null to explain every case. Do not treat source inaccessibility as evidence that a prior fact has ceased to hold. Show the underlying source date separately from the review date.
+
+### 2. Clarify policy scope and legal operation
+
+Rename **Bills** to **Policy** in the next pass. The view includes several kinds of instrument, so retain short type labels within it: bill, enacted law, executive action, administrative rule, permit action and political proposal.
+
+Give records an explicit relevance classification, such as direct AI governance, data-centre infrastructure or adjacent automated technology. A source should establish the relationship; the presence of computing infrastructure alone should not imply an AI workload. Keep advisory preferences distinct from binding decisions and specify what a binding decision legally changes.
+
+A single progress bar cannot communicate every legal distinction. Use separate fields:
+
+| Dimension | Fields to consider | Question answered |
+|---|---|---|
+| Procedural stage | Introduction, committee action, passage, signature, veto, expiration of proposal | What happened in the decision process? |
+| Legal operation | Effective date, applicability date, affected provisions, expiration, stay or injunction, repeal | Which requirements apply, to whom and when? |
+| Implementation | Rule adopted, guidance issued, appropriation, authorized staffing, required report, documented enforcement action | What steps have followed adoption? |
+| Scope | Covered actors, technology or sector, threshold and units, exceptions, territorial reach | What conduct or activity is actually covered? |
+
+Each legal-status claim needs a source and an observation date. A scheduled effective date should not silently become evidence that all implementation steps occurred. Label partial stays and provision-specific changes at the relevant scope.
+
+For AI governance comparisons, prioritize the requirements themselves: assessments, evaluations, independent audits, disclosure, incident reporting, appeal rights and enforcement powers. Distinguish developers, deployers and public agencies when the reviewed text does. Caption-level evidence should remain insufficient for detailed clause coding.
+
+### 3. Show the next decision and route for public participation
+
+Add a compact “Next decision” section to the state or policy briefing. This can make the atlas useful between elections without adding another permanent map filter.
+
+Suggested fields are `decision_body`, `committee_or_agency`, `docket_or_case_id`, `event_type`, `event_date`, `date_precision`, `deadline_timezone`, `deadline_type`, `participation_url`, `last_confirmed_at` and `event_status`. A scheduled hearing, statutory deadline, agency target and analyst estimate need different labels. Record cancellations and changed dates as updates.
+
+When established by official evidence, show the decision-maker, the hearing or public-comment date, and a link to the formal process. Preserve timezones for timed deadlines. Do not invent an upcoming event where the source supplies none. A local watchlist and dated updates page can support initial monitoring; automated notifications would be a separate feature requiring a defined delivery method and update responsibility.
+
+### 4. Link authorities and related legal instruments
+
+Add relations between state laws, local ordinances, rules, permits and court decisions. This would help answer which body has authority, which instrument implements another, and which decision changes the operation of an existing policy.
+
+Useful relation types include `implements`, `amends`, `supersedes`, `repeals`, `delegates_authority`, `limits_local_authority` and `subject_to_litigation`. Each relation should carry the relevant provision or order, source, observation date and review scope. Store a contested claim of preemption separately from an established legal determination; court involvement alone does not establish that an instrument is invalid. Do not infer official companion status or causal influence from similar wording.
+
+Use a simple related-record list or a small policy-family timeline before building a complex network diagram. A researcher should be able to move from a local ordinance to the relevant state authority and then inspect the source supporting the relationship.
+
+### 5. Add record links, citations and reproducible comparisons
+
+Provide a stable permalink for every record and a “Copy citation” action. A citation should include the record title and identifier, source publisher and URL, underlying source date when known, and the atlas release consulted. Shared links should open the selected record directly.
+
+Exports should include the release ID, generation time, filters, selected record IDs, definitions and source dates. Retain earlier observations and show a concise old-value/new-value change summary with the reason for correction. A reader should be able to reconstruct a previous comparison after the public dataset changes.
+
+For comparison validity, establish the unit before choosing a chart:
+
+| Comparison | Required distinctions |
+|---|---|
+| Policy activity | Instruments, policy families and procedural events are different units |
+| Legal requirements | Proposals, enacted text, operative provisions and implementation have different meanings |
+| Ballot outcomes | Binding and advisory questions; legal passage rules; question-level versus voter-level statistics |
+| Candidate outcomes | Selected contests and independently verified positions; a win does not establish an AI-policy mandate |
+| Infrastructure | Campus, facility and project phase; requested capacity, operating capacity and consumption |
+| Public finance | Authorized, forecast, contracted and realized values; gross and net estimates |
+
+Do not aggregate incompatible units or interpret a selected sample as a national census. Publish the inclusion and coding protocol, including how ambiguous “restriction” and AI-relevance cases were handled. Preserve a coding note for borderline cases and a review path for disputed classifications. A comparison table should show coverage gaps and source maturity alongside substantive differences.
+
+### 6. Bound the next release
+
+The recommended minimum release combines evidence history with a limited legal-implementation pilot. It should deliver:
+
+1. Four short state-briefing sections: Applies now, Proposed changes, Next decision and Evidence updated.
+2. A record evidence panel with reviewed fields, source snapshot, limitations and prior values.
+3. A connected timeline for a limited group of policy families, including any verified implementation or litigation events.
+4. A change list separating substantive changes from retrieval checks and presentation edits.
+5. Record permalinks, copyable citations and a reproducible comparison export.
+
+Start with a manageable subset of already reviewed records covering different instrument types. The existing optional target of roughly 15–25 policy families is a pilot size, not a completeness claim. Expand only after the model can represent effective dates, partial legal changes, missing data and related instruments without manual exceptions in the display code.
+
+Acceptance should depend on research tasks: a reader can establish whether a requirement applies; trace a corrected value to its previous observation; identify an officially scheduled next decision; distinguish an unreviewed jurisdiction from a reviewed absence; and reproduce a saved comparison. Keep developer effort, retrospective research cleanup and ongoing source maintenance as separate planning estimates.
+
+### 7. Choose the research direction after that release
+
+| Option | Main output | What it enables | Research and maintenance tradeoff |
+|---|---|---|---|
+| **A. Policy monitoring desk — recommended first** | Changes, operative status, forthcoming decisions and source history | Briefings on what changed and what to watch next | Needs a bounded source list, review responsibility and frequent checks for active matters |
+| **B. AI governance comparison workbench** | Clause-level matrix of requirements, scope, exceptions and enforcement | Comparative research on evaluations, audits, incident reporting and public-sector oversight | Requires close text review and a coding protocol; captions cannot support the full matrix |
+| **C. Infrastructure and public-cost atlas** | A project pilot linking resource use, incentives, approvals and documented benefits | Research on who bears costs and how local decisions respond | Sources are dispersed; forecasts and observations need careful normalization |
+| **D. Political commitment and follow-through** | Dated statements linked to subsequent sponsorship, votes and official actions | Descriptive accountability research | Uneven statement coverage and entity matching require substantial review; motive should not be inferred |
+
+Option B is the strongest extension for focused AI-governance research. Option C gives the project a distinct infrastructure-policy specialization. For that option, add construction job-years versus permanent employment, announced versus realized investment, contractual conditions and clawbacks, and who pays for specified grid or water upgrades. Retain the producer, method and period of every estimate.
+
+Option D can begin with sourced statements and official actions. Lobbying disclosures, campaign-finance records and testimony are optional later modules with their own coverage and entity-resolution requirements. Financial relationships should not automatically become claims of causation.
+
+Defer an open-ended chatbot, a national “AI friendliness” score, automatic sentiment labels, bill-passage forecasts and large unreviewed feeds until the evidence model can support the claims they would generate. Prioritize transparent comparison over a composite ranking.
+
+If the project becomes a continuous policy monitor, retain the 2026 election collection as a dated historical release. The policy section can continue to evolve while election results preserve their source snapshots, corrections and certification history.

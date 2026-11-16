@@ -21,14 +21,14 @@ A state-by-state research atlas of AI and data-centre ballot votes, selected ele
 | State/DC index | 51 |
 | Ballot records | 71 |
 | November 3 / earlier / scheduled | 60 / 7 / 4 |
-| Selected policy records | 149 |
+| Selected policy records | 150 |
 | Selected candidate contests / choices | 22 / 95 |
 | Recall/replacement records | 10 |
 | Control-change records / chamber snapshots | 16 / 14 |
 | Poll observations | 89 |
-| Source entries | 385 |
+| Source entries | 386 |
 
-All 353 pre-existing core research records have a field-specific audit disposition. Eighteen core records were added. The external tracker retains 1,064 result rows and 892 position rows, including 75 position-only rows; it was not independently re-audited row by row in this pass. Record counts are not counts of unique voters, independently verified winners or enacted laws.
+All 353 pre-existing core research records have a field-specific audit disposition. Nineteen core records were added. The external tracker retains 1,064 result rows and 892 position rows, including 75 position-only rows; it was not independently re-audited row by row in this pass. Record counts are not counts of unique voters, independently verified winners or enacted laws.
 
 The comparable November development cohort remains 48 questions, with 46 more-restrictive winning positions, including advisory preferences. An advisory preference does not enact a legal ban. Unknown counts remain null.
 

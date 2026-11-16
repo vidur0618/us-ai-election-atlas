@@ -149,3 +149,7 @@ Reviewed 2026-11-16. **92 existing policy records and 89 poll observations cover
 | EVP / Beacon |60|Cached primary chart values visually checked; fresh PDF methodology; toplines inaccessible|
 
 Machine-readable details and exact patches: `coverage_ledger.json`, `proposed_corrections.json`.
+
+## Final supplementary coverage addition
+
+The final independent check added `OR_2026_09_08_state_land_pause` from the [official September 8 Governor release](https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers). It is separate from the October 9 DEQ letter and linked through `policy_family_id` and reciprocal `related_record_ids`. The pause covers specified unapproved requests involving state-owned property and lasts through July 1, 2027 or superseding statewide action. Agency implementation and continuing legal operation were not independently established. The prior core coverage ledger is retained; this addition appears in the applied change log.

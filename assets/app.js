@@ -29,7 +29,6 @@ function setTheme(theme,{persist=true}={}){
   document.documentElement.dataset.theme=light?'light':'dark';
   const toggle=$('#theme-toggle');
   if(toggle){
-    toggle.setAttribute('aria-pressed',String(light));
     toggle.setAttribute('aria-label',`Switch to ${light?'dark':'light'} mode`);
     toggle.title=`Switch to ${light?'dark':'light'} mode`;
   }

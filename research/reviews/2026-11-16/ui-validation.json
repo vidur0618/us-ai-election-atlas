@@ -7,19 +7,19 @@
     "receipt": "../../adapter-validation.json"
   },
   "theme_bootstrap": [
-    "no saved preference \u2192 light",
-    "saved light \u2192 light",
-    "saved dark \u2192 dark",
-    "invalid preference \u2192 light"
+    "no saved preference → light",
+    "saved light → light",
+    "saved dark → dark",
+    "invalid preference → light"
   ],
   "browser_checks": [
     "Texas policy chart: 56 records, 47 prefiles, 5 enacted, 3 administrative, 1 proposal",
     "Texas House: 79D,63R,8 uncalled; separate83D/67R projection",
     "Alaska newly added governor result and coalition context",
-    "Oregon administrative permit-pause record",
+    "Oregon: distinct state-land and DEQ permit-pause records",
     "Illinois three new precinct questions and refreshed citywide tally",
     "SB815 search and legislative roll-call graphics",
-    "Research notes: reviewed16Nov,71/149/32/385,one expandable method section",
+    "Research notes: reviewed16Nov,71/150/32/386,one expandable method section",
     "No Period control; all recorded dates retained"
   ],
   "viewport_checks": [
@@ -39,5 +39,22 @@
       "description": "phone layout and notes, no horizontal overflow; notes scroll vertically"
     }
   ],
-  "limits": "Manual browser review and focused integrity/contrast checks; not a full assistive-technology or cross-browser accessibility audit."
+  "limits": "Manual browser review and focused integrity/contrast checks; not a full assistive-technology or cross-browser accessibility audit.",
+  "final_targeted_browser_check": {
+    "reviewed_on": "2026-11-16",
+    "viewport": {
+      "width": 1363,
+      "height": 936
+    },
+    "observed": [
+      "Two Oregon administrative records with separate dates and titles",
+      "Research notes counts 71 / 150 / 32 / 386",
+      "Action-labeled theme button has no aria-pressed attribute",
+      "Dark then light theme toggles work; final preview is light"
+    ],
+    "screenshots": [
+      "/workspace/shared/atlas-predeployment-light-2026-11-16.jpg",
+      "/workspace/shared/atlas-predeployment-notes-2026-11-16.jpg"
+    ]
+  }
 }

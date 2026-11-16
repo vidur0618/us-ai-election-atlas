@@ -1,20 +1,20 @@
 {
-  "checked_at": "2026-11-16T07:55:45.938196+00:00",
+  "checked_at": "2026-11-16T08:20:32.220145+00:00",
   "input_files": {
     "canonical": "/workspace/sites/us-ai-election-atlas-2026/dist/downloads/ai_midterms_2026_data.json",
     "dashboard": "/workspace/sites/us-ai-election-atlas-2026/dist/assets/dashboard-data.json",
     "tracker": "/workspace/sites/us-ai-election-atlas-2026/dist/assets/tracker-data.json"
   },
-  "canonical_sha256": "1f88f532625a10a0c42d21ff52f821e7077289838f26852196ce65f6718f0b31",
+  "canonical_sha256": "d85f5d4c5462cd4fc738ef39578ce29eec1fceeabc0800d96113c184720d30d0",
   "data_as_of": "2026-11-16",
   "core_counts": {
     "states": 51,
     "ballots": 71,
-    "policies": 149,
+    "policies": 150,
     "elections": 22,
     "recalls": 10,
     "polls": 89,
-    "sources": 385,
+    "sources": 386,
     "source_conflicts": 9,
     "tracker_results": 1064,
     "tracker_candidates_on_record": 892,
@@ -37,9 +37,9 @@
     "position_only": 75
   },
   "file_sha256": {
-    "ai_midterms_2026_data.json": "1f88f532625a10a0c42d21ff52f821e7077289838f26852196ce65f6718f0b31",
-    "dashboard-data.json": "79c475cfddf59ff95a13898eb9ee56fb0bb893940af74ebc5b354ce93a7bf1e1",
-    "tracker-data.json": "6d70e08cfa3b79910d626d92dc31b474f66efa1c527c056f0fb7a4d991f6cb2a"
+    "ai_midterms_2026_data.json": "d85f5d4c5462cd4fc738ef39578ce29eec1fceeabc0800d96113c184720d30d0",
+    "dashboard-data.json": "6e823feb650c9e1cc82e0304bf977e586e08561d6d57aab4791060f787c32b66",
+    "tracker-data.json": "b45b26d1bb0da5990eed1ef17488e9ea9587640c8ac2d9d69b5ac3c841daaa01"
   },
   "passed": true,
   "assertions": 2679,
