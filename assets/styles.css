@@ -34,6 +34,7 @@
   --viz-mint: #8ad6e8;
   --viz-terracotta: #efb881;
   --viz-lavender: #bfb4ee;
+  --viz-policy: #f4b56e;
   --viz-neutral: #a1b5c8;
   --shadow: 0 12px 30px rgba(0, 9, 18, .25);
   --radius: 2px;
@@ -55,18 +56,20 @@
   --ballot-3-label: #082031;
   --ballot-4: #a8e3f2;
   --ballot-4-label: #0c243a;
-  --policy-1: #3e4163;
-  --policy-1-label: #f5f2ff;
-  --policy-2: #686a9e;
+  --policy-1: #5b371c;
+  --policy-1-label: #ffe7ce;
+  --policy-2: #925023;
   --policy-2-label: #ffffff;
-  --policy-3: #a19dd4;
-  --policy-3-label: #15233c;
-  --policy-4: #d4cef8;
-  --policy-4-label: #15233c;
+  --policy-3: #d59047;
+  --policy-3-label: #281806;
+  --policy-4: #f7ca86;
+  --policy-4-label: #2b1b0c;
   --leader-trifecta: #86acd9;
   --leader-trifecta-label: #10283e;
   --leader-divided: #b5a1d2;
   --leader-divided-label: #201934;
+  --leader-coalition: #9ecfc6;
+  --leader-coalition-label: #102f2a;
   --leader-unresolved: #d7b58b;
   --leader-unresolved-label: #292116;
   --leader-hold: #c2daed;
@@ -104,6 +107,7 @@
   --viz-mint: #176482;
   --viz-terracotta: #994b2d;
   --viz-lavender: #675092;
+  --viz-policy: #a94c0c;
   --viz-neutral: #5d748a;
   --shadow: 0 10px 28px rgba(18, 49, 76, .12);
   --grid-minor: rgba(31, 85, 128, .075);
@@ -122,18 +126,20 @@
   --ballot-3-label: #ffffff;
   --ballot-4: #174963;
   --ballot-4-label: #ffffff;
-  --policy-1: #ded7f1;
-  --policy-1-label: #35264d;
-  --policy-2: #b9a9d7;
-  --policy-2-label: #2b2042;
-  --policy-3: #79659e;
+  --policy-1: #ffe2bb;
+  --policy-1-label: #442511;
+  --policy-2: #efae62;
+  --policy-2-label: #3a210b;
+  --policy-3: #b05710;
   --policy-3-label: #ffffff;
-  --policy-4: #493769;
+  --policy-4: #7b360d;
   --policy-4-label: #ffffff;
   --leader-trifecta: #3b6499;
   --leader-trifecta-label: #ffffff;
   --leader-divided: #947baa;
   --leader-divided-label: #100a24;
+  --leader-coalition: #286a66;
+  --leader-coalition-label: #ffffff;
   --leader-unresolved: #d7b58b;
   --leader-unresolved-label: #292116;
   --leader-hold: #a9c8e2;
@@ -208,7 +214,7 @@ h1 { font-size: clamp(26px, 2.25vw, 37px); font-weight: 500; letter-spacing: -1.
 .layer-switch { display: flex; align-items: stretch; gap: 4px; padding: 0; }
 .layer-switch button { display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid transparent; border-radius: 1px; padding: 8px 13px; font-size: 12px; font-weight: 600; color: var(--muted); white-space: nowrap; transition: color .18s, background .18s, border-color .18s; }
 .layer-switch button.active { background: var(--accent-strong); color: var(--accent-ink); border-color: var(--accent-strong); }
-.layer-switch button[data-layer="policies"].active { background: var(--viz-lavender); color: #21192a; }
+.layer-switch button[data-layer="policies"].active { background: var(--viz-policy); color: #2b1b0c; }
 :root[data-theme="light"] .layer-switch button[data-layer="policies"].active { color: #fff; }
 .layer-switch button[data-layer="leadership"].active { background: var(--blue); color: #162638; }
 :root[data-theme="light"] .layer-switch button[data-layer="leadership"].active { color: #fff; }
@@ -229,7 +235,7 @@ h1 { font-size: clamp(26px, 2.25vw, 37px); font-weight: 500; letter-spacing: -1.
 .state-shape.is-hovered, .state-shape:hover, .state-shape:focus-visible { stroke: var(--map-hover-stroke); stroke-width: .9; outline: none; }
 .state-shape.is-hovered { opacity: 0; pointer-events: all; }
 .state-labels > .state-label.is-hovered { opacity: 0; }
-.state-label { font-size: 14px; font-weight: 600; fill: var(--map-label); text-anchor: middle; dominant-baseline: central; letter-spacing: 0; user-select: none; pointer-events: auto; cursor: pointer; transition: opacity .18s; }
+.state-label { font-size: 18px; font-weight: 600; fill: var(--map-label); text-anchor: middle; dominant-baseline: central; letter-spacing: 0; user-select: none; pointer-events: auto; cursor: pointer; transition: opacity .18s; }
 .state-label.selected, .state-label.is-hovered { font-weight: 700; }
 .callout-line { fill: none; stroke: var(--line-strong); stroke-width: .7; pointer-events: none; }
 .callout-label { cursor: pointer; outline: none; }
@@ -502,6 +508,29 @@ h1 { font-size: clamp(26px, 2.25vw, 37px); font-weight: 500; letter-spacing: -1.
 .dialog-body th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
 .dialog-body a { overflow-wrap: anywhere; }
 .dialog-body .method-highlight { padding: 14px 16px; border: 1px solid var(--accent-line); border-radius: 2px; color: var(--ink-soft); background: var(--accent-soft); font-size: 12px; }
+.method-review { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 7px 16px; color: var(--muted); font-size: 11px; margin-bottom: 18px; }
+.method-metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border: 1px solid var(--line-strong); }
+.method-metric { min-width: 0; padding: 14px 12px; border-right: 1px solid var(--line); }
+.method-metric:last-child { border-right: 0; }
+.method-metric strong { display: block; font-size: 29px; line-height: 1.2; font-weight: 500; color: var(--ink); }
+.method-metric span { display: block; color: var(--muted); margin-top: 6px; font-size: 11px; }
+.method-charts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; margin-top: 26px; }
+.dialog-body .method-chart h3 { font-size: 12px; margin: 0 0 12px; }
+.method-track { display: flex; height: 12px; border: 1px solid var(--line-strong); gap: 2px; background: var(--surface-raised); overflow: hidden; }
+.method-track span { min-width: 3px; height: 100%; }
+.dialog-body .method-key { list-style: none; margin: 12px 0 0; padding: 0; }
+.dialog-body .method-key li { display: grid; grid-template-columns: 7px 1fr auto; gap: 7px; align-items: center; font-size: 11px; margin-top: 4px; }
+.method-key i { width: 7px; height: 7px; }
+.method-key strong { color: var(--ink); font-weight: 600; }
+.dialog-body .method-caption { font-size: 11px; color: var(--muted); margin-top: 16px; }
+.method-layer-key { display: flex; flex-wrap: wrap; gap: 9px 20px; padding: 18px 0; margin-top: 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 11px; color: var(--ink-soft); }
+.method-layer-key > span { display: inline-flex; align-items: center; gap: 7px; }
+.method-dot { display: inline-block; width: 7px; height: 7px; }
+.method-dot--ballots { background: var(--viz-mint); }
+.method-dot--elections { background: var(--blue); }
+.method-dot--policies { background: var(--viz-policy); }
+.method-details { margin: 10px 0 0; padding-top: 8px; border: 0; }
+.method-links { display: flex; flex-wrap: wrap; gap: 12px 25px; border-top: 1px solid var(--line); margin-top: 16px; padding-top: 18px; font-size: 11px; }
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 100; max-width: calc(100vw - 32px); padding: 12px 18px; border: 1px solid var(--line-strong); border-radius: 2px; background: var(--paper); color: var(--ink); box-shadow: var(--shadow); text-align: center; font-size: 12px; }
 
 /* A compact custom pointer stays familiar, with a native fallback. */
@@ -601,6 +630,7 @@ h1 { font-size: clamp(26px, 2.25vw, 37px); font-weight: 500; letter-spacing: -1.
   .select-field select { max-width: 100%; font-size: 12px; }
   .map-card:has(#map-filters[hidden]) { grid-template-rows: 50px 15px clamp(245px, 65vw, 360px) auto; }
   .map-stage { padding: 0 4px; }
+  .state-label { font-size: 26px; }
   .map-legend { gap: 7px 11px; font-size: 11px; padding: 13px 10px; }
   .map-legend > strong { font-size: 11px; }
   .map-tooltip { width: 250px; padding: 12px; }
@@ -617,7 +647,14 @@ h1 { font-size: clamp(26px, 2.25vw, 37px); font-weight: 500; letter-spacing: -1.
   .dialog-header { padding: 22px 20px 18px; }
   .dialog-header h2 { font-size: 22px; }
   .dialog-body { padding: 20px; }
+  .method-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .method-metric:nth-child(2) { border-right: 0; }
+  .method-metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .method-charts { gap: 20px; }
   .method-dialog { width: calc(100% - 22px); max-height: 90dvh; }
+}
+@media (max-width: 480px) {
+  .state-label { font-size: 34px; }
 }
 @media (max-width: 380px) {
   .topbar { padding: 0 11px; }

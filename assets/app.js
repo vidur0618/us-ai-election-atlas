@@ -1,4 +1,4 @@
-import {renderStatePanel, wirePanelInteractions, matchesBallot, matchesPeriod, policyStage, escapeHTML, cleanText} from './panels.js?v=3';
+import {renderStatePanel, wirePanelInteractions, matchesBallot, matchesPeriod, policyStage, escapeHTML, cleanText} from './panels.js?v=5';
 
 const $=selector=>document.querySelector(selector);
 const $$=selector=>[...document.querySelectorAll(selector)];
@@ -10,40 +10,16 @@ const PERIODS={nov3:'November 3',earlier:'Earlier in 2026',upcoming:'Scheduled a
 const LEADERSHIP={
   new_democratic_trifecta:{token:'leader-trifecta',label:'New Democratic trifecta',short:'New D trifecta'},
   democratic_gain_divided:{token:'leader-divided',label:'Democratic gain; divided',short:'D gain · divided'},
+  democratic_governor_gain_coalition:{token:'leader-coalition',label:'Democratic governor gain; legislative coalitions unresolved',short:'D gain · coalitions'},
   democratic_house_gain_senate_unresolved:{token:'leader-unresolved',label:'House gain; Senate unresolved',short:'Senate unresolved'},
   democratic_hold:{token:'leader-hold',label:'Democratic governor hold',short:'D governor hold'},
   prior_year_change:{token:'leader-prior',label:'Prior-year context',short:'Prior-year shift'},
   no_retained_control_record:{token:'map-none',label:'No retained change record',short:'No record'}
 };
-const DECKS={
-  TX:'Democratic governor and House; Republican Senate. Divided government.',
-  OH:'21 local development questions. A Democratic governor elected alongside a Republican legislature.',
-  PA:'The Senate shifts to Democrats, creating a new Democratic trifecta.',
-  AZ:'Both legislative chambers shift to Democrats, creating a new Democratic trifecta.',
-  WI:'Both legislative chambers shift to Democrats; the governorship stays Democratic.',
-  GA:'A Democratic governor and House; a Republican Senate. Utility regulation is also in focus.',
-  MI:'A Democratic House restores the party’s trifecta. Earlier zoning and recall votes add local context.',
-  MN:'A tied House moves to a Democratic majority, restoring a Democratic trifecta.',
-  IA:'A Democratic governor elected alongside a Republican legislature.',
-  NV:'The governorship shifts to Democrats, creating a new Democratic trifecta.',
-  NH:'Both chambers turn Democratic; the Republican governor is re-elected.',
-  NC:'A Democratic House gain; Senate control remains unresolved in the retained evidence.',
-  KS:'Four November development questions. The governor result is a Democratic hold.',
-  VA:'The 2025 gubernatorial shift provides context for the 2026 policy agenda.',
-  CA:'Local bans, a broader tax proposal and a technology-procurement vote.',
-  ME:'Eight November development questions, plus York’s surveillance vote.',
-  IL:'Seven data-centre advisory questions and Chicago’s gunshot-technology question.',
-  HI:'Honolulu voters approved an Office of Data and Innovation.',
-  MO:'A general-zoning question and an earlier data-centre-related recall.',
-  NJ:'Two advisory votes give direction on data-centre development.',
-  ND:'Harwood’s review requirements and a later scheduled Mandan vote.',
-  AR:'Two future Clarksville bond questions; no result at the evidence cutoff.',
-  WV:'A broader school-finance vote with potential data-centre tax revenue.',
-  FL:'Edgewater’s binding charter vote on new data centres.'
-};
+
 
 let data, geometry, tracker=null, trackerPromise=null;
-let state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};
+let state={code:'TX',layer:'ballots',tab:'overview',period:'all',topic:'all'};
 let summaries=new Map(), statesByCode=new Map(), geometryByCode=new Map(), toastTimer;
 let mapPalette, hoveredCode=null, tooltipKey='', tooltipFrame=null, tooltipPosition=null, hoverAnimation=null;
 const mapNodes=new Map();
@@ -64,7 +40,7 @@ function setTheme(theme,{persist=true}={}){
   if(data&&geometry)updateMap();
 }
 function wireTheme(){
-  setTheme(document.documentElement.dataset.theme==='light'?'light':'dark',{persist:false});
+  setTheme(document.documentElement.dataset.theme==='dark'?'dark':'light',{persist:false});
   $('#theme-toggle')?.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='light'?'dark':'light'));
 }
 
@@ -72,11 +48,12 @@ function readURL(){
   const p=new URLSearchParams(location.search);
   const code=(p.get('state')||'TX').toUpperCase();
   state.code=statesByCode.has(code)?code:'TX';
-  for(const [key,values] of Object.entries({layer:['ballots','leadership','policies'],tab:['overview','ballots','elections','bills'],period:['nov3','earlier','upcoming','all'],topic:['all','development','governance','surveillance','adjacent']})){
+  state.period='all';
+  for(const [key,values] of Object.entries({layer:['ballots','leadership','policies'],tab:['overview','ballots','elections','bills'],topic:['all','development','governance','surveillance','adjacent']})){
     const value=p.get(key); if(values.includes(value))state[key]=value;
   }
 }
-function writeURL(){const u=new URL(location.href);for(const [key,value] of Object.entries({state:state.code,layer:state.layer,tab:state.tab,period:state.period,topic:state.topic}))u.searchParams.set(key,value);history.replaceState(null,'',u);}
+function writeURL(){const u=new URL(location.href);u.searchParams.delete('period');for(const [key,value] of Object.entries({state:state.code,layer:state.layer,tab:state.tab,topic:state.topic}))u.searchParams.set(key,value);history.replaceState(null,'',u);}
 function getBallots(code){return data.ballots.filter(b=>(!code||b.state===code)&&matchesBallot(b,state.period,state.topic));}
 function policyCount(code){return summaries.get(code)?.policy_record_ids.length||0;}
 function currentNumber(code){return state.layer==='policies'?policyCount(code):getBallots(code).length;}
@@ -156,8 +133,8 @@ function updateMap(){
   else activeStates=data.states.filter(s=>currentNumber(s.state)>0).length;
   $('#map-state-count').textContent=`${activeStates} states`;
   $('#filter-result').textContent=state.layer==='leadership'?'':`${getBallots().length} questions`;
-  $('#period-filter').value=state.period;$('#topic-filter').value=state.topic;
-  $('#map-filters').hidden=state.layer==='policies';$('#topic-filter').closest('label').hidden=state.layer==='leadership';
+  $('#topic-filter').value=state.topic;
+  $('#map-filters').hidden=state.layer!=='ballots';
   for(const btn of $$('[data-layer]')){btn.classList.toggle('active',btn.dataset.layer===state.layer);btn.setAttribute('aria-pressed',String(btn.dataset.layer===state.layer));}
   const legend=$('#map-legend');
   const items=state.layer==='leadership'?Object.values(LEADERSHIP):state.layer==='policies'?[{token:'map-none',label:'No record'},{token:'policy-1',label:'1–4'},{token:'policy-2',label:'5–9'},{token:'policy-3',label:'10–19'},{token:'policy-4',label:'20+'}]:[{token:'map-none',label:'None identified'},{token:'ballot-1',label:'1'},{token:'ballot-2',label:'2–4'},{token:'ballot-3',label:'5–9'},{token:'ballot-4',label:'10+'}];
@@ -243,7 +220,7 @@ function trackerPlaceholder(){
 function renderPanel({keepScroll=false}={}){
   const panel=$('#panel-content'),old=panel.scrollTop,s=statesByCode.get(state.code);
   $('#state-code').textContent=state.code;$('#state-title').textContent=s.state_name;
-  $('#state-deck').textContent=DECKS[state.code]||`Explore the retained ballot, election and policy records for ${s.state_name}.`;
+  $('#state-deck').textContent=summaries.get(state.code)?.leadership.description||s.coverage_statement;
   const counts={ballots:getBallots(state.code).length,elections:data.elections.filter(e=>e.state===state.code&&matchesPeriod(e,state.period)).length+data.recalls.filter(r=>r.state===state.code&&matchesPeriod(r,state.period)).length,bills:policyCount(state.code)};
   $('#tab-ballot-count').textContent=counts.ballots;$('#tab-election-count').textContent=counts.elections;$('#tab-policy-count').textContent=counts.bills;
   for(const btn of $$('[data-tab]')){btn.classList.toggle('active',btn.dataset.tab===state.tab);if(btn.dataset.tab===state.tab)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current');}
@@ -263,9 +240,28 @@ function changeTab(tab){
 }
 function showToast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
 function buildMethodology(){
-  const gaps=data.gaps||[];
-  $('#method-content').innerHTML=`<p class="method-highlight">A dated research inventory, not a live election feed. Evidence cutoff: <strong>13 November 2026</strong>. Results and legislation retain their individual source dates and qualifications.</p><h3>What is included</h3><table><thead><tr><th>Record family</th><th>Count</th></tr></thead><tbody><tr><td>November 3 questions, all included topics</td><td>56</td></tr><tr><td>Development questions / more restrictive outcomes</td><td>48 / 46</td></tr><tr><td>Earlier questions / scheduled questions</td><td>7 / 4</td></tr><tr><td>Selected policy records</td><td>138</td></tr><tr><td>Selected candidate contests / candidate choices</td><td>21 / 90</td></tr><tr><td>Recall officials / polling observations</td><td>10 / 89</td></tr><tr><td>Core source registry entries</td><td>316</td></tr></tbody></table><h3>Reading the three map layers</h3><ul><li><strong>AI Ballot:</strong> the cyan-blue scale shows the number of identified questions. It does not indicate support for AI or a political party. Use the topic filter to separate development, governance, surveillance and broader context.</li><li><strong>Elections:</strong> colours show documented leadership changes and holds in the selected research. Gray means no retained control-change record, not a Republican hold or verified absence of change. Prior-year Virginia context is labelled separately.</li><li><strong>Bills:</strong> the violet scale shows the number of selected policy records. Proposals, laws and executive actions are different record types.</li></ul><h3>Counting and evidence rules</h3><ol>${data.metadata.counting_rules.map(t=>`<li>${esc(cleanText(t))}</li>`).join('')}</ol><p>Twenty-five ballot records have vote counts read in primary sources. A primary return can still be unofficial. Remaining records use cited secondary returns or have no available result. “No question identified” is a coverage statement rather than a certified zero.</p><h3>Candidate tracker limitations</h3><p>The optional discovery layer preserves all 1,064 result rows and 892 November position rows. It includes 75 position-only records, aliases, missing vote totals, and “leading” results. Its “370 winners” shorthand combines won and leading rows; it must not be displayed as 370 verified unique winners. Nine conflicts with selected election snapshots remain flagged.</p>${pollingContext('US')}<h3>Evidence gaps and refresh priorities</h3>${gaps.map(g=>`<details class="evidence"><summary>${esc(cleanText(g.issue||'Evidence gap'))}</summary><p>${esc(cleanText(g.impact||''))}</p><p><strong>Next refresh:</strong> ${esc(cleanText(g.next_step||''))}</p></details>`).join('')}<h3>Research files and map source</h3><p>The original research package uses the 13 November 2026 evidence cutoff.</p><ul class="source-list"><li><a href="downloads/ai_midterms_2026_dossier.docx" download>State-by-state dossier · DOCX</a></li><li><a href="downloads/ai_midterms_2026_workbook.xlsx" download>Research workbook · XLSX</a></li><li><a href="downloads/ai_midterms_2026_data.json" download>Full dataset · JSON</a></li><li><a href="downloads/ai_midterms_2026_dashboard_data.zip" download>Data export package · ZIP</a></li></ul><p>Map boundaries: <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">U.S. Census Bureau (2017), via us-atlas 3.0.1</a>. Alaska and Hawaii are repositioned insets. State borders are geographic outlines; they are not electoral-district boundaries. <a href="assets/us-atlas-LICENSE.txt" target="_blank" rel="noopener">Map redistribution licence</a>.</p>`;
+  const ballots=data.ballots||[], sources=data.sources||[];
+  const review=data.metadata.review||{};
+  const date=review.reviewed_on||data.metadata.as_of;
+  const dateText=new Intl.DateTimeFormat('en-US',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
+  const counts=[
+    ['Ballot records',ballots.length,'ballots'],['Policy records',data.policies.length,'policies'],
+    ['Contests / recalls',data.elections.length+data.recalls.length,'leadership'],['Sources',sources.length,'sources']
+  ];
+  const withTallies=ballots.filter(b=>Number.isFinite(b.yes_votes)&&Number.isFinite(b.no_votes));
+  const primary=withTallies.filter(b=>b.primary_counts_verified).length;
+  const evidence=[{label:'Primary tallies',n:primary,tone:'viz-mint'},{label:'Other sourced tallies',n:withTallies.length-primary,tone:'viz-policy'},{label:'No tally / scheduled',n:ballots.length-withTallies.length,tone:'viz-neutral'}];
+  const dates=[{label:'Earlier',n:ballots.filter(b=>b.election_date<'2026-11-03').length,tone:'viz-neutral'},{label:'Nov 3',n:ballots.filter(b=>b.election_date==='2026-11-03').length,tone:'viz-mint'},{label:'Later / scheduled',n:ballots.filter(b=>b.election_date>'2026-11-03').length,tone:'viz-policy'}];
+  const mini=(title,items)=>`<section class="method-chart"><h3>${esc(title)}</h3><div class="method-track" role="img" aria-label="${esc(items.map(i=>`${i.label}: ${i.n}`).join('; '))}">${items.filter(i=>i.n).map(i=>`<span style="width:${100*i.n/Math.max(ballots.length,1)}%;background:var(--${i.tone})" title="${esc(i.label)}: ${i.n}"></span>`).join('')}</div><ul class="method-key">${items.map(i=>`<li><i style="background:var(--${i.tone})"></i><span>${esc(i.label)}</span><strong>${fmt(i.n)}</strong></li>`).join('')}</ul></section>`;
+  $('#method-content').innerHTML=`<div class="method-review"><span>Reviewed <time datetime="${esc(date)}">${esc(dateText)}</time></span><span>Source dates vary</span></div>
+    <div class="method-metrics">${counts.map(([label,value,type])=>`<div class="method-metric method-metric--${type}"><strong>${fmt(value)}</strong><span>${esc(label)}</span></div>`).join('')}</div>
+    <div class="method-charts">${mini('Ballot dates',dates)}${mini('Ballot evidence',evidence)}</div>
+    <p class="method-caption">Primary tally ≠ certified result. Dates and status stay with each record.</p>
+    <div class="method-layer-key"><span><i class="method-dot method-dot--ballots"></i>Ballots · question counts</span><span><i class="method-dot method-dot--elections"></i>Elections · incoming control</span><span><i class="method-dot method-dot--policies"></i>Bills · policy counts</span></div>
+    <details class="evidence method-details"><summary>Method &amp; coverage <span aria-hidden="true">+</span></summary><div class="evidence-body"><ul><li>Selected, sourced inventory. An empty state means no record identified in this research.</li><li>Vote shares use yes + no, or listed candidate selections. Questions can overlap in voters.</li><li>Binding votes, advisory votes, proposals and enacted laws remain separate. Election wins do not establish support for one AI policy.</li></ul><p>The external candidate tracker is discovery material; its aliases and reported results are separate from the selected election returns.</p><p>Map: <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">Census boundaries via us-atlas</a> · <a href="assets/us-atlas-LICENSE.txt" target="_blank" rel="noopener">licence</a></p></div></details>
+    <div class="method-links"><a href="downloads/ai_midterms_2026_data.json" download>Dataset JSON ↗</a><a href="downloads/review-2026-11-16.json" download>Fact-check log ↗</a></div>`;
 }
+
 async function loadTracker(){
   const button=$('#load-tracker');if(button){button.disabled=true;button.textContent='Loading the candidate tracker…';}
   const requested=state.code;
@@ -289,14 +285,13 @@ function renderTrackerRows(filter){
     const status=r.result_status||'No result recorded';const sources=[safeLink(r.result_source_url,'Result source'),...(r.stance_source_urls||[]).map((u,i)=>safeLink(u,`Position source ${i+1}`))].filter(Boolean);
     const conflict=data.source_conflicts.find(c=>c.tracker_record_id===r.record_id);
     return `<article class="tracker-card"><header><strong>${esc(r.candidate_name||'Candidate not named')}</strong><span class="tag tag--${status==='won'?'blue':status==='leading'?'amber':'gray'}">Tracker: ${esc(status)}</span></header><p class="tracker-sub">${esc(r.office||'Office not recorded')}${r.district?` · District ${esc(r.district)}`:''} · ${esc(r.party||'Party not recorded')}</p><p class="tracker-sub">${esc(r.jurisdiction||r.state)} · ${esc(r.election_date||'Date not recorded')}</p><p class="tracker-stance">Tracker-coded stance: <strong>${esc(cleanText(r.stance_category_tracker||'Unclear / not recorded'))}</strong>${Number.isFinite(r.vote_share_pct)?` · Reported share ${r.vote_share_pct}%`:''}</p>${r.position_only?'<p class="microcopy">Position-only record; no matching result row.</p>':''}${conflict?`<p class="conflict-note">Conflicts with the selected result snapshot: ${esc(conflict.selected_share)}% versus tracker ${esc(conflict.tracker_share)}%. These records remain separate.</p>`:''}<details class="evidence"><summary>Tracker evidence &amp; limitations</summary><p class="microcopy">${esc(r.verification||'Tracker-coded; not independently verified')}. Snapshot ${esc(r.tracker_snapshot_date||'not reported')}. Raw vote counts are not supplied.</p><ul class="source-list">${sources.map(s=>`<li>${s}</li>`).join('')}</ul><p class="record-id">${esc(r.record_id)}</p></details></article>`;
-  }).join(''):'<div class="empty-state"><h3>No matching tracker records</h3><p>Change the search or election-period filter.</p></div>';
+  }).join(''):'<div class="empty-state"><h3>No matching tracker records</h3><p>Change the search term.</p></div>';
 }
 function wireEvents(){
   for(const btn of $$('[data-layer]'))btn.addEventListener('click',()=>{state.layer=btn.dataset.layer;state.tab=state.layer==='leadership'?'elections':state.layer==='policies'?'bills':state.tab==='overview'?'overview':'ballots';updateMap();renderPanel();writeURL();hideTooltip();});
   for(const btn of $$('[data-tab]'))btn.addEventListener('click',()=>changeTab(btn.dataset.tab));
-  $('#period-filter').addEventListener('change',ev=>{state.period=ev.target.value;updateMap();renderPanel();writeURL();});
   $('#topic-filter').addEventListener('change',ev=>{state.topic=ev.target.value;updateMap();renderPanel();writeURL();});
-  $('#reset-button').addEventListener('click',()=>{state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};updateMap();renderPanel();writeURL();});
+  $('#reset-button').addEventListener('click',()=>{state={code:'TX',layer:'ballots',tab:'overview',period:'all',topic:'all'};updateMap();renderPanel();writeURL();});
   $('#state-select').addEventListener('change',ev=>selectState(ev.target.value,true));
   $('#panel-content').addEventListener('click',ev=>{const tab=ev.target.closest('[data-panel-tab]');if(tab)changeTab(tab.dataset.panelTab);if(ev.target.closest('#load-tracker'))loadTracker();});
   $('#panel-content').addEventListener('input',ev=>{if(ev.target.matches('#tracker-search'))renderTrackerRows(ev.target.value);});
@@ -307,7 +302,7 @@ function wireEvents(){
 }
 async function init(){
   try{
-    [data,geometry]=await Promise.all(['assets/dashboard-data.json','assets/us-states-paths.json'].map(url=>fetch(url).then(r=>{if(!r.ok)throw new Error(`Could not load ${url}`);return r.json();})));
+    [data,geometry]=await Promise.all(['assets/dashboard-data.json?v=5','assets/us-states-paths.json'].map(url=>fetch(url).then(r=>{if(!r.ok)throw new Error(`Could not load ${url}`);return r.json();})));
     summaries=new Map(data.state_summaries.map(s=>[s.state,s]));statesByCode=new Map(data.states.map(s=>[s.state,s]));
     readURL();$('#state-select').innerHTML=[...data.states].sort((a,b)=>a.state_name.localeCompare(b.state_name)).map(s=>`<option value="${esc(s.state)}">${esc(s.state_name)} · ${esc(s.state)}</option>`).join('');
     makeSVG();buildMethodology();wireEvents();updateMap();renderPanel();writeURL();$('#map-loading').remove();$('#map-stage').setAttribute('aria-busy','false');

@@ -1,0 +1,18 @@
+{
+  "tested": "orange policy state fills and label colors",
+  "ratios": {
+    "dark": {
+      "policy_1_label": 8.751,
+      "policy_2_label": 6.188,
+      "policy_3_label": 6.465,
+      "policy_4_label": 10.869
+    },
+    "light": {
+      "policy_1_label": 11.095,
+      "policy_2_label": 7.774,
+      "policy_3_label": 4.98,
+      "policy_4_label": 8.84
+    }
+  },
+  "scope": "Pairwise label contrast, not a full automated accessibility audit."
+}

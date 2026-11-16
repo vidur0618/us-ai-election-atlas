@@ -1,0 +1,672 @@
+{
+  "review_date": "2026-11-16",
+  "ballot_patches": [
+    {
+      "record_id": "IL_CHICAGO_GUNSHOT",
+      "set": {
+        "yes_votes": 529613,
+        "no_votes": 212933,
+        "valid_yes_no_votes": 742546,
+        "yes_pct_valid": 71.323931,
+        "no_pct_valid": 28.676069,
+        "reported_yes_pct": 71.32,
+        "result_updated_at": "2026-11-15 14:18 local",
+        "result_status": "unofficial_primary",
+        "retrieved_as_of": "2026-11-16",
+        "primary_counts_verified": true,
+        "precincts_reporting_pct": 100,
+        "restriction_vote_pct": null,
+        "primary_url": "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf"
+      },
+      "move_to_history_fields": [],
+      "append_historical_version": {
+        "yes_votes": 482304,
+        "no_votes": 184704,
+        "valid_yes_no_votes": 667008,
+        "result_updated_at": "2026-11-09 08:31:12 ET secondary update",
+        "result_status": "unofficial_reported",
+        "preserved_on": "2026-11-16",
+        "source_urls": [
+          "https://results.chicagoelections.gov/results/Summary%20Report%20%282%20Column%29.pdf",
+          "https://ballotpedia.org/Chicago,_Illinois,_Gunshot_Detection_Technology_Measure_(November_2026)",
+          "https://ir.soundthinking.com/sec-filings/all-sec-filings/content/0001193125-26-132104/0001193125-26-132104.pdf"
+        ],
+        "note": "Previous snapshot, preserved before current review update; ancillary fields are not current with the new totals."
+      },
+      "add_source_urls": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf"
+      ],
+      "replace_stale_notes": [
+        "Generic gunshot-detection technology advisory question. It does not itself award a contract or identify a particular AI implementation."
+      ]
+    },
+    {
+      "record_id": "CA_SOLANO_E",
+      "set": {
+        "yes_votes": 55534,
+        "no_votes": 91821,
+        "valid_yes_no_votes": 147355,
+        "yes_pct_valid": 37.687218,
+        "no_pct_valid": 62.312782,
+        "reported_yes_pct": 37.69,
+        "result_updated_at": "2026-11-13 result update",
+        "result_status": "unofficial_primary",
+        "retrieved_as_of": "2026-11-16",
+        "primary_counts_verified": true,
+        "restriction_vote_pct": 37.687218,
+        "primary_url": "https://www.livevoterturnout.com/ENR/solanocaenr/21/en/Index_21.html"
+      },
+      "move_to_history_fields": [
+        "registered_voters",
+        "ballots_cast",
+        "reported_turnout_pct",
+        "undervotes",
+        "overvotes",
+        "vote_modes"
+      ],
+      "append_historical_version": {
+        "yes_votes": 55512,
+        "no_votes": 91777,
+        "valid_yes_no_votes": 147289,
+        "result_updated_at": "2026-11-12 16:43 local",
+        "result_status": "unofficial_primary",
+        "registered_voters": 275846,
+        "ballots_cast": 158784,
+        "reported_turnout_pct": 57.56,
+        "undervotes": 11461,
+        "overvotes": 37,
+        "vote_modes": {
+          "yes": {
+            "in_person": 6432,
+            "mail": 48573,
+            "provisional": 507
+          },
+          "no": {
+            "in_person": 15472,
+            "mail": 75478,
+            "provisional": 827
+          }
+        },
+        "preserved_on": "2026-11-16",
+        "source_urls": [
+          "https://content.solanocounty.gov/sites/default/files/2026-09/HTML_Cumulative_Results-2026_November_General_Election-9-2-2026_13-15-29_PM.html",
+          "https://ballotpedia.org/Solano_County%2C_California%2C_Measure_E%2C_Commercial_Wind_Turbine_Rate_Business_License_Tax_Measure_%28November_2026%29"
+        ],
+        "note": "Previous snapshot, preserved before current review update; ancillary fields are not current with the new totals."
+      },
+      "add_source_urls": [
+        "https://www.livevoterturnout.com/ENR/solanocaenr/21/en/Index_21.html",
+        "https://www.kqed.org/elections/results/solano/measure-e"
+      ],
+      "replace_stale_notes": [
+        "Full official page exceeds the web tool content-size limit. Counts are visible in its indexed official result table.",
+        "Old turnout, ballots cast, undervotes, overvotes and vote-mode figures belong to the November 12 snapshot. They have not been validated against the new count and must not appear as contemporaneous.",
+        "Measure concerns a broader business-license tax, including an annual $5/square-foot data-center component in unincorporated areas; it is outside the targeted development cohort."
+      ]
+    },
+    {
+      "record_id": "KS_AMERICUS_DC",
+      "set": {
+        "yes_votes": 278,
+        "no_votes": 127,
+        "valid_yes_no_votes": 405,
+        "yes_pct_valid": 68.641975,
+        "no_pct_valid": 31.358025,
+        "reported_yes_pct": null,
+        "result_updated_at": "2026-11-12 14:32 local",
+        "result_status": "official_final_primary",
+        "retrieved_as_of": "2026-11-16",
+        "primary_counts_verified": true,
+        "reported_contest_total": 416,
+        "other_ballots_unclassified": 11,
+        "restriction_vote_pct": 68.641975,
+        "primary_url": "https://www.lyoncountyks.gov/DocumentCenter/View/2438"
+      },
+      "move_to_history_fields": [],
+      "append_historical_version": {
+        "yes_votes": 277,
+        "no_votes": 127,
+        "valid_yes_no_votes": 404,
+        "result_updated_at": "2026-11-10 10:07 local",
+        "result_status": "unofficial_final_primary",
+        "preserved_on": "2026-11-16",
+        "source_urls": [
+          "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+          "https://datacentersontheballot.com/"
+        ],
+        "note": "Previous snapshot, preserved before current review update; ancillary fields are not current with the new totals."
+      },
+      "add_source_urls": [
+        "https://www.lyoncountyks.gov/DocumentCenter/View/2438",
+        "https://www.lyoncountyks.gov/350/2026-General-Election-Results"
+      ],
+      "replace_stale_notes": [
+        "Eleven contest ballots are outside valid yes/no totals; the report does not classify them as blanks or overvotes.",
+        "Official Final is explicit; a separate certification instrument and its date were not read. Current Ballotpedia includes Americus in its 57-measure cohort."
+      ]
+    },
+    {
+      "record_id": "KS_EMPORIA_2",
+      "set": {
+        "yes_votes": 4448,
+        "no_votes": 2953,
+        "valid_yes_no_votes": 7401,
+        "yes_pct_valid": 60.099986,
+        "no_pct_valid": 39.900014,
+        "reported_yes_pct": null,
+        "result_updated_at": "2026-11-12 14:32 local",
+        "result_status": "official_final_primary",
+        "retrieved_as_of": "2026-11-16",
+        "primary_counts_verified": true,
+        "reported_contest_total": 7513,
+        "other_ballots_unclassified": 112,
+        "restriction_vote_pct": 60.099986,
+        "primary_url": "https://www.lyoncountyks.gov/DocumentCenter/View/2438"
+      },
+      "move_to_history_fields": [],
+      "append_historical_version": {
+        "yes_votes": 4367,
+        "no_votes": 2901,
+        "valid_yes_no_votes": 7268,
+        "result_updated_at": "2026-11-10 10:07 local",
+        "result_status": "unofficial_final_primary",
+        "preserved_on": "2026-11-16",
+        "source_urls": [
+          "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+          "https://ballotpedia.org/Emporia%2C_Kansas%2C_Prohibit_High_Impact_Data_Centers_Initiative_%28November_2026%29"
+        ],
+        "note": "Previous snapshot, preserved before current review update; ancillary fields are not current with the new totals."
+      },
+      "add_source_urls": [
+        "https://www.lyoncountyks.gov/DocumentCenter/View/2438",
+        "https://www.lyoncountyks.gov/350/2026-General-Election-Results"
+      ],
+      "replace_stale_notes": [
+        "112 contest ballots are outside valid yes/no totals and are not specifically classified.",
+        "Ballotpedia retains older 4,346/2,891 counts; do not revert newer primary totals. The separate Question 3 battery-storage measure is outside the main AI/data-center scope."
+      ]
+    },
+    {
+      "record_id": "NJ_BELVIDERE_DC",
+      "set": {
+        "yes_votes": 731,
+        "no_votes": 243,
+        "valid_yes_no_votes": 974,
+        "yes_pct_valid": 75.051335,
+        "no_pct_valid": 24.948665,
+        "reported_yes_pct": 75.05,
+        "result_updated_at": "2026-11-14 21:25 Eastern (secondary update)",
+        "result_status": "unofficial_reported",
+        "retrieved_as_of": "2026-11-16",
+        "primary_counts_verified": false,
+        "precincts_reporting_pct": 100,
+        "restriction_vote_pct": 75.051335,
+        "secondary_url": "https://ballotpedia.org/Belvidere,_New_Jersey,_Data_Center_Ban_Advisory_Question_(November_2026)"
+      },
+      "move_to_history_fields": [
+        "undervotes"
+      ],
+      "append_historical_version": {
+        "yes_votes": 727,
+        "no_votes": 243,
+        "valid_yes_no_votes": 970,
+        "result_updated_at": "2026-11-09 return as described in secondary source",
+        "result_status": "unofficial_reported",
+        "undervotes": 77,
+        "preserved_on": "2026-11-16",
+        "source_urls": [
+          "https://www.warrencountyvotes.com/home/showpublisheddocument/15081",
+          "https://ailawsusa.com/protection/nj-belvidere-dc-ban-master-plan-advisory-question-2026/"
+        ],
+        "note": "Previous snapshot, preserved before current review update; ancillary fields are not current with the new totals."
+      },
+      "add_source_urls": [
+        "https://ballotpedia.org/Belvidere,_New_Jersey,_Data_Center_Ban_Advisory_Question_(November_2026)"
+      ],
+      "replace_stale_notes": [
+        "Official Warren County document remains inaccessible in this pass. Counts are secondary-reported.",
+        "The previously reported 77 undervotes are tied to the November 9 snapshot and must not be assumed unchanged.",
+        "Nonbinding advisory support for a ban is not an enacted zoning ban."
+      ]
+    },
+    {
+      "record_id": "ME_ELIOT_5",
+      "set": {
+        "primary_counts_verified": true
+      },
+      "add_source_urls": [
+        "https://eliotme.gov/AgendaCenter/ViewFile/Agenda/_11122026-1655"
+      ],
+      "cautions": [
+        "Municipal ballot total differs from state-election ballots."
+      ]
+    },
+    {
+      "record_id": "ME_HOLLIS_2",
+      "set": {
+        "policy_summary": "Proposed 180-day data-center moratorium, beginning December 8, covering facilities of at least 2,500 square feet including associated impervious surfaces (threshold from current secondary description).",
+        "primary_url": "https://www.hollismaine.org/DocumentCenter/View/1727/120826-STM-warrant-Proposed-Data-Center-Moratorium"
+      },
+      "add_source_urls": [
+        "https://ballotpedia.org/Hollis%2C_Maine%2C_Article_2%2C_Data_Center_Moratorium_Measure_%28December_2026%29",
+        "https://www.hollismaine.org/DocumentCenter/View/1727/120826-STM-warrant-Proposed-Data-Center-Moratorium"
+      ],
+      "cautions": [
+        "No votes yet. Do not convert secondary template zeroes to results.",
+        "Threshold update should be marked secondary-supported until the official warrant image is independently read."
+      ]
+    },
+    {
+      "record_id": "ND_MANDAN_1",
+      "set": {
+        "primary_url": "https://www.cityofmandan.com/vertical/sites/%7B38C3EFDC-F4D8-4D02-9E13-0987A081A7A4%7D/uploads/SAMPLE_BALLOT.pdf",
+        "policy_summary": "Would prohibit data centers of 25 MW or more within Mandan and its extraterritorial zoning jurisdiction. City residents vote December 15."
+      },
+      "add_source_urls": [
+        "https://www.cityofmandan.com/index.asp?SEC=%7BBC91F144-6B1B-4329-B743-888CF7C68311%7D",
+        "https://www.cityofmandan.com/vertical/sites/%7B38C3EFDC-F4D8-4D02-9E13-0987A081A7A4%7D/uploads/SAMPLE_BALLOT.pdf"
+      ],
+      "cautions": [
+        "Eligible voters are city residents; policy territory also includes the extraterritorial zoning area. Keep electorate and policy geography separate.",
+        "The official sample ballot is controlling where a city explainer informally says 25MW or less. No vote has yet occurred."
+      ]
+    },
+    {
+      "record_id": "OH_WILMINGTON_SR730",
+      "set": {
+        "primary_counts_verified": true,
+        "result_status": "unofficial_final_primary"
+      },
+      "add_source_urls": [
+        "https://www.boe.ohio.gov/clinton/c/elecres/20261103results.pdf"
+      ],
+      "cautions": [
+        "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+      ]
+    },
+    {
+      "record_id": "OH_WILMINGTON_1957_SR730",
+      "set": {
+        "primary_counts_verified": true,
+        "result_status": "unofficial_final_primary"
+      },
+      "add_source_urls": [
+        "https://www.boe.ohio.gov/clinton/c/elecres/20261103results.pdf"
+      ],
+      "cautions": [
+        "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+      ]
+    },
+    {
+      "record_id": "OH_WILMINGTON_MCGUINN",
+      "set": {
+        "primary_counts_verified": true,
+        "result_status": "unofficial_final_primary"
+      },
+      "add_source_urls": [
+        "https://www.boe.ohio.gov/clinton/c/elecres/20261103results.pdf"
+      ],
+      "cautions": [
+        "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+      ]
+    },
+    {
+      "record_id": "OH_WILMINGTON_US68",
+      "set": {
+        "primary_counts_verified": true,
+        "result_status": "unofficial_final_primary"
+      },
+      "add_source_urls": [
+        "https://www.boe.ohio.gov/clinton/c/elecres/20261103results.pdf"
+      ],
+      "cautions": [
+        "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+      ]
+    }
+  ],
+  "recall_patches": [
+    {
+      "record_id": "R_MO_7",
+      "set": {
+        "yes": 1120,
+        "no": 526,
+        "yes_percent": 68.04,
+        "total_valid_votes": 1646,
+        "status": "official primary return; certification not independently verified",
+        "result_updated_at": "2026-09-08 14:58:14 local",
+        "retrieved_as_of": "2026-11-16"
+      },
+      "raw_count_update": {
+        "recall_yes": 1120,
+        "recall_no": 526,
+        "total_valid_votes": 1646
+      },
+      "add_source_urls": [
+        "https://www.livevoterturnout.com/ENR/jacksonmoenr/37/en/Index_37.html"
+      ],
+      "append_historical_version": {
+        "state": "MO",
+        "jurisdiction": "Independence District1",
+        "official": "John Perkins",
+        "office": "Councilman",
+        "format": "recall yes/no",
+        "source": "PERKINS_BP",
+        "status": "reported removed; certification document not inspected",
+        "yes": 1118,
+        "no": 525,
+        "yes_percent": 68,
+        "total_valid_votes": 1643,
+        "issue": "Nebius data-center tax-abatement approval; earlier-cycle context, not Nov3",
+        "record_id": "R_MO_7",
+        "election_date": "2026-09-01",
+        "source_ids": [
+          "S_558c4536f0"
+        ],
+        "sources": [
+          "https://ballotpedia.org/John_Perkins_recall,_Independence,_Missouri_(2026)"
+        ]
+      }
+    }
+  ],
+  "new_ballot_records": [
+    {
+      "record_id": "IL_CHICAGO_SOUTH_WORKS_W07_P14",
+      "state": "IL",
+      "state_name": "Illinois",
+      "jurisdiction": "Chicago — Ward 7, Precinct 14",
+      "jurisdiction_type": "precinct",
+      "ward": 7,
+      "precinct": 14,
+      "election_date": "2026-11-03",
+      "scope_group": "adjacent_compute_funding",
+      "question_group_id": "IL_CHICAGO_SOUTH_WORKS_FUNDING_2026",
+      "measure_title": "Public funding for South Works quantum facility and data center",
+      "measure_id": null,
+      "legal_type": "advisory",
+      "policy_summary": "Asks whether Illinois governmental bodies should spend an estimated $1 billion in taxpayer funds to support a quantum facility and data center at the former South Works site.",
+      "yes_effect": "permit",
+      "yes_votes": 98,
+      "no_votes": 324,
+      "valid_yes_no_votes": 422,
+      "yes_pct_valid": 23.222749,
+      "no_pct_valid": 76.777251,
+      "reported_yes_pct": 23.22,
+      "reported_pct_denominator": "valid_yes_no",
+      "outcome": "rejected",
+      "restriction_outcome": "not_comparable",
+      "restriction_vote_pct": null,
+      "result_status": "unofficial_primary",
+      "primary_counts_verified": true,
+      "primary_url": "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+      "secondary_url": "https://thejacket.cc/measure/1bn-public-support-for-a-quantum-facility-at-south-works-2026",
+      "result_updated_at": "2026-11-15 14:18 local",
+      "retrieved_as_of": "2026-11-16",
+      "ai_relevance": "quantum_and_data_center_infrastructure",
+      "sources": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+        "https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-10/Candidate%20List_20261027-1.pdf"
+      ],
+      "source_refs": [
+        "turn296view0",
+        "turn296search9"
+      ],
+      "historical_versions": [],
+      "notes": [
+        "Nonbinding funding question, not a zoning decision or an implemented spending authorization.",
+        "The wording explicitly mentions a quantum facility and data center. This record does not assert that quantum computing is AI or settle disputed characterizations of the proposed project.",
+        "One question text appears in three distinct precinct electorates. Each precinct is a separate result record; do not add another aggregate record.",
+        "These voters also answered citywide questions, so sums across all questions do not represent unique people.",
+        "Kept outside the pre-existing 57-question targeted development cohort."
+      ]
+    },
+    {
+      "record_id": "IL_CHICAGO_SOUTH_WORKS_W10_P02",
+      "state": "IL",
+      "state_name": "Illinois",
+      "jurisdiction": "Chicago — Ward 10, Precinct 2",
+      "jurisdiction_type": "precinct",
+      "ward": 10,
+      "precinct": 2,
+      "election_date": "2026-11-03",
+      "scope_group": "adjacent_compute_funding",
+      "question_group_id": "IL_CHICAGO_SOUTH_WORKS_FUNDING_2026",
+      "measure_title": "Public funding for South Works quantum facility and data center",
+      "measure_id": null,
+      "legal_type": "advisory",
+      "policy_summary": "Asks whether Illinois governmental bodies should spend an estimated $1 billion in taxpayer funds to support a quantum facility and data center at the former South Works site.",
+      "yes_effect": "permit",
+      "yes_votes": 61,
+      "no_votes": 186,
+      "valid_yes_no_votes": 247,
+      "yes_pct_valid": 24.696356,
+      "no_pct_valid": 75.303644,
+      "reported_yes_pct": 24.7,
+      "reported_pct_denominator": "valid_yes_no",
+      "outcome": "rejected",
+      "restriction_outcome": "not_comparable",
+      "restriction_vote_pct": null,
+      "result_status": "unofficial_primary",
+      "primary_counts_verified": true,
+      "primary_url": "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+      "secondary_url": "https://thejacket.cc/measure/1bn-public-support-for-a-quantum-facility-at-south-works-2026",
+      "result_updated_at": "2026-11-15 14:18 local",
+      "retrieved_as_of": "2026-11-16",
+      "ai_relevance": "quantum_and_data_center_infrastructure",
+      "sources": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+        "https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-10/Candidate%20List_20261027-1.pdf"
+      ],
+      "source_refs": [
+        "turn296view0",
+        "turn296search9"
+      ],
+      "historical_versions": [],
+      "notes": [
+        "Nonbinding funding question, not a zoning decision or an implemented spending authorization.",
+        "The wording explicitly mentions a quantum facility and data center. This record does not assert that quantum computing is AI or settle disputed characterizations of the proposed project.",
+        "One question text appears in three distinct precinct electorates. Each precinct is a separate result record; do not add another aggregate record.",
+        "These voters also answered citywide questions, so sums across all questions do not represent unique people.",
+        "Kept outside the pre-existing 57-question targeted development cohort."
+      ]
+    },
+    {
+      "record_id": "IL_CHICAGO_SOUTH_WORKS_W10_P04",
+      "state": "IL",
+      "state_name": "Illinois",
+      "jurisdiction": "Chicago — Ward 10, Precinct 4",
+      "jurisdiction_type": "precinct",
+      "ward": 10,
+      "precinct": 4,
+      "election_date": "2026-11-03",
+      "scope_group": "adjacent_compute_funding",
+      "question_group_id": "IL_CHICAGO_SOUTH_WORKS_FUNDING_2026",
+      "measure_title": "Public funding for South Works quantum facility and data center",
+      "measure_id": null,
+      "legal_type": "advisory",
+      "policy_summary": "Asks whether Illinois governmental bodies should spend an estimated $1 billion in taxpayer funds to support a quantum facility and data center at the former South Works site.",
+      "yes_effect": "permit",
+      "yes_votes": 87,
+      "no_votes": 340,
+      "valid_yes_no_votes": 427,
+      "yes_pct_valid": 20.374707,
+      "no_pct_valid": 79.625293,
+      "reported_yes_pct": 20.37,
+      "reported_pct_denominator": "valid_yes_no",
+      "outcome": "rejected",
+      "restriction_outcome": "not_comparable",
+      "restriction_vote_pct": null,
+      "result_status": "unofficial_primary",
+      "primary_counts_verified": true,
+      "primary_url": "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+      "secondary_url": "https://thejacket.cc/measure/1bn-public-support-for-a-quantum-facility-at-south-works-2026",
+      "result_updated_at": "2026-11-15 14:18 local",
+      "retrieved_as_of": "2026-11-16",
+      "ai_relevance": "quantum_and_data_center_infrastructure",
+      "sources": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+        "https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-10/Candidate%20List_20261027-1.pdf"
+      ],
+      "source_refs": [
+        "turn296view0",
+        "turn296search9"
+      ],
+      "historical_versions": [],
+      "notes": [
+        "Nonbinding funding question, not a zoning decision or an implemented spending authorization.",
+        "The wording explicitly mentions a quantum facility and data center. This record does not assert that quantum computing is AI or settle disputed characterizations of the proposed project.",
+        "One question text appears in three distinct precinct electorates. Each precinct is a separate result record; do not add another aggregate record.",
+        "These voters also answered citywide questions, so sums across all questions do not represent unique people.",
+        "Kept outside the pre-existing 57-question targeted development cohort."
+      ]
+    },
+    {
+      "record_id": "OH_NEWTON_FALLS_PHOTO_ENFORCEMENT",
+      "state": "OH",
+      "state_name": "Ohio",
+      "jurisdiction": "Newton Falls Village",
+      "county": "Trumbull",
+      "election_date": "2026-11-03",
+      "scope_group": "automated_surveillance_adjacent",
+      "measure_title": "School-zone photo traffic enforcement referendum",
+      "measure_id": "Ordinance 2025-40",
+      "legal_type": "binding",
+      "policy_summary": "Referendum on approval of Ordinance 2025-40 permitting photo traffic enforcement in school zones. Voters rejected approval.",
+      "yes_effect": "permit",
+      "yes_votes": 401,
+      "no_votes": 1037,
+      "valid_yes_no_votes": 1438,
+      "yes_pct_valid": 27.885953,
+      "no_pct_valid": 72.114047,
+      "reported_yes_pct": 27.89,
+      "reported_pct_denominator": "valid_yes_no",
+      "outcome": "rejected",
+      "restriction_outcome": "not_comparable",
+      "restriction_vote_pct": null,
+      "result_status": "unofficial_primary",
+      "primary_counts_verified": true,
+      "primary_url": "https://boe.co.trumbull.oh.gov/pdfs/Election%20Summary.pdf",
+      "secondary_url": null,
+      "result_updated_at": "2026-11-03 21:01 local (Newton Falls appended report)",
+      "retrieved_as_of": "2026-11-16",
+      "ai_relevance": "automated_surveillance_ai_adjacent",
+      "sources": [
+        "https://boe.co.trumbull.oh.gov/pdfs/Election%20Summary.pdf",
+        "https://boe.co.trumbull.oh.gov/pdfs/Questions%20and%20Issues%20Running%20List%2011-3-26.pdf",
+        "https://ci.newtonfalls.oh.us/wp-content/uploads/2025/08/1regular-meeting-AGENDA-08-06-25-PACKET-FINAL.pdf"
+      ],
+      "source_refs": [
+        "turn246view7",
+        "turn268view0",
+        "turn272view2"
+      ],
+      "historical_versions": [],
+      "notes": [
+        "Automated camera enforcement is included as surveillance-adjacent. The reviewed sources do not establish that the system uses AI.",
+        "Official question running list identifies Newton Falls Village precincts 1A, 2A, 3A and 4A.",
+        "The council agenda packet includes ordinance text describing photo-camera/computer detection and officer review; it is a draft agenda attachment, while the election office wording establishes the ballot scope.",
+        "County certification is scheduled for November 19, after this review cutoff."
+      ]
+    }
+  ],
+  "new_exclusion_records": [
+    {
+      "record_id": "EX_IL_CHICAGO_SOUTH_WORKS_CLEANUP_W07_P14",
+      "state": "IL",
+      "jurisdiction": "Chicago — Ward 7, Precinct 14",
+      "election_date": "2026-11-03",
+      "measure_title": "Complete and transparent remediation of former South Works site",
+      "legal_type": "advisory",
+      "yes_votes": 368,
+      "no_votes": 50,
+      "valid_yes_no_votes": 418,
+      "result_status": "unofficial_primary",
+      "reason": "Paired environmental-cleanup advisory question. Its operative wording does not address AI, data-center approval, technology use or funding for compute infrastructure. Retain as related environmental context, outside the main technology ballot count.",
+      "sources": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+        "https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-10/Candidate%20List_20261027-1.pdf"
+      ],
+      "source_refs": [
+        "turn296view0",
+        "turn296search9"
+      ],
+      "retrieved_as_of": "2026-11-16"
+    },
+    {
+      "record_id": "EX_IL_CHICAGO_SOUTH_WORKS_CLEANUP_W10_P02",
+      "state": "IL",
+      "jurisdiction": "Chicago — Ward 10, Precinct 2",
+      "election_date": "2026-11-03",
+      "measure_title": "Complete and transparent remediation of former South Works site",
+      "legal_type": "advisory",
+      "yes_votes": 217,
+      "no_votes": 24,
+      "valid_yes_no_votes": 241,
+      "result_status": "unofficial_primary",
+      "reason": "Paired environmental-cleanup advisory question. Its operative wording does not address AI, data-center approval, technology use or funding for compute infrastructure. Retain as related environmental context, outside the main technology ballot count.",
+      "sources": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+        "https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-10/Candidate%20List_20261027-1.pdf"
+      ],
+      "source_refs": [
+        "turn296view0",
+        "turn296search9"
+      ],
+      "retrieved_as_of": "2026-11-16"
+    },
+    {
+      "record_id": "EX_IL_CHICAGO_SOUTH_WORKS_CLEANUP_W10_P04",
+      "state": "IL",
+      "jurisdiction": "Chicago — Ward 10, Precinct 4",
+      "election_date": "2026-11-03",
+      "measure_title": "Complete and transparent remediation of former South Works site",
+      "legal_type": "advisory",
+      "yes_votes": 369,
+      "no_votes": 57,
+      "valid_yes_no_votes": 426,
+      "result_status": "unofficial_primary",
+      "reason": "Paired environmental-cleanup advisory question. Its operative wording does not address AI, data-center approval, technology use or funding for compute infrastructure. Retain as related environmental context, outside the main technology ballot count.",
+      "sources": [
+        "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+        "https://cboeprod.blob.core.usgovcloudapi.net/prod/2026-10/Candidate%20List_20261027-1.pdf"
+      ],
+      "source_refs": [
+        "turn296view0",
+        "turn296search9"
+      ],
+      "retrieved_as_of": "2026-11-16"
+    },
+    {
+      "record_id": "EX_KS_EMPORIA_BESS_Q3",
+      "state": "KS",
+      "jurisdiction": "Emporia",
+      "election_date": "2026-11-03",
+      "measure_title": "Question 3 — Battery energy storage systems",
+      "yes_votes": 4167,
+      "no_votes": 3181,
+      "valid_yes_no_votes": 7348,
+      "result_status": "official_final_primary",
+      "reason": "Separately regulates battery energy storage; does not itself regulate data centers. Suitable for an opt-in adjacent energy layer, not automatic expansion of the main AI/data-center cohort.",
+      "sources": [
+        "https://www.lyoncountyks.gov/DocumentCenter/View/2438"
+      ],
+      "retrieved_as_of": "2026-11-16"
+    }
+  ],
+  "integration_notes": [
+    "Recompute all percentages and aggregates after integrating counts. Preserve prior versions.",
+    "Move specified stale ancillary fields into history; do not keep them beside newer vote counts.",
+    "Do not recalculate national/targeted cohort numbers by treating adjacent funding or camera enforcement as targeted development measures.",
+    "New raw recall fields must be mapped to the existing choices schema as well as total_valid_votes.",
+    "Source inventories and exported CSV/JSON must be updated consistently."
+  ],
+  "unresolved": [
+    "Primary numerical verification was not attained for every existing record. This is a complete audit ledger of the supplied 77 records, not proof of exhaustive nationwide discovery.",
+    "Pflugerville needs same-time Travis and Williamson official components and the November 17 canvass. Do not splice mismatched snapshots.",
+    "Clarksville December 1 dates retain a December 8 contingency until primary election-clerk confirmation.",
+    "Bethel meeting approved the moratorium; exact yes/no counts remain unavailable.",
+    "Belvidere fresh counts remain secondary-supported; Solano full current table was too large for the web tool though its official indexed count was available.",
+    "Wrightstown whole-village total includes two counties; only Brown County component freshly checked in primary return.",
+    "No Kentucky direct data-center ballot question was established. Reporting about data-center referendums in Kentucky often refers figuratively to candidate elections, which belong in the election layer.",
+    "Illinois precinct-level additions show why county/city ballot lists must be reviewed beyond national aggregators. Counts across questions are not counts of unique voters."
+  ]
+}

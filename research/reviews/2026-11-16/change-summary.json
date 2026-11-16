@@ -1,0 +1,2198 @@
+{
+  "title": "AI Midterm, mapped — pre-deployment review",
+  "reviewed_on": "2026-11-16",
+  "baseline_commit": "8e624b3f10eb031230565c131f866cd952e3c4d3",
+  "baseline_sha256": "31fa31c14f26ec3d9404c0c549d088dacfd4f8dcf70f8e8f7102dab77607114a",
+  "canonical_sha256": "1f88f532625a10a0c42d21ff52f821e7077289838f26852196ce65f6718f0b31",
+  "before_counts": {
+    "states": 51,
+    "ballots": 67,
+    "control_changes": 15,
+    "chamber_snapshots": 13,
+    "elections": 21,
+    "election_choices": 90,
+    "recalls": 10,
+    "policies": 138,
+    "polls": 89,
+    "exclusions": 14,
+    "gaps": 10,
+    "data_dictionary": 15,
+    "sources": 316,
+    "tracker_results": 1064,
+    "tracker_candidates_on_record": 892,
+    "tracker_winner_index": 370,
+    "tracker_state_counts": 49,
+    "tracker_people_index": 349,
+    "source_conflicts": 9
+  },
+  "after_counts": {
+    "states": 51,
+    "ballots": 71,
+    "control_changes": 16,
+    "chamber_snapshots": 14,
+    "elections": 22,
+    "election_choices": 95,
+    "recalls": 10,
+    "policies": 149,
+    "polls": 89,
+    "exclusions": 18,
+    "gaps": 10,
+    "data_dictionary": 18,
+    "sources": 385,
+    "tracker_results": 1064,
+    "tracker_candidates_on_record": 892,
+    "tracker_winner_index": 370,
+    "tracker_state_counts": 49,
+    "tracker_people_index": 349,
+    "source_conflicts": 9
+  },
+  "scope": {
+    "reviewed_on": "2026-11-16",
+    "baseline_date": "2026-11-13",
+    "existing_records_with_dispositions": 353,
+    "added_core_records": 18,
+    "review_log": "review-2026-11-16.json",
+    "meaning": "Field-specific evidence review. Source snapshots retain their own dates; review is not certification or proof of national completeness.",
+    "not_individually_reaudited": [
+      "1064 external tracker result rows",
+      "892 external tracker position rows",
+      "Every operative clause or legislative roll call",
+      "Every prior exclusion and narrative context claim"
+    ],
+    "tracker_snapshot_preserved": true
+  },
+  "applied_changes": [
+    {
+      "operation": "update",
+      "table": "elections",
+      "record_id": "E_MI_2",
+      "reason": "Newer sourced count; recompute all derived election_choices, percentages, margins and displays from this record.",
+      "fields": {
+        "choices": {
+          "before": [
+            {
+              "name": "Jocelyn Benson",
+              "party": "D",
+              "votes": 2614275,
+              "reported_percent": 54.6,
+              "winner": true
+            },
+            {
+              "name": "John James",
+              "party": "R",
+              "votes": 2095233,
+              "reported_percent": 43.7
+            },
+            {
+              "name": "Anthony Hudson",
+              "party": "L",
+              "votes": 44504,
+              "reported_percent": 0.9
+            },
+            {
+              "name": "Donna Brandenburg",
+              "party": "UST",
+              "votes": 20146,
+              "reported_percent": 0.4
+            },
+            {
+              "name": "Douglas Campbell",
+              "party": "G",
+              "votes": 17616,
+              "reported_percent": 0.4
+            }
+          ],
+          "after": [
+            {
+              "name": "Jocelyn Benson",
+              "party": "D",
+              "votes": 2614277,
+              "reported_percent": 54.6,
+              "winner": true,
+              "pct_of_listed_votes_calculated": 54.557579
+            },
+            {
+              "name": "John James",
+              "party": "R",
+              "votes": 2095233,
+              "reported_percent": 43.7,
+              "pct_of_listed_votes_calculated": 43.725604
+            },
+            {
+              "name": "Anthony Hudson",
+              "party": "L",
+              "votes": 44504,
+              "reported_percent": 0.9,
+              "pct_of_listed_votes_calculated": 0.928758
+            },
+            {
+              "name": "Donna Brandenburg",
+              "party": "UST",
+              "votes": 20146,
+              "reported_percent": 0.4,
+              "pct_of_listed_votes_calculated": 0.420429
+            },
+            {
+              "name": "Douglas Campbell",
+              "party": "G",
+              "votes": 17616,
+              "reported_percent": 0.4,
+              "pct_of_listed_votes_calculated": 0.36763
+            }
+          ]
+        },
+        "valid_listed_votes": {
+          "before": 4791774,
+          "after": 4791776
+        },
+        "snapshot": {
+          "before": "2026-11-11 22:54",
+          "after": "2026-11-13 21:19; timezone not stated by extracted source"
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "elections",
+      "record_id": "E_OH_3",
+      "reason": "Newer sourced count; recompute all derived election_choices, percentages, margins and displays from this record.",
+      "fields": {
+        "choices": {
+          "before": [
+            {
+              "name": "Amy Acton",
+              "party": "D",
+              "votes": 2404985,
+              "reported_percent": 52.31,
+              "winner": true
+            },
+            {
+              "name": "Vivek Ramaswamy",
+              "party": "R",
+              "votes": 2040378,
+              "reported_percent": 44.38
+            },
+            {
+              "name": "Don Kissick",
+              "party": "L",
+              "votes": 151925,
+              "reported_percent": 3.3
+            }
+          ],
+          "after": [
+            {
+              "name": "Amy Acton",
+              "party": "D",
+              "votes": 2405095,
+              "reported_percent": 52.31,
+              "winner": true,
+              "pct_of_listed_votes_calculated": 52.310886
+            },
+            {
+              "name": "Vivek Ramaswamy",
+              "party": "R",
+              "votes": 2040654,
+              "reported_percent": 44.38,
+              "pct_of_listed_votes_calculated": 44.384284
+            },
+            {
+              "name": "Don Kissick",
+              "party": "L",
+              "votes": 151946,
+              "reported_percent": 3.3,
+              "pct_of_listed_votes_calculated": 3.30483
+            }
+          ]
+        },
+        "valid_listed_votes": {
+          "before": 4597288,
+          "after": 4597695
+        },
+        "snapshot": {
+          "before": "2026-11-12 17:40 EST",
+          "after": "2026-11-13 12:56 EST"
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "elections",
+      "record_id": "E_AZ_8",
+      "reason": "Newer sourced count; recompute all derived election_choices, percentages, margins and displays from this record.",
+      "fields": {
+        "choices": {
+          "before": [
+            {
+              "name": "Clara Pratte",
+              "party": "D",
+              "votes": 1275014,
+              "reported_percent": 27.23,
+              "winner": true
+            },
+            {
+              "name": "Jonathon Hill",
+              "party": "D",
+              "votes": 1223891,
+              "reported_percent": 26.14,
+              "winner": true
+            },
+            {
+              "name": "Kevin Thompson",
+              "party": "R",
+              "votes": 1090381,
+              "reported_percent": 23.29
+            },
+            {
+              "name": "Ralph Heap",
+              "party": "R",
+              "votes": 1020157,
+              "reported_percent": 21.79
+            },
+            {
+              "name": "Mike Cease",
+              "party": "G",
+              "votes": 70711,
+              "reported_percent": 1.51
+            },
+            {
+              "name": "Unofficial Write-in",
+              "votes": 1518,
+              "reported_percent": 0.03
+            },
+            {
+              "name": "Unassigned Write-in",
+              "votes": 818,
+              "reported_percent": 0.02
+            }
+          ],
+          "after": [
+            {
+              "name": "Clara Pratte",
+              "party": "D",
+              "votes": 1276108,
+              "winner": true,
+              "pct_of_listed_votes_calculated": 27.230748
+            },
+            {
+              "name": "Jonathon Hill",
+              "party": "D",
+              "votes": 1224900,
+              "winner": true,
+              "pct_of_listed_votes_calculated": 26.138025
+            },
+            {
+              "name": "Kevin Thompson",
+              "party": "R",
+              "votes": 1091206,
+              "pct_of_listed_votes_calculated": 23.285142
+            },
+            {
+              "name": "Ralph Heap",
+              "party": "R",
+              "votes": 1020919,
+              "pct_of_listed_votes_calculated": 21.785294
+            },
+            {
+              "name": "Mike Cease",
+              "party": "G",
+              "votes": 70804,
+              "pct_of_listed_votes_calculated": 1.51088
+            },
+            {
+              "name": "Unofficial Write-in",
+              "votes": 1520,
+              "pct_of_listed_votes_calculated": 0.032435
+            },
+            {
+              "name": "Unassigned Write-in",
+              "votes": 819,
+              "pct_of_listed_votes_calculated": 0.017477
+            }
+          ]
+        },
+        "valid_listed_votes": {
+          "before": 4682490,
+          "after": 4686276
+        },
+        "snapshot": {
+          "before": "2026-11-12 snapshot",
+          "after": "2026-11-14 01:49:14; timezone not specified"
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "sources": {
+          "before": [
+            "https://app.enhancedvoting.com/results/public/arizona/elections/110326GeneralElection"
+          ],
+          "after": [
+            "https://app.enhancedvoting.com/results/public/Arizona/elections/110326GeneralElection/ballot-items/248c0000-c0a3-7204-82ca-08df11bc03d0"
+          ]
+        },
+        "status": {
+          "before": "official unofficial Nov12 snapshot;15of15 counties",
+          "after": "Official unofficial snapshot; 15 of 15 localities; not certified"
+        },
+        "denominator_note": {
+          "before": "Two-seat election; candidate-vote share, not unique voter share",
+          "after": "Vote-for-two election. Shares calculated from listed candidate votes, not from unique voters."
+        },
+        "notes": {
+          "before": null,
+          "after": "Counts refreshed from the November 14 official snapshot; displayed shares are calculated from the listed candidate-vote denominator."
+        },
+        "source_ids": {
+          "before": [
+            "S_8df401dc16"
+          ],
+          "after": [
+            "S_751e6db85a"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "elections",
+      "record_id": "E_AZ_GOV",
+      "reason": "Newer sourced count; recompute all derived election_choices, percentages, margins and displays from this record.",
+      "fields": {
+        "choices": {
+          "before": [
+            {
+              "name": "Katie Hobbs / John Giles",
+              "party": "Democratic ticket (Giles PND)",
+              "votes": 1433772,
+              "pct_of_listed_votes_calculated": 55.6312,
+              "winner": true
+            },
+            {
+              "name": "Andy Biggs / Sine Kerr",
+              "party": "Republican",
+              "votes": 1093643,
+              "pct_of_listed_votes_calculated": 42.434,
+              "winner": false
+            },
+            {
+              "name": "Risa Lombardo / Lisa Castillo",
+              "party": "Green",
+              "votes": 24609,
+              "pct_of_listed_votes_calculated": 0.9548,
+              "winner": false
+            },
+            {
+              "name": "Teri Ann Hourihan / Angela Harrolle Mohan",
+              "party": "No Labels ticket (Mohan PND)",
+              "votes": 23493,
+              "pct_of_listed_votes_calculated": 0.9115,
+              "winner": false
+            },
+            {
+              "name": "Unofficial Write-in",
+              "party": "write-in category",
+              "votes": 1725,
+              "pct_of_listed_votes_calculated": 0.0669,
+              "winner": false
+            },
+            {
+              "name": "Unassigned Write-in",
+              "party": "write-in category",
+              "votes": 11,
+              "pct_of_listed_votes_calculated": 0.0004,
+              "winner": false
+            },
+            {
+              "name": "Adjudicated Write-Ins",
+              "party": "aggregate write-in category",
+              "votes": 27,
+              "pct_of_listed_votes_calculated": 0.001,
+              "winner": false
+            }
+          ],
+          "after": [
+            {
+              "name": "Katie Hobbs / John Giles",
+              "party": "Democratic ticket (Giles PND)",
+              "votes": 1434824,
+              "pct_of_listed_votes_calculated": 55.631726,
+              "winner": true
+            },
+            {
+              "name": "Andy Biggs / Sine Kerr",
+              "party": "Republican",
+              "votes": 1094393,
+              "pct_of_listed_votes_calculated": 42.432362,
+              "winner": false
+            },
+            {
+              "name": "Risa Lombardo / Lisa Castillo",
+              "party": "Green",
+              "votes": 24644,
+              "pct_of_listed_votes_calculated": 0.95551,
+              "winner": false
+            },
+            {
+              "name": "Teri Ann Hourihan / Angela Harrolle Mohan",
+              "party": "No Labels ticket (Mohan PND)",
+              "votes": 23520,
+              "pct_of_listed_votes_calculated": 0.911929,
+              "winner": false
+            },
+            {
+              "name": "Unofficial Write-in",
+              "party": "write-in category",
+              "votes": 1728,
+              "pct_of_listed_votes_calculated": 0.066999,
+              "winner": false
+            },
+            {
+              "name": "Unassigned Write-in",
+              "party": "write-in category",
+              "votes": 9,
+              "pct_of_listed_votes_calculated": 0.000349,
+              "winner": false
+            },
+            {
+              "name": "Adjudicated Write-Ins",
+              "party": "aggregate write-in category",
+              "votes": 29,
+              "pct_of_listed_votes_calculated": 0.001124,
+              "winner": false
+            }
+          ]
+        },
+        "valid_listed_votes": {
+          "before": 2577280,
+          "after": 2579147
+        },
+        "snapshot": {
+          "before": "2026-11-12 16:06:28; timezone not specified in extracted source",
+          "after": "2026-11-14 01:49:14; timezone not specified"
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "sources": {
+          "before": [
+            "https://app.enhancedvoting.com/results/public/Arizona/elections/110326GeneralElection?cg=State"
+          ],
+          "after": [
+            "https://app.enhancedvoting.com/results/public/Arizona/elections/110326GeneralElection"
+          ]
+        },
+        "nested_writein_breakdown": {
+          "before": [
+            {
+              "parent": "Adjudicated Write-Ins",
+              "name": "Alice Novoa",
+              "party": "Republican",
+              "votes": 17
+            },
+            {
+              "parent": "Adjudicated Write-Ins",
+              "name": "Gertritrude Gonzalez",
+              "party": "Republican",
+              "votes": 10
+            }
+          ],
+          "after": [
+            {
+              "parent": "Adjudicated Write-Ins",
+              "name": "Alice Novoa",
+              "party": "Republican",
+              "votes": 18
+            },
+            {
+              "parent": "Adjudicated Write-Ins",
+              "name": "Gertritrude Gonzalez",
+              "party": "Republican",
+              "votes": 11
+            }
+          ]
+        },
+        "notes": {
+          "before": [
+            "Official display also lists Alice Novoa (Republican) 17 and Gertritrude Gonzalez (Republican) 10. These sum exactly to Adjudicated Write-Ins 27 and are treated as its component breakdown, NOT additional votes. This aggregation interpretation is an inference; preserve all raw rows and verify export schema before dashboard aggregation.",
+            "Unique total 2,577,280 matches independently displayed total on a third-party raw-data-based results viewer, https://timheuer.github.io/azvoteresults/ (turn148search6).",
+            "Official result is Governor AND Lieutenant Governor joint ticket. Do not present John Giles as Democrat; official display marks PND.",
+            "Source for canvass November 23: https://www.azcleanelections.gov/state-general-results (turn145search6).",
+            "An official-source different URL without cg=State returned an earlier snapshot (Hobbs1,433,606 etc); never mix snapshots."
+          ],
+          "after": [
+            "The official display lists 18 votes for Novoa and 11 for Gonzalez, summing to the 29 adjudicated write-ins. They are treated as components rather than additional votes. This hierarchy remains an explicit inference pending export-schema confirmation.",
+            "This is a joint governor/lieutenant-governor contest. The official display marks John Giles PND, not Democratic.",
+            "The Arizona Secretary of State calendar schedules the statewide canvass for November 23, 2026."
+          ]
+        },
+        "status": {
+          "before": "unofficial; state canvass scheduled November 23, 2026",
+          "after": "Official unofficial snapshot; statewide canvass scheduled November 23, 2026"
+        },
+        "source_ids": {
+          "before": [
+            "S_8f40d10b0e"
+          ],
+          "after": [
+            "S_185ec57597"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "control_changes",
+      "record_id": "NC|House",
+      "reason": "Refresh unresolved-Senate context without inventing a call.",
+      "fields": {
+        "note": {
+          "before": "Governor not elected in 2026; Josh Stein D continues. Senate control not resolved in cited Nov9 BP record; avoid claiming trifecta.",
+          "after": "The House flips from R to D. Governor Josh Stein (D) continues after his 2024 election. The Senate remains 24D/25R with one uncalled race in the November 15 unofficial secondary snapshot; do not claim a Democratic trifecta."
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "AZ|Senate",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://events.movementvoterfund.org/election-results/2026/arizona/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_a73cc03edd"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn293view0"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "AZ|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "R": {
+          "before": 21,
+          "after": 22
+        },
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "uncalled": {
+          "before": 2,
+          "after": 1
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://events.movementvoterfund.org/election-results/2026/arizona/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_a73cc03edd"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn293view0"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "GA|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 08:43ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://events.movementvoterfund.org/election-results/2026/georgia/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_347a3242bf"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn287search1"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "MI|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://events.movementvoterfund.org/election-results/2026/michigan/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_c7f48f5c22"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn288search0"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "MN|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://movement.vote/election-results/2026/minnesota/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_313b1f8621"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn287search2"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "NH|Senate",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://movement.vote/election-results/2026/new-hampshire/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_c297f13640"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn289view0"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "NH|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "D": {
+          "before": 248,
+          "after": 269
+        },
+        "R": {
+          "before": 72,
+          "after": 87
+        },
+        "other": {
+          "before": null,
+          "after": 1
+        },
+        "uncalled": {
+          "before": 80,
+          "after": 43
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://movement.vote/election-results/2026/new-hampshire/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_c297f13640"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn289view0"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": "Unusually many uncalled seats; do not portray as final chamber composition.",
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        },
+        "projection": {
+          "before": null,
+          "after": {
+            "D": 292,
+            "R": 107,
+            "other": 1,
+            "basis": "House clerk preliminary tally; recounts possible",
+            "as_of": "2026-11-04",
+            "source": "https://www.wgbh.org/news/politics/2026-11-04/democrats-appear-to-sweep-nh-executive-council-grab-big-majorities-in-legislature"
+          }
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "NC|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "as_of": {
+          "before": "2026-11-12 07:45 ET",
+          "after": "2026-11-15 07:39ET"
+        },
+        "ref": {
+          "before": "turn73search3",
+          "after": "turn287view2"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": "Secondary tracker reproducing unofficial NCSBE data; an earlier MultiState snapshot was66D48R1other5uncalled.",
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "PA|Senate",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-10 13:56 ET",
+          "after": "2026-11-15 19:21ET"
+        },
+        "source": {
+          "before": "https://www.multistate-test.us/elections/legislatures",
+          "after": "https://movement.vote/election-results/2026/pennsylvania/"
+        },
+        "source_id": {
+          "before": "S_2dad643de9",
+          "after": "S_6be9c671d2"
+        },
+        "ref": {
+          "before": "turn6search2",
+          "after": "turn288search4"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "WI|Assembly",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "ref": {
+          "before": "turn73search1",
+          "after": "turn287view1"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "WI|Senate",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "ref": {
+          "before": "turn73search1",
+          "after": "turn287view1"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": null,
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "TX|House",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "D": {
+          "before": 83,
+          "after": 79
+        },
+        "R": {
+          "before": 67,
+          "after": 63
+        },
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "uncalled": {
+          "before": 0,
+          "after": 8
+        },
+        "as_of": {
+          "before": "2026-11-12 secondary report",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/",
+          "after": "https://movement.vote/election-results/2026/texas/"
+        },
+        "source_id": {
+          "before": null,
+          "after": "S_63543b02ed"
+        },
+        "ref": {
+          "before": null,
+          "after": "turn289view1"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": "Reported seat count; not independently district-canvassed.",
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        },
+        "projection": {
+          "before": null,
+          "after": {
+            "D": 83,
+            "R": 67,
+            "basis": "If election-night leads hold",
+            "as_of": "2026-11-04 12:59Central",
+            "source": "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/"
+          }
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "chamber_snapshots",
+      "record_id": "TX|Senate",
+      "reason": "Keep comparable called-seat snapshots separate from projections and certified chamber composition.",
+      "fields": {
+        "other": {
+          "before": null,
+          "after": 0
+        },
+        "as_of": {
+          "before": "2026-11-12 secondary report",
+          "after": "2026-11-15 23:21ET"
+        },
+        "source": {
+          "before": "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/",
+          "after": "https://movement.vote/election-results/2026/texas/"
+        },
+        "source_id": {
+          "before": null,
+          "after": "S_63543b02ed"
+        },
+        "ref": {
+          "before": null,
+          "after": "turn289view1"
+        },
+        "count_basis": {
+          "before": null,
+          "after": "reported_called_seats"
+        },
+        "certified": {
+          "before": null,
+          "after": false
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "note": {
+          "before": "Reported seat count; not independently district-canvassed.",
+          "after": "Reported race-call composition; uncalled seats are explicit. Certification and government organization not established by this tally."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "TX-ABBOTT-2026-09-21",
+      "reason": "Add agency implementation evidence to existing September directive; do not count correspondence as a separate enacted policy.",
+      "fields": {
+        "sources": {
+          "before": [
+            "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits"
+          ],
+          "after": [
+            "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+            "https://www.tceq.texas.gov/downloads/response/tceq-response-gov-abbott-dc-directive.pdf"
+          ]
+        },
+        "last_verified_at": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "implementation_updates": {
+          "before": null,
+          "after": [
+            {
+              "date": "2026-10-19",
+              "summary": "TCEQ reports screening pending permits and self-authorizations and pausing permits for data-center construction and directly supporting infrastructure.",
+              "source": "https://www.tceq.texas.gov/downloads/response/tceq-response-gov-abbott-dc-directive.pdf"
+            }
+          ]
+        },
+        "related_record_ids": {
+          "before": null,
+          "after": [
+            "TX-ERCOT-2026-08-03",
+            "TX-ERCOT-RFI-2026-09-14"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_HB331",
+      "reason": "Missing qualifying 90 R prefile identified in the official filing report; not a newly enacted law."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_HB734",
+      "reason": "Missing qualifying 90 R prefile identified in the official filing report; not a newly enacted law."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_HB847",
+      "reason": "Missing qualifying 90 R prefile identified in the official filing report; not a newly enacted law."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_HB1139",
+      "reason": "Missing qualifying 90 R prefile identified in the official filing report; not a newly enacted law."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_SB338",
+      "reason": "Missing qualifying 90 R prefile identified in the official filing report; not a newly enacted law."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_SB41",
+      "reason": "Missing qualifying 90 R prefile identified in the official filing report; not a newly enacted law."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_SB815",
+      "reason": "Existing AI legislation omitted from the baseline; add as historical context, not a 2026 election outcome."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX_SB1188",
+      "reason": "Existing AI legislation omitted from the baseline; add as historical context, not a 2026 election outcome."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX-ERCOT-2026-08-03",
+      "reason": "Distinct August 3 grid action previously mentioned only as context in the September permit record."
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "TX-ERCOT-RFI-2026-09-14",
+      "reason": "Distinct September 14 information request within the shared audit program; do not count all linked actions as independent bans."
+    },
+    {
+      "operation": "add",
+      "table": "elections",
+      "record_id": "E_AK_GOV",
+      "reason": "New gubernatorial call after the original cutoff, with official vote evidence."
+    },
+    {
+      "operation": "add",
+      "table": "control_changes",
+      "record_id": "AK|Governor",
+      "reason": "Add newly called governorship; use a coalition-specific leadership category."
+    },
+    {
+      "operation": "add",
+      "table": "chamber_snapshots",
+      "record_id": "NC|Senate",
+      "reason": "An explicit unresolved Senate snapshot prevents misreading North Carolina as a confirmed Democratic trifecta."
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "VA_HB507",
+      "reason": "Replace obsolete pending-publication status.",
+      "fields": {
+        "status": {
+          "before": "Enacted; Chapter397; implementing rule proceeding",
+          "after": "Enacted; Chapter 397; implementing regulation effective"
+        },
+        "status_date": {
+          "before": "2026-04-08",
+          "after": "2026-11-04"
+        },
+        "notes": {
+          "before": "DEQ regulatory page records final submission October5 awaiting publication; distinguish statute's application date from rule effective date.",
+          "after": "Implementing regulation (Town Hall Action 7091, Final Stage 11281) became effective November 4, 2026. The statute applies to relevant permit applications submitted on or after July 1, 2026; distinguish that application date from the regulation effective date."
+        },
+        "regulation_effective_date": {
+          "before": null,
+          "after": "2026-11-04"
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "AZ_2027_moratorium_incentive_proposals",
+      "reason": "Source says legislative leaders leave option open, not that they have committed to it.",
+      "fields": {
+        "summary": {
+          "before": "Attorney General Kris Mayes and Democratic legislative leaders support a pause; Governor Katie Hobbs opposes a blanket construction moratorium and favors water and ratepayer protections and permanent removal of incentives. Democratic control alone does not establish agreement on a ban.",
+          "after": "Attorney General Kris Mayes supports a pause. Incoming Democratic legislative leaders say a moratorium remains under consideration; Governor Katie Hobbs opposes a blanket construction moratorium and favors water and ratepayer protections and permanent removal of incentives. Democratic control alone does not establish agreement on a ban."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "MD_HB120_2026_",
+      "reason": "Repair broken source and avoid inferring hearing occurrence from scheduling entry.",
+      "fields": {
+        "status": {
+          "before": "hearing held; no enactment shown",
+          "after": "Hearing scheduled February 3; no enactment shown in official history"
+        },
+        "sources": {
+          "before": [
+            "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb0120"
+          ],
+          "after": [
+            "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/HB0120?ys=2026RS"
+          ]
+        },
+        "verification": {
+          "before": "primary record inspected",
+          "after": "Session-qualified official bill history indexed and reviewed; no enacted status shown."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "IA_HF2198",
+      "reason": "Upgrade discovery-only record to official history.",
+      "fields": {
+        "status": {
+          "before": "discovery watchlist; current official disposition not verified",
+          "after": "Introduced; House Ways and Means committee; no enactment shown"
+        },
+        "status_date": {
+          "before": null,
+          "after": "2026-01-29"
+        },
+        "session": {
+          "before": "2025–2026 unless specified",
+          "after": "91st General Assembly (2025–2026)"
+        },
+        "sponsors": {
+          "before": null,
+          "after": "Adam Zabner"
+        },
+        "priority": {
+          "before": "discovery_watchlist",
+          "after": "selected_policy"
+        },
+        "verification": {
+          "before": "secondary discovery only; do not publish as enacted",
+          "after": "Official bill history reviewed November 16, 2026."
+        },
+        "sources": {
+          "before": [
+            "https://datacenterrecord.org/laws/ia"
+          ],
+          "after": [
+            "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2198&ga=91"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "IA_HSB727_HF2688",
+      "reason": "Upgrade discovery-only record to official history.",
+      "fields": {
+        "status": {
+          "before": "discovery watchlist; current official disposition not verified",
+          "after": "Renumbered as HF2688; House Ways and Means committee; no enactment shown"
+        },
+        "status_date": {
+          "before": null,
+          "after": "2026-02-23"
+        },
+        "session": {
+          "before": "2025–2026 unless specified",
+          "after": "91st General Assembly (2025–2026)"
+        },
+        "sponsors": {
+          "before": null,
+          "after": "House Committee on Economic Growth and Technology; floor manager Weldon"
+        },
+        "priority": {
+          "before": "discovery_watchlist",
+          "after": "selected_policy"
+        },
+        "verification": {
+          "before": "secondary discovery only; do not publish as enacted",
+          "after": "Official bill and predecessor history reviewed November 16, 2026."
+        },
+        "sources": {
+          "before": [
+            "https://datacenterrecord.org/laws/ia"
+          ],
+          "after": [
+            "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2688&ga=91"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "IA_SSB3181_SF2498",
+      "reason": "Resolve bill lineage and avoid carrying obsolete proposal terms into enactment.",
+      "fields": {
+        "status": {
+          "before": "discovery watchlist; current official disposition not verified",
+          "after": "Original proposal superseded; SF2498 withdrawn after substitution of HF2757"
+        },
+        "status_date": {
+          "before": null,
+          "after": "2026-04-28"
+        },
+        "session": {
+          "before": "2025–2026 unless specified",
+          "after": "91st General Assembly (2025–2026)"
+        },
+        "summary": {
+          "before": "Links tax treatment to higher-education contributions.",
+          "after": "SSB3181 originally linked tax exemptions for nuclear generation, web-search portals and data centers to higher-education contributions. Its successor SF2498 became a nuclear-generation measure, then was withdrawn when HF2757 was substituted. HF2757 became Chapter 1146; that enactment must not be attributed to the original data-center proposal."
+        },
+        "sponsors": {
+          "before": null,
+          "after": "Senate Committee on Ways and Means; floor manager Dawson"
+        },
+        "verification": {
+          "before": "secondary discovery only; do not publish as enacted",
+          "after": "Official predecessor/successor histories and signed HF2757 reviewed November 16, 2026."
+        },
+        "sources": {
+          "before": [
+            "https://datacenterrecord.org/laws/ia"
+          ],
+          "after": [
+            "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=SSB3181&ga=91",
+            "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=SF2498&ga=91",
+            "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2757&ga=91"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "SD_SB232",
+      "reason": "Replace primary-access limitation with accessible official final index.",
+      "fields": {
+        "status": {
+          "before": "failed proposal per NCSL; primary history not readable",
+          "after": "Failed in committee; tabled"
+        },
+        "status_date": {
+          "before": null,
+          "after": "2026-02-18"
+        },
+        "sponsors": {
+          "before": null,
+          "after": "Senator Howard; Representative Phil Jensen"
+        },
+        "verification": {
+          "before": "secondary status, primary page located but not independently readable",
+          "after": "Official 2026 final legislative index reviewed; Senate State Affairs do-pass motion failed 3–5, tabling passed 5–3."
+        },
+        "sources": {
+          "before": [
+            "https://www.ncsl.org/fiscal/which-states-are-banning-data-centers",
+            "https://sdlegislature.gov/Session/Bill/27269/301228"
+          ],
+          "after": [
+            "https://mylrc.sdlegislature.gov/api/Documents/LegislativeIndex/286219.pdf?Year=2026",
+            "https://mylrc.sdlegislature.gov/api/Documents/Amendment/301393.html?Year=2026"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "OH_HB983",
+      "reason": "Refine introduced status using official committee listing.",
+      "fields": {
+        "status": {
+          "before": "Introduced; no enactment verified",
+          "after": "House Energy committee; no enactment shown"
+        },
+        "verification": {
+          "before": "Official source record inspected; see source type.",
+          "after": "Ohio LSC status report reflects legislative action through November 9, 2026; reviewed November 16."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "OH_HB999",
+      "reason": "Refine introduced status using official committee listing.",
+      "fields": {
+        "status": {
+          "before": "Introduced; no enactment verified",
+          "after": "House Energy committee; no enactment shown"
+        },
+        "verification": {
+          "before": "Official source record inspected; see source type.",
+          "after": "Ohio LSC status report reflects legislative action through November 9, 2026; reviewed November 16."
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "policies",
+      "record_id": "OH_SB381",
+      "reason": "Refine introduced status using official committee listing.",
+      "fields": {
+        "status": {
+          "before": "Introduced; no enactment verified",
+          "after": "Senate Public Utilities committee; no enactment shown"
+        },
+        "verification": {
+          "before": "Official source record inspected; see source type.",
+          "after": "Ohio LSC status report reflects legislative action through November 9, 2026; reviewed November 16."
+        }
+      }
+    },
+    {
+      "operation": "add",
+      "table": "policies",
+      "record_id": "OR_2026_10_09_DEQ_permit_pause",
+      "reason": "Previously omitted Governor letter; specified permits, not a blanket construction ban."
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "IL_CHICAGO_GUNSHOT",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "yes_votes": {
+          "before": 482304,
+          "after": 529613
+        },
+        "no_votes": {
+          "before": 184704,
+          "after": 212933
+        },
+        "valid_yes_no_votes": {
+          "before": 667008,
+          "after": 742546
+        },
+        "yes_pct_valid": {
+          "before": 72.308578,
+          "after": 71.323931
+        },
+        "no_pct_valid": {
+          "before": 27.691422,
+          "after": 28.676069
+        },
+        "reported_yes_pct": {
+          "before": 72.31,
+          "after": 71.32
+        },
+        "result_updated_at": {
+          "before": "2026-11-09 08:31:12 ET secondary update",
+          "after": "2026-11-15 14:18 local"
+        },
+        "result_status": {
+          "before": "unofficial_reported",
+          "after": "unofficial_primary"
+        },
+        "retrieved_as_of": {
+          "before": "2026-11-13",
+          "after": "2026-11-16"
+        },
+        "primary_counts_verified": {
+          "before": false,
+          "after": true
+        },
+        "precincts_reporting_pct": {
+          "before": 99,
+          "after": 100
+        },
+        "primary_url": {
+          "before": "https://results.chicagoelections.gov/results/Summary%20Report%20%282%20Column%29.pdf",
+          "after": "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf"
+        },
+        "sources": {
+          "before": [
+            "https://results.chicagoelections.gov/results/Summary%20Report%20%282%20Column%29.pdf",
+            "https://ballotpedia.org/Chicago,_Illinois,_Gunshot_Detection_Technology_Measure_(November_2026)",
+            "https://ir.soundthinking.com/sec-filings/all-sec-filings/content/0001193125-26-132104/0001193125-26-132104.pdf"
+          ],
+          "after": [
+            "https://results.chicagoelections.gov/results/Summary%20Report%20(2%20Column).pdf",
+            "https://results.chicagoelections.gov/results/Summary%20Report%20%282%20Column%29.pdf",
+            "https://ballotpedia.org/Chicago,_Illinois,_Gunshot_Detection_Technology_Measure_(November_2026)",
+            "https://ir.soundthinking.com/sec-filings/all-sec-filings/content/0001193125-26-132104/0001193125-26-132104.pdf"
+          ]
+        },
+        "notes": {
+          "before": [
+            "Latest retrieved Ballotpedia tally replacesNov 4 early result; primary linked PDF returned 403.",
+            "Ballot asks about gunshot-detection technology generically, not ShotSpotter by brand or AI governance generally. Nonbinding: does not require a new contract.",
+            "Vendor 2026 Form 10-K confirms ShotSpotter uses AI to classify acoustic signals; included only as an AI-adjacent public-safety technology vote."
+          ],
+          "after": [
+            "Generic gunshot-detection technology advisory question. It does not itself award a contract or identify a particular AI implementation."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "CA_SOLANO_E",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "yes_votes": {
+          "before": 55512,
+          "after": 55534
+        },
+        "no_votes": {
+          "before": 91777,
+          "after": 91821
+        },
+        "valid_yes_no_votes": {
+          "before": 147289,
+          "after": 147355
+        },
+        "yes_pct_valid": {
+          "before": 37.689169,
+          "after": 37.687218
+        },
+        "no_pct_valid": {
+          "before": 62.310831,
+          "after": 62.312782
+        },
+        "result_updated_at": {
+          "before": "2026-11-12 16:43 local",
+          "after": "2026-11-13 result update"
+        },
+        "retrieved_as_of": {
+          "before": "2026-11-13",
+          "after": "2026-11-16"
+        },
+        "restriction_vote_pct": {
+          "before": 37.689169,
+          "after": 37.687218
+        },
+        "primary_url": {
+          "before": "https://content.solanocounty.gov/sites/default/files/2026-09/HTML_Cumulative_Results-2026_November_General_Election-9-2-2026_13-15-29_PM.html",
+          "after": "https://www.livevoterturnout.com/ENR/solanocaenr/21/en/Index_21.html"
+        },
+        "sources": {
+          "before": [
+            "https://content.solanocounty.gov/sites/default/files/2026-09/HTML_Cumulative_Results-2026_November_General_Election-9-2-2026_13-15-29_PM.html",
+            "https://ballotpedia.org/Solano_County%2C_California%2C_Measure_E%2C_Commercial_Wind_Turbine_Rate_Business_License_Tax_Measure_%28November_2026%29"
+          ],
+          "after": [
+            "https://www.livevoterturnout.com/ENR/solanocaenr/21/en/Index_21.html",
+            "https://www.kqed.org/elections/results/solano/measure-e",
+            "https://content.solanocounty.gov/sites/default/files/2026-09/HTML_Cumulative_Results-2026_November_General_Election-9-2-2026_13-15-29_PM.html",
+            "https://ballotpedia.org/Solano_County%2C_California%2C_Measure_E%2C_Commercial_Wind_Turbine_Rate_Business_License_Tax_Measure_%28November_2026%29"
+          ]
+        },
+        "notes": {
+          "before": [
+            "Primary reported totals do not reconcile exactly: yes + no + undervotes + overvotes = 158787, three more than ballots_cast 158784. Preserve discrepancy; do not adjust categories.",
+            "This broader tax proposal is outside the targeted data-center referendum tally."
+          ],
+          "after": [
+            "Full official page exceeds the web tool content-size limit. Counts are visible in its indexed official result table.",
+            "Old turnout, ballots cast, undervotes, overvotes and vote-mode figures belong to the November 12 snapshot. They have not been validated against the new count and must not appear as contemporaneous.",
+            "Measure concerns a broader business-license tax, including an annual $5/square-foot data-center component in unincorporated areas; it is outside the targeted development cohort."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "KS_AMERICUS_DC",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "yes_votes": {
+          "before": 277,
+          "after": 278
+        },
+        "valid_yes_no_votes": {
+          "before": 404,
+          "after": 405
+        },
+        "yes_pct_valid": {
+          "before": 68.564356,
+          "after": 68.641975
+        },
+        "no_pct_valid": {
+          "before": 31.435644,
+          "after": 31.358025
+        },
+        "result_updated_at": {
+          "before": "2026-11-10 10:07 local",
+          "after": "2026-11-12 14:32 local"
+        },
+        "result_status": {
+          "before": "unofficial_final_primary",
+          "after": "official_final_primary"
+        },
+        "retrieved_as_of": {
+          "before": "2026-11-13",
+          "after": "2026-11-16"
+        },
+        "reported_contest_total": {
+          "before": 415,
+          "after": 416
+        },
+        "other_ballots_unclassified": {
+          "before": null,
+          "after": 11
+        },
+        "restriction_vote_pct": {
+          "before": 68.564356,
+          "after": 68.641975
+        },
+        "primary_url": {
+          "before": "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+          "after": "https://www.lyoncountyks.gov/DocumentCenter/View/2438"
+        },
+        "sources": {
+          "before": [
+            "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+            "https://datacentersontheballot.com/"
+          ],
+          "after": [
+            "https://www.lyoncountyks.gov/DocumentCenter/View/2438",
+            "https://www.lyoncountyks.gov/350/2026-General-Election-Results",
+            "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+            "https://datacentersontheballot.com/"
+          ]
+        },
+        "notes": {
+          "before": [
+            "Additional measure outside Ballotpedia 51.",
+            "Primary PDF page 10 visually checked; Unofficial Final datedNov 10. County canvass occurredNov 12, but this is not independently verified final certified tally.",
+            "Contest ballots 415 exceed validyes/no 404 by 11; categories unspecified."
+          ],
+          "after": [
+            "Eleven contest ballots are outside valid yes/no totals; the report does not classify them as blanks or overvotes.",
+            "Official Final is explicit; a separate certification instrument and its date were not read. Current Ballotpedia includes Americus in its 57-measure cohort."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "KS_EMPORIA_2",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "yes_votes": {
+          "before": 4367,
+          "after": 4448
+        },
+        "no_votes": {
+          "before": 2901,
+          "after": 2953
+        },
+        "valid_yes_no_votes": {
+          "before": 7268,
+          "after": 7401
+        },
+        "yes_pct_valid": {
+          "before": 60.085305,
+          "after": 60.099986
+        },
+        "no_pct_valid": {
+          "before": 39.914695,
+          "after": 39.900014
+        },
+        "result_updated_at": {
+          "before": "2026-11-10 10:07 local",
+          "after": "2026-11-12 14:32 local"
+        },
+        "result_status": {
+          "before": "unofficial_final_primary",
+          "after": "official_final_primary"
+        },
+        "retrieved_as_of": {
+          "before": "2026-11-13",
+          "after": "2026-11-16"
+        },
+        "reported_contest_total": {
+          "before": 7370,
+          "after": 7513
+        },
+        "other_ballots_unclassified": {
+          "before": null,
+          "after": 112
+        },
+        "restriction_vote_pct": {
+          "before": 60.085305,
+          "after": 60.099986
+        },
+        "primary_url": {
+          "before": "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+          "after": "https://www.lyoncountyks.gov/DocumentCenter/View/2438"
+        },
+        "sources": {
+          "before": [
+            "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+            "https://ballotpedia.org/Emporia%2C_Kansas%2C_Prohibit_High_Impact_Data_Centers_Initiative_%28November_2026%29"
+          ],
+          "after": [
+            "https://www.lyoncountyks.gov/DocumentCenter/View/2438",
+            "https://www.lyoncountyks.gov/350/2026-General-Election-Results",
+            "https://www.lyoncountyks.gov/DocumentCenter/View/2434",
+            "https://ballotpedia.org/Emporia%2C_Kansas%2C_Prohibit_High_Impact_Data_Centers_Initiative_%28November_2026%29"
+          ]
+        },
+        "notes": {
+          "before": [
+            "Primary PDF page 10 downloaded, rendered and visually checked. It explicitly says Unofficial Final. County canvass occurredNov 12; this is theNov 10 published tally, not independently verified final certified count.",
+            "Contest ballots 7370 exceed validyes/no 7268 by 102; categories not specified, so not labelled as blanks.",
+            "Implementation has been contested in litigation; approval does not establish that every legal challenge is resolved.",
+            "Emporia’s separate BESS Question 3 is excluded from the targeted data-center set."
+          ],
+          "after": [
+            "112 contest ballots are outside valid yes/no totals and are not specifically classified.",
+            "Ballotpedia retains older 4,346/2,891 counts; do not revert newer primary totals. The separate Question 3 battery-storage measure is outside the main AI/data-center scope.",
+            "Implementation has been contested in litigation; approval does not establish that every legal challenge is resolved."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "NJ_BELVIDERE_DC",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "yes_votes": {
+          "before": 727,
+          "after": 731
+        },
+        "valid_yes_no_votes": {
+          "before": 970,
+          "after": 974
+        },
+        "yes_pct_valid": {
+          "before": 74.948454,
+          "after": 75.051335
+        },
+        "no_pct_valid": {
+          "before": 25.051546,
+          "after": 24.948665
+        },
+        "reported_yes_pct": {
+          "before": 74.95,
+          "after": 75.05
+        },
+        "result_updated_at": {
+          "before": "2026-11-09 return as described in secondary source",
+          "after": "2026-11-14 21:25 Eastern (secondary update)"
+        },
+        "retrieved_as_of": {
+          "before": "2026-11-13",
+          "after": "2026-11-16"
+        },
+        "precincts_reporting_pct": {
+          "before": null,
+          "after": 100
+        },
+        "restriction_vote_pct": {
+          "before": 74.948454,
+          "after": 75.051335
+        },
+        "secondary_url": {
+          "before": "https://ailawsusa.com/protection/nj-belvidere-dc-ban-master-plan-advisory-question-2026/",
+          "after": "https://ballotpedia.org/Belvidere,_New_Jersey,_Data_Center_Ban_Advisory_Question_(November_2026)"
+        },
+        "sources": {
+          "before": [
+            "https://www.warrencountyvotes.com/home/showpublisheddocument/15081",
+            "https://ailawsusa.com/protection/nj-belvidere-dc-ban-master-plan-advisory-question-2026/"
+          ],
+          "after": [
+            "https://ballotpedia.org/Belvidere,_New_Jersey,_Data_Center_Ban_Advisory_Question_(November_2026)",
+            "https://www.warrencountyvotes.com/home/showpublisheddocument/15081",
+            "https://ailawsusa.com/protection/nj-belvidere-dc-ban-master-plan-advisory-question-2026/"
+          ]
+        },
+        "notes": {
+          "before": [
+            "Primary county document returned 403. Latest 727/243 and 77 undervotes are explicitly secondary-reported, not independently read from the county document.",
+            "Do not use secondary site’s Enacted label for this nonbinding advisory question."
+          ],
+          "after": [
+            "Official Warren County document remains inaccessible in this pass. Counts are secondary-reported.",
+            "The previously reported 77 undervotes are tied to the November 9 snapshot and must not be assumed unchanged.",
+            "Nonbinding advisory support for a ban is not an enacted zoning ban."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "ME_ELIOT_5",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "notes": {
+          "before": [
+            "Municipal ballots 4057; state-election ballots 4073 are a different ballot total and must not be substituted."
+          ],
+          "after": [
+            "Municipal ballots 4057; state-election ballots 4073 are a different ballot total and must not be substituted.",
+            "Municipal ballot total differs from state-election ballots."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "ME_HOLLIS_2",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "policy_summary": {
+          "before": "Proposed 180-day moratorium on new or expanded data centers.",
+          "after": "Proposed 180-day data-center moratorium, beginning December 8, covering facilities of at least 2,500 square feet including associated impervious surfaces (threshold from current secondary description)."
+        },
+        "primary_url": {
+          "before": null,
+          "after": "https://www.hollismaine.org/DocumentCenter/View/1727/120826-STM-warrant-Proposed-Data-Center-Moratorium"
+        },
+        "sources": {
+          "before": [
+            "https://ballotpedia.org/Hollis%2C_Maine%2C_Article_2%2C_Data_Center_Moratorium_Measure_%28December_2026%29"
+          ],
+          "after": [
+            "https://ballotpedia.org/Hollis%2C_Maine%2C_Article_2%2C_Data_Center_Moratorium_Measure_%28December_2026%29",
+            "https://www.hollismaine.org/DocumentCenter/View/1727/120826-STM-warrant-Proposed-Data-Center-Moratorium"
+          ]
+        },
+        "notes": {
+          "before": [],
+          "after": [
+            "No votes yet. Do not convert secondary template zeroes to results.",
+            "Threshold update should be marked secondary-supported until the official warrant image is independently read."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "ND_MANDAN_1",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "primary_url": {
+          "before": null,
+          "after": "https://www.cityofmandan.com/vertical/sites/%7B38C3EFDC-F4D8-4D02-9E13-0987A081A7A4%7D/uploads/SAMPLE_BALLOT.pdf"
+        },
+        "policy_summary": {
+          "before": "Proposed prohibition on data centers with anticipated capacity or demand of 25 MW or more within city and territorial zoning jurisdiction.",
+          "after": "Would prohibit data centers of 25 MW or more within Mandan and its extraterritorial zoning jurisdiction. City residents vote December 15."
+        },
+        "sources": {
+          "before": [
+            "https://ballotpedia.org/Mandan%2C_North_Dakota%2C_Measure_1%2C_Prohibit_Data_Centers_Initiative_%28December_2026%29"
+          ],
+          "after": [
+            "https://www.cityofmandan.com/index.asp?SEC=%7BBC91F144-6B1B-4329-B743-888CF7C68311%7D",
+            "https://www.cityofmandan.com/vertical/sites/%7B38C3EFDC-F4D8-4D02-9E13-0987A081A7A4%7D/uploads/SAMPLE_BALLOT.pdf",
+            "https://ballotpedia.org/Mandan%2C_North_Dakota%2C_Measure_1%2C_Prohibit_Data_Centers_Initiative_%28December_2026%29"
+          ]
+        },
+        "notes": {
+          "before": [],
+          "after": [
+            "Eligible voters are city residents; policy territory also includes the extraterritorial zoning area. Keep electorate and policy geography separate.",
+            "The official sample ballot is controlling where a city explainer informally says 25MW or less. No vote has yet occurred."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "OH_WILMINGTON_SR730",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "primary_counts_verified": {
+          "before": false,
+          "after": true
+        },
+        "result_status": {
+          "before": "unofficial_reported",
+          "after": "unofficial_final_primary"
+        },
+        "notes": {
+          "before": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda."
+          ],
+          "after": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda.",
+            "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "OH_WILMINGTON_1957_SR730",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "primary_counts_verified": {
+          "before": false,
+          "after": true
+        },
+        "result_status": {
+          "before": "unofficial_reported",
+          "after": "unofficial_final_primary"
+        },
+        "notes": {
+          "before": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda."
+          ],
+          "after": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda.",
+            "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "OH_WILMINGTON_MCGUINN",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "primary_counts_verified": {
+          "before": false,
+          "after": true
+        },
+        "result_status": {
+          "before": "unofficial_reported",
+          "after": "unofficial_final_primary"
+        },
+        "notes": {
+          "before": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda."
+          ],
+          "after": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda.",
+            "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "ballots",
+      "record_id": "OH_WILMINGTON_US68",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "primary_counts_verified": {
+          "before": false,
+          "after": true
+        },
+        "result_status": {
+          "before": "unofficial_reported",
+          "after": "unofficial_final_primary"
+        },
+        "notes": {
+          "before": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda."
+          ],
+          "after": [
+            "One of four separate questions put to the same electorate. Counts cannot be added as unique voters.",
+            "Separate proposed zoning-code initiative did not qualify for this ballot; do not confuse with these four referenda.",
+            "These are four separate questions on overlapping electorates; their answer totals are not unique voters."
+          ]
+        }
+      }
+    },
+    {
+      "operation": "update",
+      "table": "recalls",
+      "record_id": "R_MO_7",
+      "reason": "Source-backed ballot/recall review; preserve older count and scope evidence.",
+      "fields": {
+        "yes": {
+          "before": 1118,
+          "after": 1120
+        },
+        "no": {
+          "before": 525,
+          "after": 526
+        },
+        "yes_percent": {
+          "before": 68,
+          "after": 68.04
+        },
+        "total_valid_votes": {
+          "before": 1643,
+          "after": 1646
+        },
+        "status": {
+          "before": "reported removed; certification document not inspected",
+          "after": "official primary return; certification not independently verified"
+        },
+        "result_updated_at": {
+          "before": null,
+          "after": "2026-09-08 14:58:14 local"
+        },
+        "retrieved_as_of": {
+          "before": null,
+          "after": "2026-11-16"
+        },
+        "sources": {
+          "before": [
+            "https://ballotpedia.org/John_Perkins_recall,_Independence,_Missouri_(2026)"
+          ],
+          "after": [
+            "https://www.livevoterturnout.com/ENR/jacksonmoenr/37/en/Index_37.html",
+            "https://ballotpedia.org/John_Perkins_recall,_Independence,_Missouri_(2026)"
+          ]
+        }
+      }
+    },
+    {
+      "operation": "add",
+      "table": "ballots",
+      "record_id": "IL_CHICAGO_SOUTH_WORKS_W07_P14",
+      "reason": "Additional direct vote documented in official ballot wording and returns; separately scoped."
+    },
+    {
+      "operation": "add",
+      "table": "ballots",
+      "record_id": "IL_CHICAGO_SOUTH_WORKS_W10_P02",
+      "reason": "Additional direct vote documented in official ballot wording and returns; separately scoped."
+    },
+    {
+      "operation": "add",
+      "table": "ballots",
+      "record_id": "IL_CHICAGO_SOUTH_WORKS_W10_P04",
+      "reason": "Additional direct vote documented in official ballot wording and returns; separately scoped."
+    },
+    {
+      "operation": "add",
+      "table": "ballots",
+      "record_id": "OH_NEWTON_FALLS_PHOTO_ENFORCEMENT",
+      "reason": "Additional direct vote documented in official ballot wording and returns; separately scoped."
+    },
+    {
+      "operation": "add",
+      "table": "exclusions",
+      "record_id": "EX_IL_CHICAGO_SOUTH_WORKS_CLEANUP_W07_P14",
+      "reason": "Paired environmental-cleanup advisory question. Its operative wording does not address AI, data-center approval, technology use or funding for compute infrastructure. Retain as related environmental context, outside the main technology ballot count."
+    },
+    {
+      "operation": "add",
+      "table": "exclusions",
+      "record_id": "EX_IL_CHICAGO_SOUTH_WORKS_CLEANUP_W10_P02",
+      "reason": "Paired environmental-cleanup advisory question. Its operative wording does not address AI, data-center approval, technology use or funding for compute infrastructure. Retain as related environmental context, outside the main technology ballot count."
+    },
+    {
+      "operation": "add",
+      "table": "exclusions",
+      "record_id": "EX_IL_CHICAGO_SOUTH_WORKS_CLEANUP_W10_P04",
+      "reason": "Paired environmental-cleanup advisory question. Its operative wording does not address AI, data-center approval, technology use or funding for compute infrastructure. Retain as related environmental context, outside the main technology ballot count."
+    },
+    {
+      "operation": "add",
+      "table": "exclusions",
+      "record_id": "EX_KS_EMPORIA_BESS_Q3",
+      "reason": "Separately regulates battery energy storage; does not itself regulate data centers. Suitable for an opt-in adjacent energy layer, not automatic expansion of the main AI/data-center cohort."
+    }
+  ]
+}
