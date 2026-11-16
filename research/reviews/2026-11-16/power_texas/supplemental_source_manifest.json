@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.elections.alaska.gov/enr/26GENR/results/ElectionSummaryReportRPT.pdf",
+    "path": "/workspace/scratch/72fe40e04fa4/atlas_final_review/power_texas/sources/alaska_summary.pdf",
+    "bytes": 272782,
+    "sha256": "6bc90fa6330c2611f2c72e0e32267ea7ac47aba160cfa3801c2ad3eb99215e6f",
+    "retrieved": "2026-11-16",
+    "source_date": "2026-11-14 15:15:40"
+  },
+  {
+    "url": "https://capitol.texas.gov/tlodocs/90R/billtext/pdf/HB01139I.pdf",
+    "path": "/workspace/scratch/72fe40e04fa4/atlas_final_review/power_texas/sources/HB1139.pdf",
+    "bytes": 144987,
+    "sha256": "b41cb431bfedb760dcc1974b780221033dec8c26bca3b0c580b4e2e84969d2e3",
+    "retrieved": "2026-11-16",
+    "source_date": "2026-11-13"
+  },
+  {
+    "url": "https://www.elections.alaska.gov/election-results/",
+    "path": "/workspace/scratch/72fe40e04fa4/atlas_final_review/power_texas/sources/alaska_results.html",
+    "bytes": 117070,
+    "sha256": "6a94e8e32078b1c89f5f6822de4dbf8c8f808de30bf3000060225af23dd2584a",
+    "retrieved": "2026-11-16",
+    "source_date": "2026-11-14 15:49"
+  }
+]

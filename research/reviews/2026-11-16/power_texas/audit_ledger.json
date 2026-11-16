@@ -1,0 +1,3109 @@
+{
+  "as_of": "2026-11-16",
+  "scope_counts": {
+    "elections": 21,
+    "control_changes": 15,
+    "chamber_snapshots": 13,
+    "policies": 46
+  },
+  "verification_standard": "Every retained record received a documented disposition. This is not certification and is not a claim that all local canvasses or operative legal clauses were independently audited.",
+  "records": [
+    {
+      "table": "elections",
+      "record_id": "TX-2026-GOVERNOR",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9907381,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-LIEUTENANT-GOVERNOR",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9828050,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-ATTORNEY-GENERAL",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9801621,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-COMPTROLLER",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9774685,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-RAILROAD-COMMISSIONER",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9717302,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-US-SENATE",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9889704,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-LAND-COMMISSIONER",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9747005,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-AGRICULTURE-COMMISSIONER",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 9729656,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "TX-2026-STATE-SENATE-DISTRICT-9",
+      "state": "TX",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "primary_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 16:59",
+      "retained_vote_sum": 341999,
+      "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_GA_1",
+      "state": "GA",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_d8637c42bf",
+          "url": "https://ballotpedia.org/Georgia_gubernatorial_election,_2026",
+          "reference_ids": [
+            "turn238view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": null,
+          "type": "secondary_results",
+          "support": "Bottoms 2,271,403; Jackson 1,909,161 unchanged.",
+          "limits": "Snapshot timestamp not exposed; no certified source obtained."
+        }
+      ],
+      "retained_snapshot": null,
+      "retained_vote_sum": 4180564,
+      "limits": "Snapshot timestamp not exposed; no certified source obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_MI_2",
+      "state": "MI",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "updated_snapshot",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9ee421a601",
+          "url": "https://interactives.apelections.org/election-results/customers/layouts/organization-layouts/published/57250/35757.html",
+          "reference_ids": [
+            "turn290search5"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-13 21:19; timezone not stated by extracted source",
+          "type": "race_call_provider",
+          "support": "Benson 2,614,277; James 2,095,233; Hudson 44,504; Brandenburg 20,146; Campbell 17,616; 98%estimated.",
+          "limits": "Counts retrieved through indexed AP interactive; direct text is a JS shell. Michigan official votehistory portal returned 403."
+        }
+      ],
+      "retained_snapshot": "2026-11-11 22:54",
+      "retained_vote_sum": 4791774,
+      "limits": "Counts retrieved through indexed AP interactive; direct text is a JS shell. Michigan official votehistory portal returned 403."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_OH_3",
+      "state": "OH",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "updated_snapshot",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_7c55455f93",
+          "url": "https://votes.decisiondeskhq.com/races/2026-11-03/ohio-governor-general-election",
+          "reference_ids": [
+            "turn238view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-13 12:56 EST",
+          "type": "race_call_provider",
+          "support": "Acton 2,405,095; Ramaswamy 2,040,654; Kissick 151,946.",
+          "limits": "Unofficial DDHQ count, not state certification."
+        }
+      ],
+      "retained_snapshot": "2026-11-12 17:40 EST",
+      "retained_vote_sum": 4597288,
+      "limits": "Unofficial DDHQ count, not state certification."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_WI_4",
+      "state": "WI",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_91a77ee91e",
+          "url": "https://ballotpedia.org/Wisconsin_gubernatorial_and_lieutenant_gubernatorial_election,_2026",
+          "reference_ids": [
+            "turn238view3"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": null,
+          "type": "secondary_results",
+          "support": "Crowley/Godlewski 1,440,990; Tiffany/Varnam 1,227,674; nine listed write-in rows displayedzero.",
+          "limits": "Zero display values are not proof no write-in ballots were cast. No certified primary count obtained."
+        }
+      ],
+      "retained_snapshot": null,
+      "retained_vote_sum": 2668664,
+      "limits": "Zero display values are not proof no write-in ballots were cast. No certified primary count obtained."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_PA_5",
+      "state": "PA",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_b260366604",
+          "url": "https://ballotpedia.org/Pennsylvania_gubernatorial_and_lieutenant_gubernatorial_election,_2026",
+          "reference_ids": [
+            "turn245view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": null,
+          "type": "secondary_results",
+          "support": "Shapiro 2,919,804; Garrity 1,871,697; Krawchuk 63,027 unchanged.",
+          "limits": "Undated unofficial snapshot; cannot claim this is latest official tally."
+        }
+      ],
+      "retained_snapshot": null,
+      "retained_vote_sum": 4854528,
+      "limits": "Undated unofficial snapshot; cannot claim this is latest official tally."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_GA_6",
+      "state": "GA",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5ab7387be1",
+          "url": "https://results.sos.ga.gov/results/public/Georgia/11032026GeneralAndSpecialElection",
+          "reference_ids": [
+            "turn255search2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 02:10:35",
+          "type": "primary_results",
+          "support": "Indexed official source reproduces both retained PSC counts; 141 of 159 localities.",
+          "limits": "Early incomplete snapshot; direct dynamic result page did not expose counts. Later official tally not retrieved."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 02:10:35",
+      "retained_vote_sum": 3148706,
+      "limits": "Early incomplete snapshot; direct dynamic result page did not expose counts. Later official tally not retrieved."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_GA_7",
+      "state": "GA",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5ab7387be1",
+          "url": "https://results.sos.ga.gov/results/public/Georgia/11032026GeneralAndSpecialElection",
+          "reference_ids": [
+            "turn255search2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 02:10:35",
+          "type": "primary_results",
+          "support": "Indexed official source reproduces both retained PSC counts; 141 of 159 localities.",
+          "limits": "Early incomplete snapshot; direct dynamic result page did not expose counts. Later official tally not retrieved."
+        }
+      ],
+      "retained_snapshot": "2026-11-04 02:10:35",
+      "retained_vote_sum": 3153649,
+      "limits": "Early incomplete snapshot; direct dynamic result page did not expose counts. Later official tally not retrieved."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_AZ_8",
+      "state": "AZ",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "updated_snapshot",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_751e6db85a",
+          "url": "https://app.enhancedvoting.com/results/public/Arizona/elections/110326GeneralElection/ballot-items/248c0000-c0a3-7204-82ca-08df11bc03d0",
+          "reference_ids": [
+            "turn255search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-14 01:49:14; timezone not specified",
+          "type": "primary_results",
+          "support": "Updated two-seat Corporation Commission candidate totals.",
+          "limits": "Vote-for-two; percentages are candidate-vote shares, not unique voter shares."
+        }
+      ],
+      "retained_snapshot": "2026-11-12 snapshot",
+      "retained_vote_sum": 4682490,
+      "limits": "Vote-for-two; percentages are candidate-vote shares, not unique voter shares."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_AZ_GOV",
+      "state": "AZ",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "updated_snapshot",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_185ec57597",
+          "url": "https://app.enhancedvoting.com/results/public/Arizona/elections/110326GeneralElection",
+          "reference_ids": [
+            "turn258search0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-14 01:49:14; timezone not specified",
+          "type": "primary_results",
+          "support": "Updated four tickets plus write-in aggregates; 15 of 15 localities.",
+          "limits": "Extracted from official indexed page. Nested 29 adjudicated write-ins treated as 18+11 components by explicit inference; export-schema confirmation still desirable."
+        }
+      ],
+      "retained_snapshot": "2026-11-12 16:06:28; timezone not specified in extracted source",
+      "retained_vote_sum": 2577280,
+      "limits": "Extracted from official indexed page. Nested 29 adjudicated write-ins treated as 18+11 components by explicit inference; export-schema confirmation still desirable."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_IA_GOV",
+      "state": "IA",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_c158042eca",
+          "url": "https://mysourceline.com/election-2026/iowa/",
+          "reference_ids": [
+            "turn257view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-12 18:00 ET",
+          "type": "secondary_results",
+          "support": "Sand 759,443; Lahn 607,979; write-in 1,756 unchanged.",
+          "limits": "Source reports 96/99 precincts; likely county unit but not independently established. Do not reuse as precinct-completeness data."
+        }
+      ],
+      "retained_snapshot": "2026-11-12 18:00 Eastern, according to secondary republication",
+      "retained_vote_sum": 1369178,
+      "limits": "Source reports 96/99 precincts; likely county unit but not independently established. Do not reuse as precinct-completeness data."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_NV_GOV",
+      "state": "NV",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_0ac31e7e15",
+          "url": "https://spectrumvote.com/nv/governor",
+          "reference_ids": [
+            "turn257view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "Count2026-11-10 17:21ET; pageupdatedNov13 09:50ET",
+          "type": "secondary_results",
+          "support": "Ford 563,600; Lombardo 480,397; Danielle Ford 31,772; Noneof These 16,070 unchanged.",
+          "limits": "Page update date is not count timestamp.17/17 sourceunit must not be inferred as precincts."
+        }
+      ],
+      "retained_snapshot": "2026-11-10 17:21 Eastern, according to secondary republication updated November12",
+      "retained_vote_sum": 1091839,
+      "limits": "Page update date is not count timestamp.17/17 sourceunit must not be inferred as precincts."
+    },
+    {
+      "table": "elections",
+      "record_id": "E_NH_GOV",
+      "state": "NH",
+      "scope": "Listed candidate counts, arithmetic, snapshot provenance, winner/status distinction; campaign pledges not exhaustively re-audited.",
+      "finding": "retained_snapshot_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_55c21d8c5b",
+          "url": "https://ballotpedia.org/New_Hampshire_gubernatorial_election,_2026",
+          "reference_ids": [
+            "turn289search4"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": null,
+          "type": "secondary_results",
+          "support": "Ayotte 313,480; Warmington 287,476; Villee 9,189 unchanged.",
+          "limits": "No verified complete write-in count; primary SOS landing 403 despite search indexing."
+        }
+      ],
+      "retained_snapshot": null,
+      "retained_vote_sum": 610145,
+      "limits": "No verified complete write-in count; primary SOS landing 403 despite search indexing."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "AZ|House and Senate",
+      "state": "AZ",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "AZ",
+        "office": "House and Senate",
+        "before": "R",
+        "after": "D",
+        "note": "Governor Katie Hobbs D re-elected; D trifecta; source NCSL_CONTROL",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "GA|House; governor",
+      "state": "GA",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "GA",
+        "office": "House; governor",
+        "before": "R",
+        "after": "D",
+        "note": "Senate retained R; divided government; sources NCSL_CONTROL GA_GOV_BP",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "MI|House",
+      "state": "MI",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "MI",
+        "office": "House",
+        "before": "R",
+        "after": "D",
+        "note": "Senate D hold; governor D hold with Benson; D trifecta; House D 63/R 47 according to Nov 12 AP secondary tracker",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "MN|House",
+      "state": "MN",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "MN",
+        "office": "House",
+        "before": "Tied",
+        "after": "D",
+        "note": "Not a Republican-majority chamber before election; D trifecta",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "NH|House and Senate",
+      "state": "NH",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "NH",
+        "office": "House and Senate",
+        "before": "R",
+        "after": "D",
+        "note": "Kelly Ayotte R re-elected; divided",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "NC|House",
+      "state": "NC",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        },
+        {
+          "source_id": "S_f31ed1d799",
+          "url": "https://99chambers.app/elections/2026-general/nc/house",
+          "reference_ids": [
+            "turn287view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 07:39ET",
+          "type": "secondary_results",
+          "support": "70 D 48 R 1 other 1 uncalled.",
+          "limits": "Republishes unofficial NCSBE results/calls; no certification inference."
+        },
+        {
+          "source_id": "S_c4b80b9164",
+          "url": "https://99chambers.app/elections/2026-general/nc/senate",
+          "reference_ids": [
+            "turn287view3"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 07:39ET",
+          "type": "secondary_results",
+          "support": "24 D 25 R 1 uncalled; control unresolved.",
+          "limits": "An eventual 25–25 tie differs from a Democratic membership majority; lieutenant-governor tie-break context matters."
+        }
+      ],
+      "retained": {
+        "state": "NC",
+        "office": "House",
+        "before": "R",
+        "after": "D",
+        "note": "Governor not elected in 2026; Josh Stein D continues. Senate control not resolved in cited Nov 9 BP record; avoid claiming trifecta.",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "PA|Senate",
+      "state": "PA",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "PA",
+        "office": "Senate",
+        "before": "R",
+        "after": "D",
+        "note": "House and governor D hold; D trifecta; Senate 26 D/24 R secondary count",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "TX|House; governor",
+      "state": "TX",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        },
+        {
+          "source_id": "S_63543b02ed",
+          "url": "https://movement.vote/election-results/2026/texas/",
+          "reference_ids": [
+            "turn289view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        },
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained": {
+        "state": "TX",
+        "office": "House; governor",
+        "before": "R",
+        "after": "D",
+        "note": "Senate retains R; Full Texas results and policy details appear in this dossier",
+        "source_ids": [
+          "S_5583dfb519",
+          "S_509e1ea53a"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "WI|Assembly and Senate",
+      "state": "WI",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "WI",
+        "office": "Assembly and Senate",
+        "before": "R",
+        "after": "D",
+        "note": "D 53/R 46 Assembly; D 18/R 15 Senate; Crowley D governor hold; D trifecta",
+        "source_ids": [
+          "S_5583dfb519",
+          "S_a712377140"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "https://www.wpr.org/news/wisconsin-assembly-senate-election-results-2026"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "IA|Governor",
+      "state": "IA",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "IA",
+        "office": "Governor",
+        "before": "R",
+        "after": "D",
+        "note": "Rob Sand; R legislature remains",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "NV|Governor",
+      "state": "NV",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "NV",
+        "office": "Governor",
+        "before": "R",
+        "after": "D",
+        "note": "Aaron Ford; D legislature remains, D trifecta",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "OH|Governor",
+      "state": "OH",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_5583dfb519",
+          "url": "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "reference_ids": [
+            "turn218view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-06",
+          "type": "institutional_secondary",
+          "support": "Reported chamber flips and prospective state control.",
+          "limits": "Not a district-level canvass; distinguish the incoming government from incumbents still serving."
+        }
+      ],
+      "retained": {
+        "state": "OH",
+        "office": "Governor",
+        "before": "R",
+        "after": "D",
+        "note": "Amy Acton; R legislature remains",
+        "source_ids": [
+          "S_5583dfb519"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "VA|Governor",
+      "state": "VA",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_23b684d9ba",
+          "url": "https://www.governor.virginia.gov/newsroom/news-releases/2026/september-releases/name-1123696-en.html",
+          "reference_ids": [
+            "turn283search7"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-09",
+          "type": "primary",
+          "support": "Spanberger serving as governor in 2026 and administration data-center framework.",
+          "limits": "2025 gubernatorial election context; not a 2026 midterm flip."
+        }
+      ],
+      "retained": {
+        "state": "VA",
+        "office": "Governor",
+        "before": "R",
+        "after": "D",
+        "election_date": "2025-11-04",
+        "note": "2025 context, not 2026 midterm; Spanberger administration policies enacted in 2026",
+        "source_ids": [
+          "S_5583dfb519",
+          "S_23b684d9ba"
+        ],
+        "sources": [
+          "https://www.ncsl.org/news/details/2026-state-legislative-elections-the-results-and-what-they-mean",
+          "https://www.governor.virginia.gov/newsroom/news-releases/2026/september-releases/name-1123696-en.html"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "KS|Governor",
+      "state": "KS",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_4b877cf12a",
+          "url": "https://www.reuters.com/world/us/democrat-holscher-wins-kansas-governors-race-amid-datacenter-backlash-2026-11-13/",
+          "reference_ids": [
+            "turn283news9"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-13",
+          "type": "secondary",
+          "support": "Holscher wins governor; Democratic hold, not party flip.",
+          "limits": "Race call, not state certification."
+        }
+      ],
+      "retained": {
+        "state": "KS",
+        "office": "Governor",
+        "before": "D",
+        "after": "D",
+        "note": "Holscher elected; hold not flip; Reuters call reported Nov 13",
+        "source_ids": [
+          "S_4b877cf12a"
+        ],
+        "sources": [
+          "https://www.reuters.com/world/us/democrat-holscher-wins-kansas-governors-race-amid-datacenter-backlash-2026-11-13/"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "control_changes",
+      "record_id": "TX|Lieutenant governor",
+      "state": "TX",
+      "scope": "Reported incoming partisan control; distinguish holds,2025 context, coalitions and unresolved chambers.",
+      "finding": "reported_transition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_ecf767355e",
+          "url": "https://electionresults.sos.state.tx.us/results.html",
+          "reference_ids": [
+            "turn283view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 16:59",
+          "type": "primary_results",
+          "support": "All nine retained Texas contest vote counts match the official snapshot, including SD 9.",
+          "limits": "Unofficial; polling-location completion is not canvass or certification. No later official vote snapshot obtained."
+        }
+      ],
+      "retained": {
+        "state": "TX",
+        "office": "Lieutenant governor",
+        "before": "R",
+        "after": "D",
+        "note": "Vikki Goodwin defeated Dan Patrick; Texas Senate majority remains Republican.",
+        "election_date": "2026-11-03",
+        "source_ids": [
+          "S_ecf767355e"
+        ],
+        "sources": [
+          "https://electionresults.sos.state.tx.us/results.html"
+        ]
+      },
+      "limits": "Prospective control after winners take office; no blanket certification claim. Party control does not prove support for a particular bill."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "AZ|Senate",
+      "state": "AZ",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_a73cc03edd",
+          "url": "https://events.movementvoterfund.org/election-results/2026/arizona/",
+          "reference_ids": [
+            "turn293view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "AZ",
+        "chamber": "Senate",
+        "D": 20,
+        "R": 10,
+        "uncalled": 0,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 20,
+        "R": 10,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "AZ|House",
+      "state": "AZ",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "newer_called_seat_count",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_a73cc03edd",
+          "url": "https://events.movementvoterfund.org/election-results/2026/arizona/",
+          "reference_ids": [
+            "turn293view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "AZ",
+        "chamber": "House",
+        "D": 37,
+        "R": 21,
+        "uncalled": 2,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 37,
+        "R": 22,
+        "other": 0,
+        "uncalled": 1
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "GA|House",
+      "state": "GA",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_347a3242bf",
+          "url": "https://events.movementvoterfund.org/election-results/2026/georgia/",
+          "reference_ids": [
+            "turn287search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 08:43ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "GA",
+        "chamber": "House",
+        "D": 91,
+        "R": 86,
+        "uncalled": 3,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 91,
+        "R": 86,
+        "other": 0,
+        "uncalled": 3
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "MI|House",
+      "state": "MI",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_c7f48f5c22",
+          "url": "https://events.movementvoterfund.org/election-results/2026/michigan/",
+          "reference_ids": [
+            "turn288search0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "MI",
+        "chamber": "House",
+        "D": 63,
+        "R": 47,
+        "uncalled": 0,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 63,
+        "R": 47,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "MN|House",
+      "state": "MN",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_313b1f8621",
+          "url": "https://movement.vote/election-results/2026/minnesota/",
+          "reference_ids": [
+            "turn287search2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "MN",
+        "chamber": "House",
+        "D": 77,
+        "R": 55,
+        "uncalled": 2,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 77,
+        "R": 55,
+        "other": 0,
+        "uncalled": 2
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "NH|Senate",
+      "state": "NH",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_c297f13640",
+          "url": "https://movement.vote/election-results/2026/new-hampshire/",
+          "reference_ids": [
+            "turn289view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "NH",
+        "chamber": "Senate",
+        "D": 15,
+        "R": 9,
+        "uncalled": 0,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 15,
+        "R": 9,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "NH|House",
+      "state": "NH",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "newer_called_seat_count",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_c297f13640",
+          "url": "https://movement.vote/election-results/2026/new-hampshire/",
+          "reference_ids": [
+            "turn289view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        },
+        {
+          "source_id": "S_5a942cc3e6",
+          "url": "https://www.wgbh.org/news/politics/2026-11-04/democrats-appear-to-sweep-nh-executive-council-grab-big-majorities-in-legislature",
+          "reference_ids": [
+            "turn288search7"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04",
+          "type": "secondary",
+          "support": "House clerk preliminary 292 D 107 R 1 independent; source cautions recounts and late tallies.",
+          "limits": "Projection does not override AP called-seat count or establish certification."
+        }
+      ],
+      "retained": {
+        "state": "NH",
+        "chamber": "House",
+        "D": 248,
+        "R": 72,
+        "uncalled": 80,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "note": "Unusually many uncalled seats; do not portray as final chamber composition.",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 269,
+        "R": 87,
+        "other": 1,
+        "uncalled": 43
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "NC|House",
+      "state": "NC",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_f31ed1d799",
+          "url": "https://99chambers.app/elections/2026-general/nc/house",
+          "reference_ids": [
+            "turn287view2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 07:39ET",
+          "type": "secondary_results",
+          "support": "70 D 48 R 1 other 1 uncalled.",
+          "limits": "Republishes unofficial NCSBE results/calls; no certification inference."
+        }
+      ],
+      "retained": {
+        "state": "NC",
+        "chamber": "House",
+        "D": 70,
+        "R": 48,
+        "other": 1,
+        "uncalled": 1,
+        "as_of": "2026-11-12 07:45 ET",
+        "source": "https://99chambers.app/elections/2026-general/nc/house",
+        "ref": "turn73search3",
+        "note": "Secondary tracker reproducing unofficial NCSBE data; an earlier Multi State snapshot was 66 D 48 R 1 other 5 uncalled.",
+        "source_id": "S_f31ed1d799"
+      },
+      "recommended": {
+        "D": 70,
+        "R": 48,
+        "other": 1,
+        "uncalled": 1
+      },
+      "limits": "Republishes unofficial NCSBE results/calls; no certification inference."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "PA|Senate",
+      "state": "PA",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_6be9c671d2",
+          "url": "https://movement.vote/election-results/2026/pennsylvania/",
+          "reference_ids": [
+            "turn288search4"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 19:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "PA",
+        "chamber": "Senate",
+        "D": 26,
+        "R": 24,
+        "uncalled": 0,
+        "as_of": "2026-11-10 13:56 ET",
+        "source": "https://www.multistate-test.us/elections/legislatures",
+        "ref": "turn6search2",
+        "source_id": "S_2dad643de9"
+      },
+      "recommended": {
+        "D": 26,
+        "R": 24,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "WI|Assembly",
+      "state": "WI",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_a712377140",
+          "url": "https://www.wpr.org/news/wisconsin-assembly-senate-election-results-2026",
+          "reference_ids": [
+            "turn287view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 09:56",
+          "type": "secondary_AP",
+          "support": "Assembly 53 D 46 R; Senate 18 D 15 R.",
+          "limits": "Explicitly unofficial AP preliminary results."
+        }
+      ],
+      "retained": {
+        "state": "WI",
+        "chamber": "Assembly",
+        "D": 53,
+        "R": 46,
+        "uncalled": 0,
+        "as_of": "2026-11-04 09:56",
+        "source": "https://www.wpr.org/news/wisconsin-assembly-senate-election-results-2026",
+        "ref": "turn73search1",
+        "source_id": "S_a712377140"
+      },
+      "recommended": {
+        "D": 53,
+        "R": 46,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Explicitly unofficial AP preliminary results."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "WI|Senate",
+      "state": "WI",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_a712377140",
+          "url": "https://www.wpr.org/news/wisconsin-assembly-senate-election-results-2026",
+          "reference_ids": [
+            "turn287view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 09:56",
+          "type": "secondary_AP",
+          "support": "Assembly 53 D 46 R; Senate 18 D 15 R.",
+          "limits": "Explicitly unofficial AP preliminary results."
+        }
+      ],
+      "retained": {
+        "state": "WI",
+        "chamber": "Senate",
+        "D": 18,
+        "R": 15,
+        "uncalled": 0,
+        "as_of": "2026-11-04 09:56",
+        "source": "https://www.wpr.org/news/wisconsin-assembly-senate-election-results-2026",
+        "ref": "turn73search1",
+        "source_id": "S_a712377140"
+      },
+      "recommended": {
+        "D": 18,
+        "R": 15,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Explicitly unofficial AP preliminary results."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "TX|House",
+      "state": "TX",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "projection_misrepresented_as_completed_count",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_63543b02ed",
+          "url": "https://movement.vote/election-results/2026/texas/",
+          "reference_ids": [
+            "turn289view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        },
+        {
+          "source_id": "S_509e1ea53a",
+          "url": "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/",
+          "reference_ids": [
+            "turn231view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 12:59Central update",
+          "type": "secondary",
+          "support": "83 D 67 R conditional on leads holding; Senate 12 D 19 R.",
+          "limits": "Existing atlas incorrectly attached Nov 12 snapshot and 0 uncalled to conditional 83/67 projection. Do not mix projected leaders with called seats."
+        }
+      ],
+      "retained": {
+        "state": "TX",
+        "chamber": "House",
+        "D": 83,
+        "R": 67,
+        "uncalled": 0,
+        "as_of": "2026-11-12 secondary report",
+        "source": "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/",
+        "note": "Reported seat count; not independently district-canvassed."
+      },
+      "recommended": {
+        "D": 79,
+        "R": 63,
+        "other": 0,
+        "uncalled": 8
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "chamber_snapshots",
+      "record_id": "TX|Senate",
+      "state": "TX",
+      "scope": "Seat-count snapshot and calling/certification semantics; not independent district canvass.",
+      "finding": "composition_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_63543b02ed",
+          "url": "https://movement.vote/election-results/2026/texas/",
+          "reference_ids": [
+            "turn289view1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-15 23:21ET",
+          "type": "secondary_AP_republisher",
+          "support": "Fresh called-seat composition snapshot; explicit uncalled count where shown.",
+          "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+        }
+      ],
+      "retained": {
+        "state": "TX",
+        "chamber": "Senate",
+        "D": 12,
+        "R": 19,
+        "uncalled": 0,
+        "as_of": "2026-11-12 secondary report",
+        "source": "https://www.texastribune.org/2026/11/03/texas-house-legislature-outcomes-control-republicans-democrats-2026/",
+        "note": "Reported seat count; not independently district-canvassed."
+      },
+      "recommended": {
+        "D": 12,
+        "R": 19,
+        "other": 0,
+        "uncalled": 0
+      },
+      "limits": "Partisan advocacy publisher displaying AP results. Use only sourced numerical results, not its target-race selections or advocacy labels. Not certified composition."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB273",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB273",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB273",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the use of artificial intelligence by health care providers."
+      },
+      "retained_summary": "Rules for AI use by healthcare providers.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB280",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB280",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB280",
+        "author": "Lalani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to a prohibition on the use of certain personalized dynamic pricing models by a business in this state."
+      },
+      "retained_summary": "Prohibition of certain personalized dynamic pricing practices.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB405",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB405",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB405",
+        "author": "González, Mary",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to requiring a business in this state to disclose the use of certain personalized dynamic pricing models."
+      },
+      "retained_summary": "Business disclosure of certain personalized dynamic pricing practices.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB416",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB416",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB416",
+        "author": "González, Mary",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to a restriction on state agency deployment and use of an artificial intelligence system regarding an employment decision or confidential information."
+      },
+      "retained_summary": "Restrictions on state-agency AI in employment decisions and confidential-information handling.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB427",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB427",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB427",
+        "author": "González, Mary",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to a criminal offense for the creation or distribution of certain artificially generated media with the intent to influence the outcome of an election."
+      },
+      "retained_summary": "A proposed criminal offense for certain synthetic media intended to influence elections.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB441",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB441",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB441",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to public school instruction and courses in artificial intelligence system usage."
+      },
+      "retained_summary": "AI instruction and courses in public schools.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB561",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB561",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB561",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to cybersecurity safeguards, required contractual protections, and civil remedies for certain commercial agreements involving artificial intelligence vendors."
+      },
+      "retained_summary": "Cybersecurity, contracts and civil remedies involving commercial AI vendors.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB585",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB585",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB585",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the requirements for artificial intelligence operations of state agencies, establishing artificial intelligence divisions."
+      },
+      "retained_summary": "State-agency AI operations and internal AI divisions.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB588",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB588",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB588",
+        "author": "Lalani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to a health care facility grant program supporting the use of artificial intelligence technology in scanning medical images for cancer detection."
+      },
+      "retained_summary": "Grants for healthcare facilities using AI to detect cancer in medical images.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB625",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB625",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB625",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the labeling of artificial intelligence systems by businesses for commercial purposes."
+      },
+      "retained_summary": "Commercial labeling of AI systems by businesses.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB639",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB639",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB639",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to required disclosures on certain political advertising that contains altered media; creating a criminal offense."
+      },
+      "retained_summary": "Disclosure of altered media in political advertisements, with a proposed criminal offense.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB671",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB671",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB671",
+        "author": "Gámez",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to required disclosures on certain political advertising that contains altered media; creating a criminal offense."
+      },
+      "retained_summary": "Disclosure of altered media in political advertisements, with a proposed criminal offense.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB677",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB677",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB677",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to a study on employer and state agency use of automated employment decision tools in assessing an applicant's suitability for a position."
+      },
+      "retained_summary": "Study of automated tools used by employers and agencies to evaluate job applicants.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB763",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB763",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB763",
+        "author": "González, Mary",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the use of automatic license plate reader systems."
+      },
+      "retained_summary": "Requirements concerning automated license plate readers.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB929",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB929",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB929",
+        "author": "Mizani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to a disclosure of the use of generative artificial intelligence in certain political advertising; providing a civil penalty."
+      },
+      "retained_summary": "Generative-AI disclosures in political advertisements, with civil penalties.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB950",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB950",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB950",
+        "author": "Lopez-Resendez",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the use of certain algorithmic devices in the determination of residential rental prices."
+      },
+      "retained_summary": "Algorithmic tools for setting residential rents.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB156",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB156",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB156",
+        "author": "Menéndez",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the use of certain algorithmic devices in the determination of residential rental prices."
+      },
+      "retained_summary": "Algorithmic tools for setting residential rents.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB255",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB255",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB255",
+        "author": "Rehmet | Cook, Molly",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the use of certain algorithmic devices in the determination of residential rental prices."
+      },
+      "retained_summary": "Algorithmic tools for setting residential rents.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB46",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB46",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB46",
+        "author": "Zaffirini",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to required disclosures on certain political advertising that contains altered media; creating a criminal offense."
+      },
+      "retained_summary": "Disclosure of altered media in political advertisements, with a proposed criminal offense.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB149",
+      "state": "TX",
+      "scope": "Official enacted summary, effective date, core scope.",
+      "finding": "enacted_baseline_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_65e66ae9ab",
+          "url": "https://capitol.texas.gov/billlookup/BillSummary.aspx?Bill=HB149&LegSess=89R",
+          "reference_ids": [
+            "turn293search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-01-01",
+          "type": "primary_legislature",
+          "support": "Official enrolled summary confirms enacted status, effective date and core subject.",
+          "limits": "Not an exhaustive regulations/litigation audit; implementationdetails require separate linked records."
+        },
+        {
+          "source_id": "S_00c312505d",
+          "url": "https://oag.state.tx.us/consumer-protection/file-consumer-complaint/consumer-ai-rights",
+          "reference_ids": [
+            "turn293search0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": null,
+          "type": "primary_agency",
+          "support": "AGcontinuespublishingTRAIGArequirementsandeffective Jan 1,2026.",
+          "limits": "Doesnotestablishabsenceoflitigationorenforcementcases."
+        }
+      ],
+      "retained_summary": "Texas Responsible Artificial Intelligence Governance Act (TRAIGA): targeted AI restrictions, disclosures in specified contexts, Attorney General civil enforcement, AI advisory council and regulatory sandbox. Signed June 22, 2025.",
+      "limits": "Not an exhaustive regulations/litigation audit; implementationdetails require separate linked records."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB167",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB167",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB167",
+        "author": "Martinez Fischer",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the repeal of the exemptions from sales and use taxes for property used in certain data centers and large data center projects."
+      },
+      "retained_summary": "Repeals data center and large data center project sales/use tax exemptions. Official related-bills listing identifies HB408 and HB681 as identical and SB293 as similar.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB374",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB374",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB374",
+        "author": "González, Mary",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to certain requirements applicable to governmental entities with respect to an agreement prohibiting the release of information regarding a data center project; providing a civil penalty."
+      },
+      "retained_summary": "Regulates governmental-entity requirements involving data centers and disclosure; includes civil penalty.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB408",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB408",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB408",
+        "author": "Isaac",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the repeal of the exemptions from sales and use taxes for property used in certain data centers and large data center projects."
+      },
+      "retained_summary": "Identical companion of HB167 in official related-bills listing; repeal of data-center sales/use tax exemptions.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB474",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB474",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB474",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to human oversight and review of decisions and actions involving artificial intelligence systems used by state agencies."
+      },
+      "retained_summary": "Requires meaningful human oversight of consequential/high-risk agency AI, including trained officials with authority to intervene. DIR rules due March 1, 2028 and agency implementation within 90 days, with interim safeguards. Would take effect September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB510",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB510",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB510",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to human oversight and override for certain high-risk artificial intelligence systems; providing a civil penalty."
+      },
+      "retained_summary": "Requires human intervention and control over high-risk autonomous AI; developers must provide and test override mechanisms, deployers must adopt safeguards and recurring testing, with whistleblower protections and AG enforcement. Would take effect September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB529",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB529",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB529",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to water conservation plans, data center and related facility water use and wastewater reporting, water resource impact assessments, notice to local entities, public participation, and public disclosure; providing for enforcement and fees."
+      },
+      "retained_summary": "Provides for data-center water conservation plans, water and wastewater reporting, impact assessments, local notice and public participation, enforcement and fees.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB605",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB605",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB605",
+        "author": "Bhojani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the establishment of the Texas Department of Artificial Intelligence and oversight of artificial intelligence systems used by state agencies."
+      },
+      "retained_summary": "Creates an independent Texas Department of Artificial Intelligence for executive-branch agency AI oversight, with a five-member governor-appointed board confirmed by the Senate (at most three from one party). Provides system inventories, risk-based reviews, corrective-action processes, public registry and impact summaries, and coordination with DIR, AG and Texas Cyber Command. It does not create general private-sector AI licensing or independent civil penalties. Effective September 1, 2027 if enacted; initial rules due September 1, 2028, agency inventories December 1, 2028, public registry March 1, 2029.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB681",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB681",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB681",
+        "author": "Vasut",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the repeal of the exemptions from sales and use taxes for property used in certain data centers and large data center projects."
+      },
+      "retained_summary": "Identical companion of HB167 in official related-bills listing; repeal of data-center sales/use tax exemptions.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB696",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB696",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB696",
+        "author": "Ochoa",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to prohibiting certain governmental entities from entering into an agreement prohibiting the entity from releasing certain information regarding a data center project."
+      },
+      "retained_summary": "Restricts government nondisclosure agreements that block disclosure of information about certain development projects.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB706",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB706",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB706",
+        "author": "Ochoa",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to election and public hearing requirements before a municipality may enter into a data center development agreement under certain economic development programs."
+      },
+      "retained_summary": "Requires elections and public hearings before certain municipal development agreements providing economic-development incentives.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB732",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB732",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB732",
+        "author": "Perez, Vincent",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the ineligibility of certain data centers for state and local economic development incentives."
+      },
+      "retained_summary": "Makes certain data centers ineligible for state and local economic development incentives.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB750",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB750",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB750",
+        "author": "Jimenez",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the repealing of the sales tax exemption for data centers."
+      },
+      "retained_summary": "Repeal of sales/use tax exemptions for certain data centers.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB851",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB851",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB851",
+        "author": "Perez, Vincent",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the repeal of the sales and use tax exemptions for data centers and the ineligibility of data centers for enterprise project tax refunds."
+      },
+      "retained_summary": "Repeals certain data-center sales/use exemptions and makes certain data centers ineligible for enterprise-project tax refunds.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB914",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB914",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB914",
+        "author": "Lalani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to the  required disclosure to a consumer that the consumer is interacting with an artificial intelligence system."
+      },
+      "retained_summary": "Expands existing public-interaction AI disclosure beyond government entities to persons/businesses using AI to interact with the public, before or at the interaction. Would take effect September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_HB928",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9dc3b7a1e4",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 1,144 Housebillfilingreport; existing Houseprefilesretain Nov 9 Filed status.",
+          "limits": "Downloaded directly because web openfailed. Caption/status verification only for most existing records."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_HB928",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=housefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "HB928",
+        "author": "Mizani",
+        "last_action": "11/09/2026 H Filed",
+        "caption": "Relating to required municipal and county approval to construct a data center."
+      },
+      "retained_summary": "Requires county commissioners court or municipal governing body to approve construction of a data center at a public hearing; applies to first permit applications on or after September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB1964",
+      "state": "TX",
+      "scope": "Official enacted summary, effective date, core scope.",
+      "finding": "enacted_baseline_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_91fec5284d",
+          "url": "https://capitol.texas.gov/billlookup/BillSummary.aspx?Bill=SB1964&LegSess=89R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2025-09-01",
+          "type": "primary_legislature",
+          "support": "Official enrolled summary confirms enacted status, effective date and core subject.",
+          "limits": "Not an exhaustive regulations/litigation audit; implementationdetails require separate linked records."
+        }
+      ],
+      "retained_summary": "Government AI ethics/risk governance, training, DIR oversight, advisory board/sandbox and agency AI assessment/disclosure requirements. Signed June 20, 2025.",
+      "limits": "Not an exhaustive regulations/litigation audit; implementationdetails require separate linked records."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB293",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB293",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB293",
+        "author": "Huffman | Alvarado | Ashby | Bettencourt | Campbell | et al.",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the repeal of the exemptions from sales and use taxes for property used in certain data centers and large data center projects."
+      },
+      "retained_summary": "Repeals sales/use tax exemptions for qualifying data centers and large qualified data center projects and associated electricity provisions. Existing exemptions expire on the effective date; pending applications are denied. Effective immediately if two-thirds of each chamber approve; otherwise September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB296",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB296",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB296",
+        "author": "Gutierrez",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the siting, construction, permitting, and operation of certain data centers; requiring local option elections; imposing a temporary moratorium; establishing an annual payments to county residents; repealing certain tax exemptions; providing civil penalties."
+      },
+      "retained_summary": "Requires project-specific local elections and TCEQ impact permits for covered centers (20 MW or 50, 000 equipment square feet), imposes a two-year moratorium, repeals data-center sales/use tax exemptions and requires annual resident stipend funding. Municipal projects need both city and county voter majorities; unincorporated projects require county approval. Developer/operator annual payment is the greater of 2% of relevant gross receipts or $10, 000 per authorized MW, distributed equally to eligible host-county residents after capped administrative expenses. Existing commercial operations may continue at authorized demand/area; covered expansions are regulated.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB32",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB32",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB32",
+        "author": "Zaffirini",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the issuance by the Public Utilities Commission of Texas of a permit for the construction of a large computational load site; providing an administrative penalty."
+      },
+      "retained_summary": "Creates PUCT preconstruction permitting for large computational loads at or above 75 MW with environmental, water and grid-impact review; allows conditions or denial and collaboration with TCEQ.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB33",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB33",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB33",
+        "author": "Zaffirini",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the recovery of costs related to providing electricity service to customers at a computational load site."
+      },
+      "retained_summary": "Regulates cost recovery for large computational loads, including transmission costs and minimum-demand contracts; requires PUCT rules by September 1, 2028. Effective immediately with two-thirds approval in both chambers, otherwise September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB34",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB34",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB34",
+        "author": "Zaffirini",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to county authority to regulate the development of certain large electricity users."
+      },
+      "retained_summary": "Expands county authority to regulate land use/siting by large electricity users.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB35",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB35",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB35",
+        "author": "Zaffirini",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the sharing of information related to large load customers by the independent organization certified for the ERCOT power region with the Texas Water Development Board."
+      },
+      "retained_summary": "Requires ERCOT to share information on large-load customers covered by Utilities Code Section 37.0561 with TWDB as needed for water planning and related duties. Shared information is confidential and exempt from public disclosure. Would take effect September 1, 2027.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB36",
+      "state": "TX",
+      "scope": "90R bill number, caption, author and latest filing action/date; not a renewed full operative-clause legal audit.",
+      "finding": "prefiled_status_and_caption_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_003948ec6e",
+          "url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+          "reference_ids": [
+            "turn228search1"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "ReportDate2026-11-16",
+          "type": "primary_legislature",
+          "support": "Official 377 Senatebillfilingreport; existingprefilesretain Nov 9 Filed status.",
+          "limits": "Filing for 90 R 2027 doesnotmean enacted law or 2026 voter approval."
+        }
+      ],
+      "official_record": {
+        "record_id": "TX_SB36",
+        "source_url": "https://capitol.texas.gov/reports/Report.aspx?ID=senatefiled&LegSess=90R",
+        "retrieved": "2026-11-16",
+        "bill": "SB36",
+        "author": "Zaffirini",
+        "last_action": "11/09/2026 S Filed",
+        "caption": "Relating to the eligibility of data centers and large data center projects to participate in certain incentive programs offered by the state and local governments."
+      },
+      "retained_summary": "Restricts data-center participation in municipal/county Chapter 380/381 development agreements and Chapter 312 property tax abatements; addresses existing agreements and state sales-tax eligibility.",
+      "limits": "All 41 retained 90R prefiles remain Filed on November 9. Prior full-text verification notes remain material. No legislative vote or enactment is inferred from an election outcome."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX_SB6",
+      "state": "TX",
+      "scope": "Official enacted summary, effective date, core scope.",
+      "finding": "enacted_baseline_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_9974b2b0d0",
+          "url": "https://capitol.texas.gov/billlookup/BillSummary.aspx?Bill=SB6&LegSess=89R",
+          "reference_ids": [],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2025-06-20",
+          "type": "primary_legislature",
+          "support": "Official enrolled summary confirms enacted status, effective date and core subject.",
+          "limits": "Not an exhaustive regulations/litigation audit; implementationdetails require separate linked records."
+        }
+      ],
+      "retained_summary": "Large electricity load legislation covering ERCOT interconnection, cost allocation and emergency curtailment; relevant to large data centers, with a 75 MW threshold in relevant provisions. Signed June 20, 2025.",
+      "limits": "Not an exhaustive regulations/litigation audit; implementationdetails require separate linked records."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX-HINOJOSA-CAMPAIGN",
+      "state": "TX",
+      "scope": "Distinguish campaign commitment from existing executive directive and implementation correspondence.",
+      "finding": "pledge_reconfirmed",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_a58724eef3",
+          "url": "https://www.texastribune.org/2026/11/04/data-center-texas-pause-gina-hinojosa-governor-policies/",
+          "reference_ids": [
+            "turn290view0"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-11-04 14:41Central",
+          "type": "secondary",
+          "support": "Hinojosa campaignmoratoriumandprotections; Jan 19 entrytooffice.",
+          "limits": "Future pledge not implementedaction."
+        }
+      ],
+      "retained_summary": "Hinojosa proposed pausing new data-center approvals until the Legislature adopts protections, with labor, water, electricity-bill, transparency and subsidy priorities. Scheduled to take office January 19, 2027.",
+      "limits": "No campaign promise promoted to enacted law; historical directive date remainsunchanged."
+    },
+    {
+      "table": "policies",
+      "record_id": "TX-ABBOTT-2026-09-21",
+      "state": "TX",
+      "scope": "Distinguish campaign commitment from existing executive directive and implementation correspondence.",
+      "finding": "directive_reconfirmed_implementation_source_added",
+      "retrieved": "2026-11-16",
+      "evidence": [
+        {
+          "source_id": "S_2efe20468b",
+          "url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+          "reference_ids": [
+            "turn250search2"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-09-21",
+          "type": "primary_executive",
+          "support": "TCEQpermitpausedirectivependingaudits; Republicanpolicyactionbeforeelection.",
+          "limits": "Not a statutorypermanentblanketban."
+        },
+        {
+          "source_id": "S_cff4cd3c39",
+          "url": "https://www.tceq.texas.gov/downloads/response/tceq-response-gov-abbott-dc-directive.pdf",
+          "reference_ids": [
+            "turn256view4"
+          ],
+          "retrieved_as_of": "2026-11-16",
+          "source_date": "2026-10-19",
+          "type": "primary_agency",
+          "support": "TCEQimplementationletter:permitpause, screeningpendingapplicationsandclaimsofselfauthorization.",
+          "limits": "Implementationcorrespondence, notnewindependentlegislation; noevidenceofpausebeingliftedobtained."
+        }
+      ],
+      "retained_summary": "Governor Abbott directed TCEQ to halt data-center permits pending ERCOT grid audit and water information, following prior grid/water directives. His statement supports data centers paying infrastructure costs, water reporting and ending incentives in the next legislative session.",
+      "limits": "No campaign promise promoted to enacted law; historical directive date remainsunchanged."
+    }
+  ]
+}

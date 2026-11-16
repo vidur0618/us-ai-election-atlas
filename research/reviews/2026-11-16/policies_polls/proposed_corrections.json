@@ -1,0 +1,364 @@
+{
+  "reviewed_at": "2026-11-16",
+  "production_files_modified": false,
+  "policy_changes": [
+    {
+      "record_id": "VA_HB507",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "Enacted; Chapter397; implementing rule proceeding",
+        "status_date": "2026-04-08",
+        "notes": "DEQ regulatory page records final submission October5 awaiting publication; distinguish statute's application date from rule effective date.",
+        "regulation_effective_date": null
+      },
+      "after": {
+        "status": "Enacted; Chapter 397; implementing regulation effective",
+        "status_date": "2026-11-04",
+        "notes": "Implementing regulation (Town Hall Action 7091, Final Stage 11281) became effective November 4, 2026. The statute applies to relevant permit applications submitted on or after July 1, 2026; distinguish that application date from the regulation effective date.",
+        "regulation_effective_date": "2026-11-04"
+      },
+      "reason": "Replace obsolete pending-publication status.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn263view0"
+      ]
+    },
+    {
+      "record_id": "AZ_2027_moratorium_incentive_proposals",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "summary": "Attorney General Kris Mayes and Democratic legislative leaders support a pause; Governor Katie Hobbs opposes a blanket construction moratorium and favors water and ratepayer protections and permanent removal of incentives. Democratic control alone does not establish agreement on a ban."
+      },
+      "after": {
+        "summary": "Attorney General Kris Mayes supports a pause. Incoming Democratic legislative leaders say a moratorium remains under consideration; Governor Katie Hobbs opposes a blanket construction moratorium and favors water and ratepayer protections and permanent removal of incentives. Democratic control alone does not establish agreement on a ban."
+      },
+      "reason": "Source says legislative leaders leave option open, not that they have committed to it.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn280view9"
+      ]
+    },
+    {
+      "record_id": "MD_HB120_2026_",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "hearing held; no enactment shown",
+        "sources": [
+          "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb0120"
+        ],
+        "verification": "primary record inspected"
+      },
+      "after": {
+        "status": "Hearing scheduled February 3; no enactment shown in official history",
+        "sources": [
+          "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/HB0120?ys=2026RS"
+        ],
+        "verification": "Session-qualified official bill history indexed and reviewed; no enacted status shown."
+      },
+      "reason": "Repair broken source and avoid inferring hearing occurrence from scheduling entry.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn240search0"
+      ]
+    },
+    {
+      "record_id": "IA_HF2198",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "discovery watchlist; current official disposition not verified",
+        "status_date": null,
+        "session": "2025–2026 unless specified",
+        "sponsors": null,
+        "priority": "discovery_watchlist",
+        "verification": "secondary discovery only; do not publish as enacted",
+        "sources": [
+          "https://datacenterrecord.org/laws/ia"
+        ]
+      },
+      "after": {
+        "status": "Introduced; House Ways and Means committee; no enactment shown",
+        "status_date": "2026-01-29",
+        "session": "91st General Assembly (2025–2026)",
+        "sponsors": "Adam Zabner",
+        "priority": "selected_policy",
+        "verification": "Official bill history reviewed November 16, 2026.",
+        "sources": [
+          "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2198&ga=91"
+        ]
+      },
+      "reason": "Upgrade discovery-only record to official history.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn273view1"
+      ]
+    },
+    {
+      "record_id": "IA_HSB727_HF2688",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "discovery watchlist; current official disposition not verified",
+        "status_date": null,
+        "session": "2025–2026 unless specified",
+        "sponsors": null,
+        "priority": "discovery_watchlist",
+        "verification": "secondary discovery only; do not publish as enacted",
+        "sources": [
+          "https://datacenterrecord.org/laws/ia"
+        ]
+      },
+      "after": {
+        "status": "Renumbered as HF2688; House Ways and Means committee; no enactment shown",
+        "status_date": "2026-02-23",
+        "session": "91st General Assembly (2025–2026)",
+        "sponsors": "House Committee on Economic Growth and Technology; floor manager Weldon",
+        "priority": "selected_policy",
+        "verification": "Official bill and predecessor history reviewed November 16, 2026.",
+        "sources": [
+          "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2688&ga=91"
+        ]
+      },
+      "reason": "Upgrade discovery-only record to official history.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn273view2"
+      ]
+    },
+    {
+      "record_id": "IA_SSB3181_SF2498",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "discovery watchlist; current official disposition not verified",
+        "status_date": null,
+        "session": "2025–2026 unless specified",
+        "summary": "Links tax treatment to higher-education contributions.",
+        "sponsors": null,
+        "verification": "secondary discovery only; do not publish as enacted",
+        "sources": [
+          "https://datacenterrecord.org/laws/ia"
+        ]
+      },
+      "after": {
+        "status": "Original proposal superseded; SF2498 withdrawn after substitution of HF2757",
+        "status_date": "2026-04-28",
+        "session": "91st General Assembly (2025–2026)",
+        "summary": "SSB3181 originally linked tax exemptions for nuclear generation, web-search portals and data centers to higher-education contributions. Its successor SF2498 became a nuclear-generation measure, then was withdrawn when HF2757 was substituted. HF2757 became Chapter 1146; that enactment must not be attributed to the original data-center proposal.",
+        "sponsors": "Senate Committee on Ways and Means; floor manager Dawson",
+        "verification": "Official predecessor/successor histories and signed HF2757 reviewed November 16, 2026.",
+        "sources": [
+          "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=SSB3181&ga=91",
+          "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=SF2498&ga=91",
+          "https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2757&ga=91"
+        ]
+      },
+      "reason": "Resolve bill lineage and avoid carrying obsolete proposal terms into enactment.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn273view3",
+        "turn273view4",
+        "turn274view1",
+        "turn286view1"
+      ]
+    },
+    {
+      "record_id": "SD_SB232",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "failed proposal per NCSL; primary history not readable",
+        "status_date": null,
+        "sponsors": null,
+        "verification": "secondary status, primary page located but not independently readable",
+        "sources": [
+          "https://www.ncsl.org/fiscal/which-states-are-banning-data-centers",
+          "https://sdlegislature.gov/Session/Bill/27269/301228"
+        ]
+      },
+      "after": {
+        "status": "Failed in committee; tabled",
+        "status_date": "2026-02-18",
+        "sponsors": "Senator Howard; Representative Phil Jensen",
+        "verification": "Official 2026 final legislative index reviewed; Senate State Affairs do-pass motion failed 3–5, tabling passed 5–3.",
+        "sources": [
+          "https://mylrc.sdlegislature.gov/api/Documents/LegislativeIndex/286219.pdf?Year=2026",
+          "https://mylrc.sdlegislature.gov/api/Documents/Amendment/301393.html?Year=2026"
+        ]
+      },
+      "reason": "Replace primary-access limitation with accessible official final index.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn286view0"
+      ]
+    },
+    {
+      "record_id": "OH_HB983",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "Introduced; no enactment verified",
+        "verification": "Official source record inspected; see source type."
+      },
+      "after": {
+        "status": "House Energy committee; no enactment shown",
+        "verification": "Ohio LSC status report reflects legislative action through November 9, 2026; reviewed November 16."
+      },
+      "reason": "Refine introduced status using official committee listing.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn244view9"
+      ]
+    },
+    {
+      "record_id": "OH_HB999",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "Introduced; no enactment verified",
+        "verification": "Official source record inspected; see source type."
+      },
+      "after": {
+        "status": "House Energy committee; no enactment shown",
+        "verification": "Ohio LSC status report reflects legislative action through November 9, 2026; reviewed November 16."
+      },
+      "reason": "Refine introduced status using official committee listing.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn236view9"
+      ]
+    },
+    {
+      "record_id": "OH_SB381",
+      "collection": "policies",
+      "operation": "merge_fields",
+      "before": {
+        "status": "Introduced; no enactment verified",
+        "verification": "Official source record inspected; see source type."
+      },
+      "after": {
+        "status": "Senate Public Utilities committee; no enactment shown",
+        "verification": "Ohio LSC status report reflects legislative action through November 9, 2026; reviewed November 16."
+      },
+      "reason": "Refine introduced status using official committee listing.",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn244view11"
+      ]
+    }
+  ],
+  "new_policy_records": [
+    {
+      "record_id": "OR_2026_10_09_DEQ_permit_pause",
+      "policy_family_id": "OR_DATA_CENTER_ADMINISTRATIVE_PAUSES_2026",
+      "related_record_ids": [
+        "OR_2026_09_08_state_land_pause"
+      ],
+      "state": "OR",
+      "instrument": "Governor letter to DEQ, October 9, 2026",
+      "title": "Data-center air and water permit pause",
+      "session": "2026 executive action / 2027 agenda",
+      "status": "Governor-directed administrative permit pause",
+      "status_date": "2026-10-09",
+      "effective_date": null,
+      "summary": "Governor Kotek asked DEQ to use existing authority to pause processing and issuance of air and water-discharge permit applications involving new or expanded data centers until July 1, 2027. The direction includes municipal wastewater permit renewals or modifications needed to accept data-center discharge.",
+      "sponsors": "Governor Tina Kotek",
+      "topics": [
+        "permitting",
+        "air pollution",
+        "water",
+        "moratorium"
+      ],
+      "verification": "Primary Governor letter reviewed November 16, 2026; document hosted by OPB.",
+      "legislative_votes": [],
+      "public_vote": false,
+      "sources": [
+        "https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf"
+      ],
+      "source_ids": [],
+      "notes": "Applies to specified DEQ permits, not an independently established blanket construction ban. Letter states no MW threshold. Agency implementation and potential subsequent modification need ongoing monitoring.",
+      "deadlines": [
+        {
+          "date": "2027-07-01",
+          "event": "End of Governor-requested permit pause"
+        }
+      ],
+      "priority": "selected_policy",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn9view0"
+      ]
+    },
+    {
+      "record_id": "OR_2026_09_08_state_land_pause",
+      "policy_family_id": "OR_DATA_CENTER_ADMINISTRATIVE_PAUSES_2026",
+      "related_record_ids": [
+        "OR_2026_10_09_DEQ_permit_pause"
+      ],
+      "state": "OR",
+      "instrument": "Governor direction to state agencies, September 8, 2026",
+      "title": "State-owned land requests paused for data-center projects",
+      "session": "2026 executive action / 2027 agenda",
+      "status": "Governor-directed administrative pause",
+      "status_date": "2026-09-08",
+      "effective_date": null,
+      "summary": "Governor Kotek directed state agencies to immediately pause unapproved requests for easements, rights-of-way, leases, rentals, land-use permits, and sales or transfers of state-owned property for data-center projects. The stated pause runs through July 1, 2027, or until statewide action from the Governor's Office or Legislature directs otherwise.",
+      "sponsors": "Governor Tina Kotek",
+      "topics": [
+        "state-owned land",
+        "permitting",
+        "data center development"
+      ],
+      "verification": "Official Governor's Office release dated September 8, 2026, reviewed November 16, 2026.",
+      "legislative_votes": [],
+      "public_vote": false,
+      "sources": [
+        "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers"
+      ],
+      "source_ids": [],
+      "notes": "Covers the specified unapproved requests involving state-owned property, not a blanket construction ban. The official release establishes the Governor's direction; agency implementation and any later modification were not independently verified. This action is distinct from the October 9 DEQ permit-pause letter, and both belong to one related administrative policy family. The source describes the direction as immediate; a separately issued legal instrument and effective-date provision were not reviewed.",
+      "deadlines": [
+        {
+          "date": "2027-07-01",
+          "event": "Stated endpoint of state-land request pause unless superseded by statewide action from the Governor's Office or Legislature"
+        }
+      ],
+      "priority": "selected_policy",
+      "reviewed_at": "2026-11-16",
+      "web_ref_ids": [
+        "turn8view3"
+      ]
+    }
+  ],
+  "poll_numeric_changes": [],
+  "source_maintenance_note": "When applying patches, register additional sources and update source_ids in canonical source registry; preserve old sources in audit history.",
+  "sources": {
+    "OR_LAND_20260908": {
+      "url": "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers",
+      "title": "Oregon Governor — pause on state-land requests for data centers",
+      "type": "primary_governor",
+      "source_date": "2026-09-08",
+      "retrieved_at": "2026-11-16",
+      "support": "Specified unapproved requests involving state-owned property; immediate direction; July 1, 2027 or superseding statewide action.",
+      "limits": "Release establishes the direction, not independent verification of agency implementation or continuing legal operation.",
+      "reference_ids": [
+        "turn8view3"
+      ]
+    },
+    "OR_DEQ_20261009": {
+      "url": "https://www.opb.org/pdf/100926_GovernorLettertoDEQDataCenterPermitting_1791931532928.pdf",
+      "title": "Oregon Governor — October 9 letter to DEQ on data-center permits",
+      "type": "primary_governor",
+      "source_date": "2026-10-09",
+      "retrieved_at": "2026-11-16",
+      "support": "Specified air and water-discharge permit applications, including municipal wastewater permits; requested pause to July 1, 2027.",
+      "limits": "Primary letter hosted by OPB; agency implementation and subsequent modification require separate review.",
+      "reference_ids": [
+        "turn9view0"
+      ]
+    }
+  }
+}

@@ -12,9 +12,10 @@ from pathlib import Path
 import re
 
 BASE = Path(__file__).resolve().parent
-SOURCE_DIR = BASE.parent / 'downloads'
-ASSET_DIR = BASE.parent / 'assets'
+SITE_ROOT = BASE.parent / 'dist' if (BASE.parent / 'dist').is_dir() else BASE.parent
+SOURCE_DIR = SITE_ROOT / 'downloads'
 SOURCE = SOURCE_DIR / 'ai_midterms_2026_data.json'
+OUTPUT_DIR = SITE_ROOT / 'assets'
 ELECTION_DAY = '2026-11-03'
 raw_bytes = SOURCE.read_bytes()
 raw = json.loads(raw_bytes)
@@ -32,6 +33,7 @@ SCOPE_TOPIC = {
     'additional_earlier_townmeeting': 'development', 'scheduled': 'development',
     'ai_governance': 'ai_governance', 'ai_surveillance': 'surveillance',
     'ai_adjacent': 'adjacent', 'broader_tax': 'finance',
+    'adjacent_compute_funding': 'adjacent', 'automated_surveillance_adjacent': 'surveillance',
     'broader_school_finance': 'finance',
 }
 
@@ -110,6 +112,12 @@ LEADERSHIP = {
         'states': ['GA', 'IA', 'NH', 'OH', 'TX'],
         'label': 'Democratic gain; divided government',
         'description': 'Recorded Democratic gains leave executive and legislative control divided between parties.',
+        'election_year': 2026,
+    },
+    'democratic_governor_gain_coalition': {
+        'states': ['AK'],
+        'label': 'Democratic governor gain; coalition context',
+        'description': 'The governor race is called for a Democratic/nonpartisan ticket. Incoming legislative coalition organization is not established by that result.',
         'election_year': 2026,
     },
     'democratic_house_gain_senate_unresolved': {
@@ -222,7 +230,7 @@ adapter_meta = {
     'tracker_file': 'tracker-data.json',
     'source_artifacts': [
         {'filename': f.name, 'size_bytes': f.stat().st_size, 'sha256': sha256(f.read_bytes()).hexdigest()}
-        for f in sorted(SOURCE_DIR.iterdir()) if f.is_file() and f.name.startswith('ai_midterms_2026_')
+        for f in [SOURCE]
     ],
 }
 dashboard = {k: deepcopy(v) for k, v in raw.items() if k not in TRACKER_KEYS}
@@ -235,6 +243,6 @@ dashboard.update({
 })
 tracker = {'adapter_meta': adapter_meta, **{k: deepcopy(raw[k]) for k in TRACKER_KEYS}}
 for name, data in [('dashboard-data.json', dashboard), ('tracker-data.json', tracker)]:
-    out = ASSET_DIR / name
+    out = OUTPUT_DIR / name
     out.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n')
     print(name, out.stat().st_size)

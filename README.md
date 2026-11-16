@@ -1,54 +1,66 @@
-# US AI Election Atlas — 2026
+# AI Midterm, mapped — 2026
 
-An interactive, state-by-state map of the 2026 US midterms and AI/data-centre policy. Explore local ballot votes, documented changes in state leadership and legislatures, selected election results, and relevant bills and proposals.
+A state-by-state research atlas of AI and data-centre ballot votes, selected election results, incoming leadership, and policy proposals.
 
-**Evidence cutoff: 13 November 2026.** This is a dated research inventory. Returns may be provisional, and the inventory is not a certified census of every municipal election. Every record retains its sources, dates and qualifications.
+**Reviewed 16 November 2026.** This branch is a pre-deployment review. Source snapshots retain their own dates and verification limits. It is a research inventory rather than a certified nationwide census or a live results feed.
 
-## Explore the atlas
+## Explore
 
-- All 50 states plus Washington, DC, with Alaska and Hawaii insets.
-- Three map layers: AI ballot activity, documented leadership changes, and the selected policy agenda.
-- State panels for Overview, Ballots, Elections and Bills; Texas is selected initially.
-- Election-period and topic filters, state and bill search, and shareable state-view links.
-- Vote totals and percentages, valid-vote denominators, binding/advisory labels, and source details.
-- Optional external candidate tracker with provisional statuses, aliases, position-only records and conflicting source snapshots preserved.
-- Polling context, methodology, evidence gaps, and four original research downloads.
+- All 50 states and DC, with a prominent state selector and three map layers: AI Ballot, Elections and Bills.
+- Light mode by default, optional dark mode, a blueprint layout and an orange Bills palette.
+- All recorded dates, ballot-topic filters, interactive result/status charts, policy search and shareable state links.
+- Called seats, uncalled seats and separate projections; incoming control remains distinct from current officeholding.
+- Binding/advisory labels, explicit denominators, source snapshots and field-specific review notes.
+- Compact Research notes with current JSON and a complete fact-check log.
+- A separately labeled external candidate tracker, preserving unresolved statuses and source conflicts.
 
-## Research inventory
+## Reviewed inventory
 
-| Record family | Retained records |
-| --- | ---: |
-| States and DC | 51 |
-| Ballot questions | 67 |
-| November 3 questions | 56 |
-| Earlier / scheduled questions | 7 / 4 |
-| Selected policy records | 138 |
-| Selected candidate contests / choices | 21 / 90 |
-| Recall records | 10 |
-| Polling observations | 89 |
-| Core source entries | 316 |
+| Record family | Count |
+|---|---:|
+| State/DC index | 51 |
+| Ballot records | 71 |
+| November 3 / earlier / scheduled | 60 / 7 / 4 |
+| Selected policy records | 150 |
+| Selected candidate contests / choices | 22 / 95 |
+| Recall/replacement records | 10 |
+| Control-change records / chamber snapshots | 16 / 14 |
+| Poll observations | 89 |
+| Source entries | 386 |
 
-The broader tracker retains 1,064 result rows and 75 additional position-only rows. Record counts are not a count of independently verified unique winners or enacted laws. Unavailable results remain unknown rather than being converted to zero. A candidate victory does not isolate voter support for an AI policy.
+All 353 pre-existing core research records have a field-specific audit disposition. Nineteen core records were added. The external tracker retains 1,064 result rows and 892 position rows, including 75 position-only rows; it was not independently re-audited row by row in this pass. Record counts are not counts of unique voters, independently verified winners or enacted laws.
 
-## Files
+The comparable November development cohort remains 48 questions, with 46 more-restrictive winning positions, including advisory preferences. An advisory preference does not enact a legal ban. Unknown counts remain null.
 
-- `index.html`, `assets/app.js`, `assets/panels.js`, `assets/styles.css`: the application.
-- `assets/dashboard-data.json`: core research tables and presentation indexes.
-- `assets/tracker-data.json`: optional candidate-tracker data, loaded when requested.
-- `downloads/`: the original dossier, workbook, canonical JSON and ZIP export, unchanged.
-- `research/ADAPTER_SCHEMA.md`: dataset structure and evidence-handling rules.
-- `research/build_adapter.py` and `research/check_adapter.py`: portable adapter and integrity checks.
+## Files and review
 
-The canonical dataset is `downloads/ai_midterms_2026_data.json`, SHA-256 `31fa31c14f26ec3d9404c0c549d088dacfd4f8dcf70f8e8f7102dab77607114a`.
+Static files live in `dist/` in the Sites checkout and at the repository root in the GitHub Pages export.
 
-## Hosting with GitHub Pages
+- `index.html`, `assets/app.js`, `assets/panels.js`, `assets/styles.css`: application.
+- `downloads/ai_midterms_2026_data.json`: current canonical research data.
+- `downloads/review-2026-11-16.json`: applied changes and complete coverage ledgers.
+- `assets/dashboard-data.json`: canonical core records plus derived display indexes.
+- `assets/tracker-data.json`: optional external tracker, loaded on demand.
+- `research/reviews/2026-11-16/ATLAS_REVIEW_AND_OPTIONS.md`: full audit findings and four next-pass implementation options.
+- `research/ADAPTER_SCHEMA.md`: data contracts and safeguards.
+- `research/adapter-validation.json`: integrity receipt and exact hashes.
 
-Publish this repository from **Settings → Pages → Deploy from a branch → main → /(root)**. The `.nojekyll` file enables direct static-file serving. The application uses relative URLs, so it works under a GitHub Pages project path as well as a domain root. No API keys, package installation, compilation or backend are required.
+The original DOCX, XLSX and ZIP are historical 13 November exports. They have not been refreshed and are not presented as current downloads in Research notes.
 
-For local inspection, serve the repository through a static HTTP server; for example, run `python -m http.server 8000` and open `http://localhost:8000`. Opening `index.html` directly as a local file will prevent normal JSON fetching in browsers.
+## Rebuild and validate
 
-Run `python research/check_adapter.py` to compare the application datasets with the canonical research snapshot. Rebuild with `python research/build_adapter.py` only when intentionally regenerating those assets. Data refreshes should preserve prior versions and reconcile headline counts, source dates, state narratives and methodology together; hosting the site does not refresh its evidence.
+No runtime package installation, API key or backend is required. Native JavaScript modules use relative asset URLs.
+
+Run `python research/build_adapter.py` after changing the canonical JSON, then `python research/check_adapter.py`. Both scripts support either repository layout. The current receipt passes 2,679 integrity assertions. Arithmetic and schema checks do not replace source review.
+
+The date-specific migration in the Sites source uses immutable baseline provenance. Review the stored patches and evidence before applying a future refresh. Preserve prior values, correct derived totals, and avoid combining different snapshot dates or denominators.
+
+## Hosting
+
+The existing GitHub Pages production target is `main` at `/(root)`; `.nojekyll` enables direct static serving. This review branch does not change that production target. Merging reviewed changes to the configured publishing branch is a separate release step.
+
+In the Sites checkout, `.openai/hosting.json` declares `dist/`. Use the managed Sites preview and version workflow there. The current review is saved without deployment.
 
 ## Map attribution
 
-Geographic outlines derive from the U.S. Census Bureau 2017 cartographic boundaries via [us-atlas 3.0.1](https://github.com/topojson/us-atlas). Alaska and Hawaii are repositioned insets. The redistribution licence is retained in `assets/us-atlas-LICENSE.txt`. Source publications remain individually cited in the atlas and downloadable research files.
+Geographic outlines derive from the U.S. Census Bureau 2017 cartographic boundaries via [us-atlas 3.0.1](https://github.com/topojson/us-atlas). The redistribution licence is retained in `assets/us-atlas-LICENSE.txt`. Source publications remain individually linked in the atlas and research files.

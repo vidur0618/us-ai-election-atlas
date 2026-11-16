@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#0b1726">
-  <meta name="description" content="Explore the 2026 US midterms through AI and data-centre ballot votes, leadership changes and state legislation. Source-grounded research snapshot, 13 November 2026.">
+  <meta name="theme-color" content="#f3f8fc">
+  <meta name="description" content="Explore the 2026 US midterms through AI and data-centre ballot votes, leadership changes and state legislation. Evidence reviewed 16 November 2026; individual source dates and verification limits are preserved.">
   <title>AI Midterm, mapped · 2026</title>
-  <script>try{if(localStorage.getItem('ai-atlas-theme')==='light')document.documentElement.dataset.theme='light';}catch{}</script>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=4">
-  <link rel="stylesheet" href="assets/styles.css?v=4">
+  <script>try{if(localStorage.getItem('ai-atlas-theme')==='dark')document.documentElement.dataset.theme='dark';}catch{}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=5">
+  <link rel="stylesheet" href="assets/styles.css?v=5">
 </head>
 <body>
   <a class="skip-link" href="#state-panel">Skip to state details</a>
@@ -19,7 +19,7 @@
     </a>
     <div class="header-actions">
       <button class="quiet-button" id="methodology-button" type="button" aria-label="About the data">Data</button>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span id="theme-icon" aria-hidden="true">☀</span><span id="theme-label">Light mode</span></button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode"><span id="theme-icon" aria-hidden="true">☾</span><span id="theme-label">Dark mode</span></button>
     </div>
   </header>
 
@@ -40,11 +40,10 @@
           </div>
           <button class="icon-button" id="reset-button" type="button" title="Reset the map and filters" aria-label="Reset the map and filters"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6.5 6.5 0 1 1 0 7M4 2v5h5"/></svg></button>
         </div>
-        <div class="map-description"><h2 id="map-title" class="sr-only">AI ballot activity</h2><span id="map-state-count" class="map-count">14 states</span></div>
+        <div class="map-description"><h2 id="map-title" class="sr-only">AI ballot activity</h2><span id="map-state-count" class="map-count">—</span></div>
         <div class="filter-row" id="map-filters">
-          <label class="select-field">Period<select id="period-filter" aria-label="Election period"><option value="nov3">Nov 3, 2026</option><option value="earlier">Earlier in 2026</option><option value="upcoming">Scheduled after cutoff</option><option value="all">All recorded dates</option></select></label>
           <label class="select-field">Topic<select id="topic-filter" aria-label="Ballot topic"><option value="all">All topics</option><option value="development">Data-centre development</option><option value="governance">AI & data governance</option><option value="surveillance">Automated surveillance</option><option value="adjacent">Related technology & finance</option></select></label>
-          <span class="filter-result" id="filter-result">56 questions shown</span>
+          <span class="filter-result" id="filter-result">—</span>
         </div>
         <div class="map-stage" id="map-stage" aria-busy="true">
           <div id="map-loading" class="loading-state"><span class="loading-spinner"></span>Loading the atlas…</div>
@@ -56,13 +55,13 @@
     </section>
 
     <aside class="state-panel" id="state-panel" aria-labelledby="state-title">
-      <div class="panel-heading"><div class="panel-title-row"><span class="state-code" id="state-code">TX</span><h2 id="state-title">Texas</h2><button type="button" class="icon-button" id="copy-link" title="Copy a link to this state" aria-label="Copy a link to this state"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 12 4-4M6 13l-1 1a3.5 3.5 0 0 1-5-5l4-4a3.5 3.5 0 0 1 5 0m2 2 1-1a3.5 3.5 0 0 1 5 5l-4 4a3.5 3.5 0 0 1-5 0" transform="translate(1 0)"/></svg></button></div><p id="state-deck" class="sr-only">Governor and House shift to Democrats; Senate remains Republican.</p></div>
-      <nav class="panel-tabs" aria-label="State briefing sections"><button class="active" data-tab="overview" type="button" aria-current="true">Highlights</button><button data-tab="ballots" type="button">Ballots <span id="tab-ballot-count">2</span></button><button data-tab="elections" type="button">Elections <span id="tab-election-count">10</span></button><button data-tab="bills" type="button">Bills <span id="tab-policy-count">46</span></button></nav>
+      <div class="panel-heading"><div class="panel-title-row"><span class="state-code" id="state-code">TX</span><h2 id="state-title">Texas</h2><button type="button" class="icon-button" id="copy-link" title="Copy a link to this state" aria-label="Copy a link to this state"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 12 4-4M6 13l-1 1a3.5 3.5 0 0 1-5-5l4-4a3.5 3.5 0 0 1 5 0m2 2 1-1a3.5 3.5 0 0 1 5 5l-4 4a3.5 3.5 0 0 1-5 0" transform="translate(1 0)"/></svg></button></div><p id="state-deck" class="sr-only">Loading the state briefing.</p></div>
+      <nav class="panel-tabs" aria-label="State briefing sections"><button class="active" data-tab="overview" type="button" aria-current="true">Highlights</button><button data-tab="ballots" type="button">Ballots <span id="tab-ballot-count">—</span></button><button data-tab="elections" type="button">Elections <span id="tab-election-count">—</span></button><button data-tab="bills" type="button">Bills <span id="tab-policy-count">—</span></button></nav>
       <div class="panel-content" id="panel-content"><div class="loading-state"><span class="loading-spinner"></span>Preparing state briefing…</div></div>
     </aside>
   </main>
-  <dialog class="method-dialog" id="method-dialog" aria-labelledby="method-title"><div class="dialog-header"><div><p class="eyebrow">RESEARCH NOTES</p><h2 id="method-title">Read the map with confidence.</h2></div><button class="icon-button" id="close-method" aria-label="Close methodology" type="button">✕</button></div><div id="method-content" class="dialog-body"></div></dialog>
+  <dialog class="method-dialog" id="method-dialog" aria-labelledby="method-title"><div class="dialog-header"><h2 id="method-title">Research notes</h2><button class="icon-button" id="close-method" aria-label="Close research notes" type="button">✕</button></div><div id="method-content" class="dialog-body"></div></dialog>
   <div id="toast" class="toast" role="status" hidden></div><div id="selection-announcement" class="sr-only" role="status" aria-live="polite"></div>
-  <script type="module" src="assets/app.js?v=4"></script>
+  <script type="module" src="assets/app.js?v=5"></script>
 </body>
 </html>
