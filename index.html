@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#141917">
+  <meta name="theme-color" content="#0b1726">
   <meta name="description" content="Explore the 2026 US midterms through AI and data-centre ballot votes, leadership changes and state legislation. Source-grounded research snapshot, 13 November 2026.">
-  <title>US AI Election Atlas · 2026 Midterms</title>
+  <title>AI Midterm, mapped · 2026</title>
   <script>try{if(localStorage.getItem('ai-atlas-theme')==='light')document.documentElement.dataset.theme='light';}catch{}</script>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
-  <link rel="stylesheet" href="assets/styles.css?v=3">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=4">
+  <link rel="stylesheet" href="assets/styles.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#state-panel">Skip to state details</a>
   <header class="topbar">
     <a class="brand" href="./" aria-label="US AI Election Atlas home">
-      <svg class="brand-symbol" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="m5 10 10-4 10 4 10-4v24l-10 4-10-4-10 4V10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 6v24M25 10v24" stroke="currentColor" stroke-width="1.2" opacity=".3"/><path class="brand-accent" d="m11 18 6 6L29 12" stroke="var(--accent, #b5d8bf)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="brand-symbol" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="m5 10 10-4 10 4 10-4v24l-10 4-10-4-10 4V10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 6v24M25 10v24" stroke="currentColor" stroke-width="1.2" opacity=".3"/><path class="brand-accent" d="m11 18 6 6L29 12" stroke="var(--accent, #82d7ed)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span>AI Election Atlas<small>2026</small></span>
     </a>
     <div class="header-actions">
@@ -26,10 +26,12 @@
   <main class="workspace">
     <section class="map-workspace" aria-labelledby="atlas-title">
       <div class="intro">
-        <div><h1 id="atlas-title">America, mapped.</h1></div>
+        <div><h1 id="atlas-title">AI Midterm, mapped</h1></div>
         <div class="state-search"><label for="state-select">State</label><div class="search-field"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.3 6-10a6 6 0 1 0-12 0c0 4.7 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg><select id="state-select" aria-label="Explore a state"><option value="TX">Texas · TX</option></select></div></div>
       </div>
       <section class="map-card" aria-label="Interactive US map">
+        <div class="blueprint-art blueprint-art--array" aria-hidden="true"></div>
+        <div class="blueprint-art blueprint-art--module" aria-hidden="true"></div>
         <div class="map-toolbar">
           <div class="layer-switch" role="group" aria-label="Map layer">
             <button class="active" data-layer="ballots" type="button" aria-pressed="true"><span class="layer-icon" aria-hidden="true">◫</span>AI Ballot</button>
@@ -61,6 +63,6 @@
   </main>
   <dialog class="method-dialog" id="method-dialog" aria-labelledby="method-title"><div class="dialog-header"><div><p class="eyebrow">RESEARCH NOTES</p><h2 id="method-title">Read the map with confidence.</h2></div><button class="icon-button" id="close-method" aria-label="Close methodology" type="button">✕</button></div><div id="method-content" class="dialog-body"></div></dialog>
   <div id="toast" class="toast" role="status" hidden></div><div id="selection-announcement" class="sr-only" role="status" aria-live="polite"></div>
-  <script type="module" src="assets/app.js?v=3"></script>
+  <script type="module" src="assets/app.js?v=4"></script>
 </body>
 </html>
