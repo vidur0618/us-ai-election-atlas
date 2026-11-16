@@ -8,12 +8,12 @@ const fmt=n=>Number.isFinite(n)?number.format(n):'Not reported';
 const NS='http://www.w3.org/2000/svg';
 const PERIODS={nov3:'November 3',earlier:'Earlier in 2026',upcoming:'Scheduled after cutoff',all:'All recorded dates'};
 const LEADERSHIP={
-  new_democratic_trifecta:{color:'#356cbb',label:'New Democratic trifecta',dark:true},
-  democratic_gain_divided:{color:'#8663a1',label:'Democratic gain; divided',dark:true},
-  democratic_house_gain_senate_unresolved:{color:'#e7c36f',label:'House gain; Senate unresolved',dark:false},
-  democratic_hold:{color:'#b4ccee',label:'Democratic governor hold',dark:false},
-  prior_year_change:{color:'#b7c3d1',label:'Prior-year context',dark:false},
-  no_retained_control_record:{color:'#e7edf1',label:'No retained change record',dark:false}
+  new_democratic_trifecta:{token:'leader-trifecta',label:'New Democratic trifecta'},
+  democratic_gain_divided:{token:'leader-divided',label:'Democratic gain; divided'},
+  democratic_house_gain_senate_unresolved:{token:'leader-unresolved',label:'House gain; Senate unresolved'},
+  democratic_hold:{token:'leader-hold',label:'Democratic governor hold'},
+  prior_year_change:{token:'leader-prior',label:'Prior-year context'},
+  no_retained_control_record:{token:'map-none',label:'No retained change record'}
 };
 const DECKS={
   TX:'Democratic governor and House; Republican Senate. Divided government.',
@@ -44,7 +44,29 @@ const DECKS={
 
 let data, geometry, tracker=null, trackerPromise=null;
 let state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};
-let summaries=new Map(), statesByCode=new Map(), toastTimer;
+let summaries=new Map(), statesByCode=new Map(), geometryByCode=new Map(), toastTimer;
+let mapPalette, hoveredCode=null, tooltipKey='', tooltipFrame=null, tooltipPosition=null;
+const mapNodes=new Map();
+
+function setTheme(theme,{persist=true}={}){
+  const light=theme==='light';
+  document.documentElement.dataset.theme=light?'light':'dark';
+  const toggle=$('#theme-toggle');
+  if(toggle){
+    toggle.setAttribute('aria-pressed',String(light));
+    toggle.setAttribute('aria-label',`Switch to ${light?'dark':'light'} mode`);
+    toggle.title=`Switch to ${light?'dark':'light'} mode`;
+  }
+  if($('#theme-label'))$('#theme-label').textContent=light?'Dark mode':'Light mode';
+  if($('#theme-icon'))$('#theme-icon').innerHTML=light?'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.8 12.3A7.1 7.1 0 0 1 7.7 3.2 7.1 7.1 0 1 0 16.8 12.3Z"/></svg>':'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.5"/><path d="M10 1.5v2m0 13v2M1.5 10h2m13 0h2M4 4l1.4 1.4m9.2 9.2L16 16M4 16l1.4-1.4m9.2-9.2L16 4"/></svg>';
+  $('meta[name="theme-color"]')?.setAttribute('content',light?'#f4f4f5':'#0b0c10');
+  if(persist){try{localStorage.setItem('ai-atlas-theme',light?'light':'dark');}catch{}}
+  if(data&&geometry)updateMap();
+}
+function wireTheme(){
+  setTheme(document.documentElement.dataset.theme==='light'?'light':'dark',{persist:false});
+  $('#theme-toggle')?.addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='light'?'dark':'light'));
+}
 
 function readURL(){
   const p=new URLSearchParams(location.search);
@@ -58,15 +80,21 @@ function writeURL(){const u=new URL(location.href);for(const [key,value] of Obje
 function getBallots(code){return data.ballots.filter(b=>(!code||b.state===code)&&matchesBallot(b,state.period,state.topic));}
 function policyCount(code){return summaries.get(code)?.policy_record_ids.length||0;}
 function currentNumber(code){return state.layer==='policies'?policyCount(code):getBallots(code).length;}
+function paletteColour(token){
+  return {color:mapPalette.getPropertyValue(`--${token}`).trim()||'#454853',labelColor:mapPalette.getPropertyValue(`--${token}-label`).trim()||'#ffffff'};
+}
 function mapColour(code){
-  if(state.layer==='leadership')return LEADERSHIP[summaries.get(code)?.leadership.key]||LEADERSHIP.no_retained_control_record;
+  if(state.layer==='leadership')return paletteColour((LEADERSHIP[summaries.get(code)?.leadership.key]||LEADERSHIP.no_retained_control_record).token);
   const n=currentNumber(code);
-  if(state.layer==='policies')return {color:n===0?'#e7edf1':n<5?'#e5d6ed':n<10?'#bb9ad1':n<20?'#9266b1':'#633a86',dark:n>=10};
-  return {color:n===0?'#e7edf1':n===1?'#aad8cd':n<5?'#65b4a2':n<10?'#278a77':'#075e54',dark:n>=5};
+  if(!n)return paletteColour('map-none');
+  if(state.layer==='policies')return paletteColour(`policy-${n<5?1:n<10?2:n<20?3:4}`);
+  return paletteColour(`ballot-${n===1?1:n<5?2:n<10?3:4}`);
 }
 function makeSVG(){
   const svg=$('#us-map');svg.setAttribute('viewBox',geometry.viewBox);
-  svg.innerHTML='<g class="state-paths"></g><g class="map-callouts"></g><g class="state-labels"></g>';
+  svg.innerHTML='<g class="state-paths"></g><path class="map-hover-outline" fill="none" fill-rule="evenodd" visibility="hidden" aria-hidden="true"/><g class="map-callouts"></g><g class="state-labels"></g>';
+  geometryByCode=new Map(geometry.states.map(s=>[s.abbr,s]));
+  mapNodes.clear();
   const paths=svg.querySelector('.state-paths'),callouts=svg.querySelector('.map-callouts'),labels=svg.querySelector('.state-labels');
   for(const s of geometry.states){
     const [labelX,labelY]=s.label;
@@ -81,60 +109,112 @@ function makeSVG(){
       const text=document.createElementNS(NS,'text');text.setAttribute('x',labelX);text.setAttribute('y',labelY);text.setAttribute('class','state-label');text.dataset.state=s.abbr;text.setAttribute('aria-hidden','true');text.textContent=s.abbr;labels.append(text);
     }
   }
+  for(const node of svg.querySelectorAll('[data-state]')){
+    const nodes=mapNodes.get(node.dataset.state)||[];nodes.push(node);mapNodes.set(node.dataset.state,nodes);
+  }
   svg.addEventListener('click',ev=>{const target=ev.target.closest('[data-state]');if(target)selectState(target.dataset.state,true);});
-  svg.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){const target=ev.target.closest('[data-state]');if(target){ev.preventDefault();selectState(target.dataset.state,true);}}});
-  svg.addEventListener('pointermove',ev=>{const target=ev.target.closest('[data-state]');if(target&&ev.pointerType!=='touch')showTooltip(target.dataset.state,ev.clientX,ev.clientY);else hideTooltip();});
+  svg.addEventListener('keydown',ev=>{
+    if(ev.key==='Escape'){ev.preventDefault();hideTooltip();return;}
+    if(ev.key==='Enter'||ev.key===' '){const target=ev.target.closest('[data-state]');if(target){ev.preventDefault();selectState(target.dataset.state,true);}}
+  });
+  svg.addEventListener('pointermove',ev=>{
+    const target=ev.target.closest('[data-state]');
+    if(!target||ev.pointerType==='touch'){hideTooltip();return;}
+    tooltipPosition={code:target.dataset.state,x:ev.clientX,y:ev.clientY};
+    if(tooltipFrame===null)tooltipFrame=requestAnimationFrame(()=>{
+      tooltipFrame=null;const position=tooltipPosition;if(position)showTooltip(position.code,position.x,position.y);
+    });
+  });
   svg.addEventListener('pointerleave',hideTooltip);
   svg.addEventListener('focusin',ev=>{const target=ev.target.closest('[data-state]');if(target){const rect=target.getBoundingClientRect();showTooltip(target.dataset.state,rect.x+rect.width/2,rect.y+rect.height/2);}});
   svg.addEventListener('focusout',hideTooltip);
 }
 function mapDescription(){
-  if(state.layer==='leadership')return {title:'How state leadership changed',subtitle:'Incoming control changes documented in the research snapshot.',caption:'Colours describe retained leadership changes, not a complete party-control map.'};
-  if(state.layer==='policies')return {title:'The state policy agenda',subtitle:'Explore selected laws, pending bills, executive actions and proposals.',caption:'Colour shows selected policy records, not laws enacted by the election.'};
-  return {title:'AI and data-centre ballot activity',subtitle:'Select a state to explore the questions voters decided.',caption:'Colour shows the number of identified questions, not party preference.'};
+  if(state.layer==='leadership')return 'State elections';
+  if(state.layer==='policies')return 'State legislation';
+  return 'AI ballot activity';
 }
 function updateMap(){
+  hideTooltip();
+  mapPalette=getComputedStyle(document.documentElement);
+  $('#state-select').value=state.code;
   for(const el of $$('#us-map [data-state]')){
     const code=el.dataset.state,c=mapColour(code),selected=code===state.code;
     el.classList.toggle('selected',selected);
     if(el.classList.contains('state-shape'))el.setAttribute('fill',c.color);
-    if(el.classList.contains('callout-label')){el.querySelector('rect').setAttribute('fill',c.color);el.querySelector('text').classList.toggle('dark-fill',c.dark);}
-    if(el.classList.contains('state-label'))el.classList.toggle('dark-fill',c.dark);
+    if(el.classList.contains('callout-label')){el.querySelector('rect').setAttribute('fill',c.color);el.querySelector('text').style.fill=c.labelColor;}
+    if(el.classList.contains('state-label'))el.style.fill=c.labelColor;
     if(el.getAttribute('role')==='button'){
       el.setAttribute('aria-pressed',String(selected));
       const note=state.layer==='leadership'?(summaries.get(code)?.leadership.label||'No retained change record'):`${currentNumber(code)} ${state.layer==='policies'?'selected policy records':'matching ballot questions'}`;
       el.setAttribute('aria-label',`${statesByCode.get(code)?.state_name||code}: ${note}. Select for details.`);
     }
   }
-  const desc=mapDescription();$('#map-title').textContent=desc.title;$('#map-subtitle').textContent=desc.subtitle;$('#map-caption-text').textContent=desc.caption;
+  $('#map-title').textContent=mapDescription();
   let activeStates=0;
   if(state.layer==='leadership')activeStates=data.state_summaries.filter(s=>s.leadership.key!=='no_retained_control_record').length;
   else activeStates=data.states.filter(s=>currentNumber(s.state)>0).length;
   $('#map-state-count').textContent=`${activeStates} states`;
-  $('#filter-result').textContent=state.layer==='leadership'?'Dated control snapshot':`${getBallots().length} questions shown`;
-  $('#map-selected').innerHTML=`Viewing ${esc(statesByCode.get(state.code).state_name)} <span>↗</span>`;
+  $('#filter-result').textContent=state.layer==='leadership'?'':`${getBallots().length} questions`;
   $('#period-filter').value=state.period;$('#topic-filter').value=state.topic;
   $('#map-filters').hidden=state.layer==='policies';$('#topic-filter').closest('label').hidden=state.layer==='leadership';
-  $('#layer-explainer').hidden=state.layer==='ballots';
-  $('#layer-explainer').textContent=state.layer==='leadership'?'The period filter applies to candidate contests and recalls. Leadership colours retain the dated control record; prior-year changes are labelled separately.':'The policy inventory spans recorded sessions. A prefiled bill, an enacted law and a campaign pledge remain distinct in each state’s briefing.';
   for(const btn of $$('[data-layer]')){btn.classList.toggle('active',btn.dataset.layer===state.layer);btn.setAttribute('aria-pressed',String(btn.dataset.layer===state.layer));}
   const legend=$('#map-legend');
-  const items=state.layer==='leadership'?Object.values(LEADERSHIP):state.layer==='policies'?[{color:'#e7edf1',label:'No record'},{color:'#e5d6ed',label:'1–4'},{color:'#bb9ad1',label:'5–9'},{color:'#9266b1',label:'10–19'},{color:'#633a86',label:'20+'}]:[{color:'#e7edf1',label:'None identified'},{color:'#aad8cd',label:'1'},{color:'#65b4a2',label:'2–4'},{color:'#278a77',label:'5–9'},{color:'#075e54',label:'10+'}];
-  legend.innerHTML=(state.layer==='leadership'?'':`<strong>${state.layer==='policies'?'Policy records':'Questions'}</strong>`)+items.map(i=>`<span class="legend-item"><i class="legend-swatch" style="background:${i.color}"></i>${esc(i.label)}</span>`).join('');
+  const items=state.layer==='leadership'?Object.values(LEADERSHIP):state.layer==='policies'?[{token:'map-none',label:'No record'},{token:'policy-1',label:'1–4'},{token:'policy-2',label:'5–9'},{token:'policy-3',label:'10–19'},{token:'policy-4',label:'20+'}]:[{token:'map-none',label:'None identified'},{token:'ballot-1',label:'1'},{token:'ballot-2',label:'2–4'},{token:'ballot-3',label:'5–9'},{token:'ballot-4',label:'10+'}];
+  legend.innerHTML=(state.layer==='leadership'?'':`<strong>${state.layer==='policies'?'Policy records':'Questions'}</strong>`)+items.map(i=>`<span class="legend-item"><i class="legend-swatch" style="background:${paletteColour(i.token).color}"></i>${esc(i.label)}</span>`).join('');
+}
+function highlightState(code){
+  if(hoveredCode===code)return;
+  for(const el of mapNodes.get(hoveredCode)||[]){el.classList.remove('is-hovered');el.removeAttribute('aria-describedby');}
+  hoveredCode=code;
+  for(const el of mapNodes.get(code)||[]){el.classList.add('is-hovered');if(el.getAttribute('role')==='button')el.setAttribute('aria-describedby','map-tooltip');}
+  const outline=$('.map-hover-outline'),shape=geometryByCode.get(code);
+  if(outline){if(shape){outline.setAttribute('d',shape.path);outline.setAttribute('visibility','visible');}else outline.setAttribute('visibility','hidden');}
+}
+function tooltipMarkup(code){
+  const s=statesByCode.get(code),summary=summaries.get(code);
+  let metrics=[],detail='',context='';
+  if(state.layer==='leadership'){
+    const contests=data.elections.filter(e=>e.state===code&&matchesPeriod(e,state.period)).length;
+    const recalls=data.recalls.filter(r=>r.state===code&&matchesPeriod(r,state.period)).length;
+    metrics=[{value:contests,label:'Selected contests'},{value:recalls,label:'Recall records'}];
+    detail=summary?.leadership.label||'No retained control-change record';
+    context=DECKS[code]||summary?.leadership.description||'';
+  }else if(state.layer==='policies'){
+    const policies=data.policies.filter(p=>p.state===code);
+    const prefiled=policies.filter(p=>policyStage(p).id==='prefiled').length;
+    const enacted=policies.filter(p=>policyStage(p).id==='enacted').length;
+    metrics=[{value:policies.length,label:'Policy records'},{value:prefiled,label:'Prefiled'},{value:enacted,label:'Enacted / issued'}];
+    detail=policies.length?'Selected laws, bills and proposals':'No selected policy record';
+    const lead=policies.find(p=>p.priority==='selected_policy'&&policyStage(p).id==='prefiled')||policies.find(p=>p.priority==='selected_policy')||policies[0];
+    if(lead)context=[lead.instrument,lead.title].filter(Boolean).join(' · ');
+  }else{
+    const rows=getBallots(code),binding=rows.filter(b=>['binding','town_meeting_binding'].includes(b.legal_type)).length,advisory=rows.filter(b=>b.legal_type==='advisory').length;
+    metrics=[{value:rows.length,label:'Questions'},{value:binding,label:'Binding'},{value:advisory,label:'Advisory'}];
+    detail=rows.length?`${PERIODS[state.period]} · ${[...new Set(rows.map(b=>b.jurisdiction))].slice(0,2).join(', ')}`:'No matching question identified';
+    if(rows.length){const titled=rows[0];context=titled.measure_title||'';}
+  }
+  const compact=text=>{const value=cleanText(text);return value.length>145?value.slice(0,142).trimEnd()+'…':value;};
+  return `<div class="tooltip-head"><span class="tooltip-code">${esc(code)}</span><strong>${esc(s.state_name)}</strong></div><div class="tooltip-metrics">${metrics.map(m=>`<div><strong>${fmt(m.value)}</strong><span>${esc(m.label)}</span></div>`).join('')}</div><p class="tooltip-detail">${esc(compact(detail))}</p>${context?`<p class="tooltip-detail tooltip-context">${esc(compact(context))}</p>`:''}<span class="tooltip-hint">Open state briefing <span aria-hidden="true">↗</span></span>`;
 }
 function showTooltip(code,clientX,clientY){
-  const tip=$('#map-tooltip'),s=statesByCode.get(code),summary=summaries.get(code);if(!s)return;
-  let detail='',value='';
-  if(state.layer==='leadership'){detail=summary.leadership.description||summary.leadership.label;value='';}
-  else if(state.layer==='policies'){const policies=data.policies.filter(p=>p.state===code);value=fmt(policies.length);const filed=policies.filter(p=>policyStage(p).id==='prefiled').length;detail=`Selected policy records${filed?` · ${filed} prefiled`:''}.`;}
-  else{const rows=getBallots(code);value=fmt(rows.length);detail=rows.length?`${PERIODS[state.period]} · ${rows.filter(b=>b.legal_type!=='advisory').length} binding / ${rows.filter(b=>b.legal_type==='advisory').length} advisory`:'No matching question identified in the reviewed inventory.';}
-  tip.innerHTML=`<strong>${esc(s.state_name)} <span class="tooltip-number">${value}</span></strong><small>${esc(cleanText(detail))}</small><small>Click for the state briefing →</small>`;
-  tip.hidden=false;const stage=$('#map-stage').getBoundingClientRect();
-  const left=Math.max(8,Math.min(clientX-stage.left+14,stage.width-tip.offsetWidth-8));
-  const top=Math.max(8,Math.min(clientY-stage.top+12,stage.height-tip.offsetHeight-6));
-  tip.style.left=left+'px';tip.style.top=top+'px';
+  const tip=$('#map-tooltip');if(!statesByCode.has(code))return;
+  highlightState(code);
+  const key=[code,state.layer,state.period,state.topic].join('|');
+  if(tooltipKey!==key){tip.innerHTML=tooltipMarkup(code);tooltipKey=key;}
+  tip.hidden=false;
+  const stage=$('#map-stage').getBoundingClientRect(),tipWidth=tip.offsetWidth,tipHeight=tip.offsetHeight;
+  let left=clientX-stage.left+18,top=clientY-stage.top+18;
+  if(left+tipWidth>stage.width-8)left=clientX-stage.left-tipWidth-18;
+  if(top+tipHeight>stage.height-8)top=clientY-stage.top-tipHeight-18;
+  tip.style.left=Math.max(8,Math.min(left,stage.width-tipWidth-8))+'px';
+  tip.style.top=Math.max(8,Math.min(top,stage.height-tipHeight-8))+'px';
 }
-function hideTooltip(){$('#map-tooltip').hidden=true;}
+function hideTooltip(){
+  if(tooltipFrame!==null){cancelAnimationFrame(tooltipFrame);tooltipFrame=null;}
+  tooltipPosition=null;highlightState(null);
+  const tip=$('#map-tooltip');if(tip)tip.hidden=true;
+}
 function sourcesFor(record){
   const all=[];for(const id of record.source_ids||[]){const s=data.sources.find(x=>x.source_id===id);if(s)all.push(s);}
   for(const url of record.sources||[]){if(!all.some(x=>x.url===url))all.push({url,title:new URL(url).hostname});}
@@ -165,7 +245,7 @@ function renderPanel({keepScroll=false}={}){
 }
 function selectState(code,fromMap=false){
   if(!statesByCode.has(code))return;state.code=code;updateMap();renderPanel();writeURL();hideTooltip();
-  if(fromMap&&window.matchMedia('(max-width:760px)').matches)$('#state-panel').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'});
+  if(fromMap&&window.matchMedia('(max-width:860px)').matches)$('#state-panel').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
 }
 function changeTab(tab){
   if(!['overview','ballots','elections','bills'].includes(tab))return;state.tab=tab;
@@ -180,7 +260,7 @@ function filterPolicies(value){
 function showToast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
 function buildMethodology(){
   const gaps=data.gaps||[];
-  $('#method-content').innerHTML=`<p class="method-highlight">A dated research inventory, not a live election feed. Evidence cutoff: <strong>13 November 2026</strong>. Results and legislation retain their individual source dates and qualifications.</p><h3>What is included</h3><table><thead><tr><th>Record family</th><th>Count</th></tr></thead><tbody><tr><td>November 3 questions, all included topics</td><td>56</td></tr><tr><td>Development questions / more restrictive outcomes</td><td>48 / 46</td></tr><tr><td>Earlier questions / scheduled questions</td><td>7 / 4</td></tr><tr><td>Selected policy records</td><td>138</td></tr><tr><td>Selected candidate contests / candidate choices</td><td>21 / 90</td></tr><tr><td>Recall officials / polling observations</td><td>10 / 89</td></tr><tr><td>Core source registry entries</td><td>316</td></tr></tbody></table><h3>Reading the three map layers</h3><ul><li><strong>AI ballot votes:</strong> darker green means more identified questions. It does not indicate support for AI or a political party. Use the topic filter to separate development, governance, surveillance and broader context.</li><li><strong>Leadership:</strong> colours show documented changes and holds in the selected research. Gray means no retained control-change record, not a Republican hold or verified absence of change. Prior-year Virginia context is labelled separately.</li><li><strong>Policy agenda:</strong> darker purple means more selected policy records. Proposals, laws and executive actions are different record types.</li></ul><h3>Counting and evidence rules</h3><ol>${data.metadata.counting_rules.map(t=>`<li>${esc(cleanText(t))}</li>`).join('')}</ol><p>Twenty-five ballot records have vote counts read in primary sources. A primary return can still be unofficial. Remaining records use cited secondary returns or have no available result. “No question identified” is a coverage statement rather than a certified zero.</p><h3>Candidate tracker limitations</h3><p>The optional discovery layer preserves all 1,064 result rows and 892 November position rows. It includes 75 position-only records, aliases, missing vote totals, and “leading” results. Its “370 winners” shorthand combines won and leading rows; it must not be displayed as 370 verified unique winners. Nine conflicts with selected election snapshots remain flagged.</p>${pollingContext('US')}<h3>Evidence gaps and refresh priorities</h3>${gaps.map(g=>`<details class="evidence"><summary>${esc(cleanText(g.issue||'Evidence gap'))}</summary><p>${esc(cleanText(g.impact||''))}</p><p><strong>Next refresh:</strong> ${esc(cleanText(g.next_step||''))}</p></details>`).join('')}<h3>Research files and map source</h3><p>All four original research deliverables are available from <strong>Research files</strong>. The dashboard is based on the original 13 November snapshot; presentation changes do not change its underlying election data.</p><p>Map boundaries: <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">U.S. Census Bureau (2017), via us-atlas 3.0.1</a>. Alaska and Hawaii are repositioned insets. State borders are geographic outlines; they are not electoral-district boundaries. <a href="assets/us-atlas-LICENSE.txt" target="_blank" rel="noopener">Map redistribution licence</a>.</p>`;
+  $('#method-content').innerHTML=`<p class="method-highlight">A dated research inventory, not a live election feed. Evidence cutoff: <strong>13 November 2026</strong>. Results and legislation retain their individual source dates and qualifications.</p><h3>What is included</h3><table><thead><tr><th>Record family</th><th>Count</th></tr></thead><tbody><tr><td>November 3 questions, all included topics</td><td>56</td></tr><tr><td>Development questions / more restrictive outcomes</td><td>48 / 46</td></tr><tr><td>Earlier questions / scheduled questions</td><td>7 / 4</td></tr><tr><td>Selected policy records</td><td>138</td></tr><tr><td>Selected candidate contests / candidate choices</td><td>21 / 90</td></tr><tr><td>Recall officials / polling observations</td><td>10 / 89</td></tr><tr><td>Core source registry entries</td><td>316</td></tr></tbody></table><h3>Reading the three map layers</h3><ul><li><strong>AI Ballot:</strong> the crimson-to-coral scale shows the number of identified questions. It does not indicate support for AI or a political party. Use the topic filter to separate development, governance, surveillance and broader context.</li><li><strong>Elections:</strong> colours show documented leadership changes and holds in the selected research. Gray means no retained control-change record, not a Republican hold or verified absence of change. Prior-year Virginia context is labelled separately.</li><li><strong>Bills:</strong> the plum-to-rose scale shows the number of selected policy records. Proposals, laws and executive actions are different record types.</li></ul><h3>Counting and evidence rules</h3><ol>${data.metadata.counting_rules.map(t=>`<li>${esc(cleanText(t))}</li>`).join('')}</ol><p>Twenty-five ballot records have vote counts read in primary sources. A primary return can still be unofficial. Remaining records use cited secondary returns or have no available result. “No question identified” is a coverage statement rather than a certified zero.</p><h3>Candidate tracker limitations</h3><p>The optional discovery layer preserves all 1,064 result rows and 892 November position rows. It includes 75 position-only records, aliases, missing vote totals, and “leading” results. Its “370 winners” shorthand combines won and leading rows; it must not be displayed as 370 verified unique winners. Nine conflicts with selected election snapshots remain flagged.</p>${pollingContext('US')}<h3>Evidence gaps and refresh priorities</h3>${gaps.map(g=>`<details class="evidence"><summary>${esc(cleanText(g.issue||'Evidence gap'))}</summary><p>${esc(cleanText(g.impact||''))}</p><p><strong>Next refresh:</strong> ${esc(cleanText(g.next_step||''))}</p></details>`).join('')}<h3>Research files and map source</h3><p>The original research package uses the 13 November 2026 evidence cutoff.</p><ul class="source-list"><li><a href="downloads/ai_midterms_2026_dossier.docx" download>State-by-state dossier · DOCX</a></li><li><a href="downloads/ai_midterms_2026_workbook.xlsx" download>Research workbook · XLSX</a></li><li><a href="downloads/ai_midterms_2026_data.json" download>Full dataset · JSON</a></li><li><a href="downloads/ai_midterms_2026_dashboard_data.zip" download>Data export package · ZIP</a></li></ul><p>Map boundaries: <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">U.S. Census Bureau (2017), via us-atlas 3.0.1</a>. Alaska and Hawaii are repositioned insets. State borders are geographic outlines; they are not electoral-district boundaries. <a href="assets/us-atlas-LICENSE.txt" target="_blank" rel="noopener">Map redistribution licence</a>.</p>`;
 }
 async function loadTracker(){
   const button=$('#load-tracker');if(button){button.disabled=true;button.textContent='Loading the candidate tracker…';}
@@ -191,7 +271,7 @@ async function loadTracker(){
     if(state.code!==requested||state.tab!=='elections')return;
     const target=$('#tracker-content');target.innerHTML='<div class="tracker-controls"><input type="search" id="tracker-search" placeholder="Candidate, office or party…" aria-label="Filter external candidate tracker"></div><p class="tracker-count" id="tracker-count"></p><div id="tracker-rows"></div>';
     $('#load-tracker').hidden=true;renderTrackerRows('');
-  }catch{trackerPromise=null;if(button){button.disabled=false;button.textContent='Retry loading tracker';}showToast('The tracker could not load. The full dataset remains available under Research files.');}
+  }catch{trackerPromise=null;if(button){button.disabled=false;button.textContent='Retry loading tracker';}showToast('The candidate tracker could not load. Select Retry loading tracker to try again.');}
 }
 function safeLink(url,label){try{const u=new URL(url);return /^https?:$/.test(u.protocol)?`<a href="${esc(u.href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`:'';}catch{return '';}}
 function renderTrackerRows(filter){
@@ -212,15 +292,12 @@ function wireEvents(){
   for(const btn of $$('[data-tab]'))btn.addEventListener('click',()=>changeTab(btn.dataset.tab));
   $('#period-filter').addEventListener('change',ev=>{state.period=ev.target.value;updateMap();renderPanel();writeURL();});
   $('#topic-filter').addEventListener('change',ev=>{state.topic=ev.target.value;updateMap();renderPanel();writeURL();});
-  $('#reset-button').addEventListener('click',()=>{state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};$('#state-search').value='';updateMap();renderPanel();writeURL();hideTooltip();});
-  for(const btn of $$('[data-spotlight]'))btn.addEventListener('click',()=>{state.period='nov3';state.topic='all';state.code=btn.dataset.spotlight;changeTab(btn.dataset.spotlightTab);if(window.matchMedia('(max-width:760px)').matches)$('#state-panel').scrollIntoView({behavior:'smooth'});});
-  const findState=()=>{const value=$('#state-search').value.trim().toLowerCase();const s=data.states.find(s=>s.state.toLowerCase()===value||s.state_name.toLowerCase()===value||`${s.state_name} (${s.state})`.toLowerCase()===value);if(s){selectState(s.state,true);$('#state-search').value='';return true;}return false;};
-  $('#state-search').addEventListener('change',findState);$('#state-search').addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();if(!findState())showToast('Choose a state name or its two-letter abbreviation.');}});
+  $('#reset-button').addEventListener('click',()=>{state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};updateMap();renderPanel();writeURL();});
+  $('#state-select').addEventListener('change',ev=>selectState(ev.target.value,true));
   $('#panel-content').addEventListener('click',ev=>{const tab=ev.target.closest('[data-panel-tab]');if(tab)changeTab(tab.dataset.panelTab);if(ev.target.closest('#load-tracker'))loadTracker();});
   $('#panel-content').addEventListener('input',ev=>{if(ev.target.matches('[data-action="filter-policies"]'))filterPolicies(ev.target.value);if(ev.target.matches('#tracker-search'))renderTrackerRows(ev.target.value);});
-  const openMethod=()=>{$('#method-dialog').showModal();$('#downloads-menu').open=false;};$('#methodology-button').addEventListener('click',openMethod);$('#coverage-button').addEventListener('click',openMethod);$('#close-method').addEventListener('click',()=>$('#method-dialog').close());
+  const openMethod=()=>{hideTooltip();$('#method-dialog').showModal();};$('#methodology-button').addEventListener('click',openMethod);$('#close-method').addEventListener('click',()=>$('#method-dialog').close());
   $('#method-dialog').addEventListener('click',ev=>{if(ev.target===$('#method-dialog')){const r=ev.target.getBoundingClientRect();if(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom)ev.target.close();}});
-  document.addEventListener('click',ev=>{if(!ev.target.closest('#downloads-menu'))$('#downloads-menu').open=false;});
   $('#copy-link').addEventListener('click',async()=>{writeURL();try{await navigator.clipboard.writeText(location.href);showToast(`Link to ${statesByCode.get(state.code).state_name} copied.`);}catch{showToast('Copy the current address from your browser to share this state view.');}});
   window.addEventListener('popstate',()=>{readURL();updateMap();renderPanel();});
 }
@@ -228,9 +305,15 @@ async function init(){
   try{
     [data,geometry]=await Promise.all(['assets/dashboard-data.json','assets/us-states-paths.json'].map(url=>fetch(url).then(r=>{if(!r.ok)throw new Error(`Could not load ${url}`);return r.json();})));
     summaries=new Map(data.state_summaries.map(s=>[s.state,s]));statesByCode=new Map(data.states.map(s=>[s.state,s]));
-    readURL();$('#state-options').innerHTML=data.states.map(s=>`<option value="${esc(s.state_name)}">${esc(s.state)}</option>`).join('');
+    readURL();$('#state-select').innerHTML=[...data.states].sort((a,b)=>a.state_name.localeCompare(b.state_name)).map(s=>`<option value="${esc(s.state)}">${esc(s.state_name)} · ${esc(s.state)}</option>`).join('');
     makeSVG();buildMethodology();wireEvents();updateMap();renderPanel();writeURL();$('#map-loading').remove();$('#map-stage').setAttribute('aria-busy','false');
     document.documentElement.dataset.atlasReady='true';
-  }catch(error){console.error(error);$('#map-loading').innerHTML='<span>The dashboard could not load its research data. Refresh the page, or use Research files to open the complete dataset.</span>';$('#panel-content').innerHTML='<div class="empty-state"><h3>Data unavailable</h3><p>The original research files remain accessible from the header.</p></div>';}
+  }catch(error){
+    console.error(error);$('#map-stage').setAttribute('aria-busy','false');
+    const loading=$('#map-loading');
+    if(loading){loading.innerHTML='<span>The atlas could not load its research data.</span><button type="button" id="retry-atlas" class="text-button">Retry loading atlas</button>';$('#retry-atlas').addEventListener('click',()=>location.reload());}
+    $('#panel-content').innerHTML='<div class="empty-state"><h3>Data unavailable</h3><p>Check your connection, then retry loading the atlas.</p></div>';
+  }
 }
+wireTheme();
 init();

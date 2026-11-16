@@ -1,42 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f4f6f8">
+  <meta name="theme-color" content="#0b0c10">
   <meta name="description" content="Explore the 2026 US midterms through AI and data-centre ballot votes, leadership changes and state legislation. Source-grounded research snapshot, 13 November 2026.">
   <title>US AI Election Atlas · 2026 Midterms</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/styles.css">
+  <script>try{if(localStorage.getItem('ai-atlas-theme')==='light')document.documentElement.dataset.theme='light';}catch{}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
+  <link rel="stylesheet" href="assets/styles.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#state-panel">Skip to state details</a>
   <header class="topbar">
     <a class="brand" href="./" aria-label="US AI Election Atlas home">
-      <svg class="brand-symbol" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 6h11v11H4zm17 0h11v11H21zM4 23h11v9H4z" fill="currentColor"/><path d="m21 23 5.5-5.5L32 23v9H21z" fill="#09a28b"/></svg>
+      <svg class="brand-symbol" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 6h11v11H4zm17 0h11v11H21zM4 23h11v9H4z" fill="currentColor"/><path class="brand-accent" d="m21 23 5.5-5.5L32 23v9H21z" fill="var(--accent, #f25e69)"/></svg>
       <span>AI Election Atlas<small>UNITED STATES · 2026</small></span>
     </a>
-    <div class="topbar-context">Research Projects<span class="slash">/</span>Election intelligence</div>
     <div class="header-actions">
-      <span class="snapshot-pill"><span></span>13 Nov 2026 snapshot</span>
       <button class="quiet-button" id="methodology-button" type="button">About the data</button>
-      <details class="downloads" id="downloads-menu">
-        <summary><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10m-4-4 4 4 4-4M3 13v4h14v-4"/></svg>Research files</summary>
-        <div class="download-menu"><p>Complete research package</p>
-          <a href="downloads/ai_midterms_2026_dossier.docx" download><span>Dossier<small>58-page state-by-state report</small></span><b>DOCX ↗</b></a>
-          <a href="downloads/ai_midterms_2026_workbook.xlsx" download><span>Research workbook<small>19 filterable sheets</small></span><b>XLSX ↗</b></a>
-          <a href="downloads/ai_midterms_2026_data.json" download><span>Full dataset<small>Original records and source registry</small></span><b>JSON ↗</b></a>
-          <a href="downloads/ai_midterms_2026_dashboard_data.zip" download><span>Data export package<small>CSV tables, schema and documentation</small></span><b>ZIP ↗</b></a>
-        </div>
-      </details>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><span id="theme-icon" aria-hidden="true">☀</span><span id="theme-label">Light mode</span></button>
     </div>
   </header>
 
   <main class="workspace">
     <section class="map-workspace" aria-labelledby="atlas-title">
       <div class="intro">
-        <div><p class="eyebrow">THE 2026 MIDTERMS</p><h1 id="atlas-title">The politics of AI, mapped.</h1><p class="intro-deck">Local votes. State leadership. The next legislative agenda.</p></div>
-        <div class="state-search"><label for="state-search">Jump to a state</label><div class="search-field"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="state-search" type="search" placeholder="State or abbreviation" autocomplete="off" list="state-options" aria-label="Find a state by name or abbreviation"><datalist id="state-options"></datalist></div></div>
+        <div><p class="eyebrow">THE 2026 MIDTERMS</p><h1 id="atlas-title">The politics of AI, mapped.</h1></div>
+        <div class="state-search"><label for="state-select">Explore a state</label><div class="search-field"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.3 6-10a6 6 0 1 0-12 0c0 4.7 6 10 6 10Z"/><circle cx="10" cy="8" r="2"/></svg><select id="state-select" aria-label="Explore a state"><option value="TX">Texas · TX</option></select></div></div>
       </div>
       <div class="snapshot-metrics" aria-label="Research inventory highlights">
         <div class="metric"><span class="metric-value" id="metric-questions">56</span><span class="metric-label">Election-day questions<small>All included topics</small></span></div>
@@ -48,36 +39,25 @@
       <section class="map-card" aria-label="Interactive US map">
         <div class="map-toolbar">
           <div class="layer-switch" role="group" aria-label="Map layer">
-            <button class="active" data-layer="ballots" type="button" aria-pressed="true"><span class="layer-icon">◫</span>AI ballot votes</button>
-            <button data-layer="leadership" type="button" aria-pressed="false"><span class="layer-icon">⇄</span>Leadership</button>
-            <button data-layer="policies" type="button" aria-pressed="false"><span class="layer-icon">≡</span>Policy agenda</button>
+            <button class="active" data-layer="ballots" type="button" aria-pressed="true"><span class="layer-icon" aria-hidden="true">◫</span>AI Ballot</button>
+            <button data-layer="leadership" type="button" aria-pressed="false"><span class="layer-icon" aria-hidden="true">⇄</span>Elections</button>
+            <button data-layer="policies" type="button" aria-pressed="false"><span class="layer-icon" aria-hidden="true">≡</span>Bills</button>
           </div>
           <button class="icon-button" id="reset-button" type="button" title="Reset the map and filters" aria-label="Reset the map and filters"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6.5 6.5 0 1 1 0 7M4 2v5h5"/></svg></button>
         </div>
-        <div class="map-description"><div><h2 id="map-title">AI and data-centre ballot activity</h2><p id="map-subtitle">Select a state to explore the questions voters decided.</p></div><span id="map-state-count" class="map-count">14 states</span></div>
+        <div class="map-description"><h2 id="map-title">AI ballot activity</h2><span id="map-state-count" class="map-count">14 states</span></div>
         <div class="filter-row" id="map-filters">
           <label class="select-field">Election period<select id="period-filter"><option value="nov3">November 3, 2026</option><option value="earlier">Earlier in 2026</option><option value="upcoming">Scheduled after cutoff</option><option value="all">All recorded dates</option></select></label>
           <label class="select-field">Ballot topic<select id="topic-filter"><option value="all">All relevant topics</option><option value="development">Data-centre development</option><option value="governance">AI & data governance</option><option value="surveillance">Automated surveillance</option><option value="adjacent">Related technology & finance</option></select></label>
           <span class="filter-result" id="filter-result">56 questions shown</span>
         </div>
-        <div class="layer-explainer" id="layer-explainer" hidden></div>
         <div class="map-stage" id="map-stage" aria-busy="true">
           <div id="map-loading" class="loading-state"><span class="loading-spinner"></span>Loading the atlas…</div>
           <svg id="us-map" role="group" aria-label="United States map. Select a state to view its research records." viewBox="-65 0 1130 630"></svg>
           <div id="map-tooltip" class="map-tooltip" role="tooltip" hidden></div>
         </div>
         <div id="map-legend" class="map-legend" aria-label="Map colour legend"></div>
-        <div class="map-caption"><span id="map-caption-text">Colour shows the number of identified questions, not party preference.</span><span class="map-selected" id="map-selected">Viewing Texas <span>↗</span></span></div>
       </section>
-      <div class="below-map">
-        <div class="spotlight-heading"><p class="eyebrow">START EXPLORING</p><span>Three different routes to policy change</span></div>
-        <div class="spotlight-grid">
-          <button class="spotlight" type="button" data-spotlight="TX" data-spotlight-tab="bills"><span class="spotlight-state">TX <b>↗</b></span><strong>Texas</strong><span>Divided government.<br>41 new prefilings.</span></button>
-          <button class="spotlight" type="button" data-spotlight="OH" data-spotlight-tab="ballots"><span class="spotlight-state">OH <b>↗</b></span><strong>Ohio</strong><span>21 local development<br>questions on election day.</span></button>
-          <button class="spotlight" type="button" data-spotlight="PA" data-spotlight-tab="overview"><span class="spotlight-state">PA <b>↗</b></span><strong>Pennsylvania</strong><span>A new Democratic trifecta.<br>10 policy records to follow.</span></button>
-        </div>
-      </div>
-      <footer class="workspace-footer"><p>Identified research inventory · Results may be provisional · No automatic updates</p><button id="coverage-button" type="button">Coverage & methodology <span>↗</span></button></footer>
     </section>
 
     <aside class="state-panel" id="state-panel" aria-labelledby="state-title">
@@ -88,6 +68,6 @@
   </main>
   <dialog class="method-dialog" id="method-dialog" aria-labelledby="method-title"><div class="dialog-header"><div><p class="eyebrow">RESEARCH NOTES</p><h2 id="method-title">Read the map with confidence.</h2></div><button class="icon-button" id="close-method" aria-label="Close methodology" type="button">✕</button></div><div id="method-content" class="dialog-body"></div></dialog>
   <div id="toast" class="toast" role="status" hidden></div><div id="selection-announcement" class="sr-only" role="status" aria-live="polite"></div>
-  <script type="module" src="assets/app.js"></script>
+  <script type="module" src="assets/app.js?v=2"></script>
 </body>
 </html>
