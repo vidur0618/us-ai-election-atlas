@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "assertions": 1089,
+  "canonical_sha256": "31fa31c14f26ec3d9404c0c549d088dacfd4f8dcf70f8e8f7102dab77607114a",
+  "core_counts": {
+    "states": 51,
+    "ballots": 67,
+    "policies": 138,
+    "elections": 21,
+    "election_choices": 90,
+    "recalls": 10,
+    "polls": 89,
+    "sources": 316
+  },
+  "period_counts": {
+    "upcoming": 4,
+    "earlier": 7,
+    "nov3": 56
+  },
+  "november_development": {
+    "questions": 48,
+    "more_restrictive": 46,
+    "binding": 38,
+    "advisory": 10
+  },
+  "tracker_counts": {
+    "results": 1064,
+    "positions": 892,
+    "position_only": 75
+  },
+  "file_sha256": {
+    "dashboard-data.json": "841a35dc2e83ed6c21dda2596ba67933a906d98a9a2e0e3487ca53a20cd816d8",
+    "tracker-data.json": "3b575c42ad18095bb949ad42b923e87d696e3f58fbf317241c5a6119396ade13"
+  }
+}
