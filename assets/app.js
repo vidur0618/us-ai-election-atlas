@@ -1,4 +1,4 @@
-import {renderStatePanel, matchesBallot, matchesPeriod, policyStage, escapeHTML, cleanText} from './panels.js';
+import {renderStatePanel, wirePanelInteractions, matchesBallot, matchesPeriod, policyStage, escapeHTML, cleanText} from './panels.js?v=3';
 
 const $=selector=>document.querySelector(selector);
 const $$=selector=>[...document.querySelectorAll(selector)];
@@ -8,12 +8,12 @@ const fmt=n=>Number.isFinite(n)?number.format(n):'Not reported';
 const NS='http://www.w3.org/2000/svg';
 const PERIODS={nov3:'November 3',earlier:'Earlier in 2026',upcoming:'Scheduled after cutoff',all:'All recorded dates'};
 const LEADERSHIP={
-  new_democratic_trifecta:{token:'leader-trifecta',label:'New Democratic trifecta'},
-  democratic_gain_divided:{token:'leader-divided',label:'Democratic gain; divided'},
-  democratic_house_gain_senate_unresolved:{token:'leader-unresolved',label:'House gain; Senate unresolved'},
-  democratic_hold:{token:'leader-hold',label:'Democratic governor hold'},
-  prior_year_change:{token:'leader-prior',label:'Prior-year context'},
-  no_retained_control_record:{token:'map-none',label:'No retained change record'}
+  new_democratic_trifecta:{token:'leader-trifecta',label:'New Democratic trifecta',short:'New D trifecta'},
+  democratic_gain_divided:{token:'leader-divided',label:'Democratic gain; divided',short:'D gain · divided'},
+  democratic_house_gain_senate_unresolved:{token:'leader-unresolved',label:'House gain; Senate unresolved',short:'Senate unresolved'},
+  democratic_hold:{token:'leader-hold',label:'Democratic governor hold',short:'D governor hold'},
+  prior_year_change:{token:'leader-prior',label:'Prior-year context',short:'Prior-year shift'},
+  no_retained_control_record:{token:'map-none',label:'No retained change record',short:'No record'}
 };
 const DECKS={
   TX:'Democratic governor and House; Republican Senate. Divided government.',
@@ -45,7 +45,7 @@ const DECKS={
 let data, geometry, tracker=null, trackerPromise=null;
 let state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};
 let summaries=new Map(), statesByCode=new Map(), geometryByCode=new Map(), toastTimer;
-let mapPalette, hoveredCode=null, tooltipKey='', tooltipFrame=null, tooltipPosition=null;
+let mapPalette, hoveredCode=null, tooltipKey='', tooltipFrame=null, tooltipPosition=null, hoverAnimation=null;
 const mapNodes=new Map();
 
 function setTheme(theme,{persist=true}={}){
@@ -59,7 +59,7 @@ function setTheme(theme,{persist=true}={}){
   }
   if($('#theme-label'))$('#theme-label').textContent=light?'Dark mode':'Light mode';
   if($('#theme-icon'))$('#theme-icon').innerHTML=light?'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.8 12.3A7.1 7.1 0 0 1 7.7 3.2 7.1 7.1 0 1 0 16.8 12.3Z"/></svg>':'<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.5"/><path d="M10 1.5v2m0 13v2M1.5 10h2m13 0h2M4 4l1.4 1.4m9.2 9.2L16 16M4 16l1.4-1.4m9.2-9.2L16 4"/></svg>';
-  $('meta[name="theme-color"]')?.setAttribute('content',light?'#f4f4f5':'#0b0c10');
+  $('meta[name="theme-color"]')?.setAttribute('content',light?'#f2f1e9':'#141917');
   if(persist){try{localStorage.setItem('ai-atlas-theme',light?'light':'dark');}catch{}}
   if(data&&geometry)updateMap();
 }
@@ -92,7 +92,7 @@ function mapColour(code){
 }
 function makeSVG(){
   const svg=$('#us-map');svg.setAttribute('viewBox',geometry.viewBox);
-  svg.innerHTML='<g class="state-paths"></g><path class="map-hover-outline" fill="none" fill-rule="evenodd" visibility="hidden" aria-hidden="true"/><g class="map-callouts"></g><g class="state-labels"></g>';
+  svg.innerHTML='<g class="state-paths"></g><g class="state-labels"></g><g class="map-hover-preview" visibility="hidden" aria-hidden="true"><path class="map-hover-shape" fill-rule="evenodd"/><text class="state-label map-hover-label"/></g><g class="map-callouts"></g>';
   geometryByCode=new Map(geometry.states.map(s=>[s.abbr,s]));
   mapNodes.clear();
   const paths=svg.querySelector('.state-paths'),callouts=svg.querySelector('.map-callouts'),labels=svg.querySelector('.state-labels');
@@ -161,41 +161,50 @@ function updateMap(){
   for(const btn of $$('[data-layer]')){btn.classList.toggle('active',btn.dataset.layer===state.layer);btn.setAttribute('aria-pressed',String(btn.dataset.layer===state.layer));}
   const legend=$('#map-legend');
   const items=state.layer==='leadership'?Object.values(LEADERSHIP):state.layer==='policies'?[{token:'map-none',label:'No record'},{token:'policy-1',label:'1–4'},{token:'policy-2',label:'5–9'},{token:'policy-3',label:'10–19'},{token:'policy-4',label:'20+'}]:[{token:'map-none',label:'None identified'},{token:'ballot-1',label:'1'},{token:'ballot-2',label:'2–4'},{token:'ballot-3',label:'5–9'},{token:'ballot-4',label:'10+'}];
-  legend.innerHTML=(state.layer==='leadership'?'':`<strong>${state.layer==='policies'?'Policy records':'Questions'}</strong>`)+items.map(i=>`<span class="legend-item"><i class="legend-swatch" style="background:${paletteColour(i.token).color}"></i>${esc(i.label)}</span>`).join('');
+  legend.innerHTML=(state.layer==='leadership'?'':`<strong>${state.layer==='policies'?'Policy records':'Questions'}</strong>`)+items.map(i=>`<span class="legend-item" title="${esc(i.label)}"><i class="legend-swatch" style="background:${paletteColour(i.token).color}"></i>${esc(i.short||i.label)}</span>`).join('');
 }
 function highlightState(code){
   if(hoveredCode===code)return;
   for(const el of mapNodes.get(hoveredCode)||[]){el.classList.remove('is-hovered');el.removeAttribute('aria-describedby');}
   hoveredCode=code;
   for(const el of mapNodes.get(code)||[]){el.classList.add('is-hovered');if(el.getAttribute('role')==='button')el.setAttribute('aria-describedby','map-tooltip');}
-  const outline=$('.map-hover-outline'),shape=geometryByCode.get(code);
-  if(outline){if(shape){outline.setAttribute('d',shape.path);outline.setAttribute('visibility','visible');}else outline.setAttribute('visibility','hidden');}
+  const preview=$('.map-hover-preview'),shape=geometryByCode.get(code);
+  if(!preview)return;
+  if(hoverAnimation){hoverAnimation.cancel();hoverAnimation=null;}
+  preview.classList.remove('is-visible');
+  if(!shape){preview.setAttribute('visibility','hidden');return;}
+  const path=preview.querySelector('.map-hover-shape'),label=preview.querySelector('.map-hover-label'),colour=mapColour(code);
+  path.setAttribute('d',shape.path);path.setAttribute('fill',colour.color);
+  label.textContent=shape.callout?'':code;
+  label.setAttribute('x',shape.label[0]);label.setAttribute('y',shape.label[1]);label.style.fill=colour.labelColor;
+  preview.style.transformOrigin=`${shape.centroid[0]}px ${shape.centroid[1]}px`;
+  preview.setAttribute('visibility','visible');
+  // The overlay is decorative: underlying hit targets never move as a state lifts.
+  preview.classList.add('is-visible');
+  if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    hoverAnimation=preview.animate([{transform:'scale(1)'},{transform:'scale(1.025)'}],{duration:180,easing:'cubic-bezier(.2,.7,.3,1)'});
+  }
 }
 function tooltipMarkup(code){
   const s=statesByCode.get(code),summary=summaries.get(code);
-  let metrics=[],detail='',context='';
+  let metrics=[],detail='';
   if(state.layer==='leadership'){
     const contests=data.elections.filter(e=>e.state===code&&matchesPeriod(e,state.period)).length;
     const recalls=data.recalls.filter(r=>r.state===code&&matchesPeriod(r,state.period)).length;
-    metrics=[{value:contests,label:'Selected contests'},{value:recalls,label:'Recall records'}];
+    metrics=[{value:contests,label:'Contests'},{value:recalls,label:'Recalls'}];
     detail=summary?.leadership.label||'No retained control-change record';
-    context=DECKS[code]||summary?.leadership.description||'';
   }else if(state.layer==='policies'){
     const policies=data.policies.filter(p=>p.state===code);
     const prefiled=policies.filter(p=>policyStage(p).id==='prefiled').length;
     const enacted=policies.filter(p=>policyStage(p).id==='enacted').length;
-    metrics=[{value:policies.length,label:'Policy records'},{value:prefiled,label:'Prefiled'},{value:enacted,label:'Enacted / issued'}];
-    detail=policies.length?'Selected laws, bills and proposals':'No selected policy record';
-    const lead=policies.find(p=>p.priority==='selected_policy'&&policyStage(p).id==='prefiled')||policies.find(p=>p.priority==='selected_policy')||policies[0];
-    if(lead)context=[lead.instrument,lead.title].filter(Boolean).join(' · ');
+    metrics=[{value:policies.length,label:'Records'},{value:prefiled,label:'Prefiled'},{value:enacted,label:'Law / order'}];
+    detail=policies.length?'Selected policy inventory':'No selected policy record';
   }else{
     const rows=getBallots(code),binding=rows.filter(b=>['binding','town_meeting_binding'].includes(b.legal_type)).length,advisory=rows.filter(b=>b.legal_type==='advisory').length;
     metrics=[{value:rows.length,label:'Questions'},{value:binding,label:'Binding'},{value:advisory,label:'Advisory'}];
-    detail=rows.length?`${PERIODS[state.period]} · ${[...new Set(rows.map(b=>b.jurisdiction))].slice(0,2).join(', ')}`:'No matching question identified';
-    if(rows.length){const titled=rows[0];context=titled.measure_title||'';}
+    detail=rows.length?PERIODS[state.period]:'No matching question identified';
   }
-  const compact=text=>{const value=cleanText(text);return value.length>145?value.slice(0,142).trimEnd()+'…':value;};
-  return `<div class="tooltip-head"><span class="tooltip-code">${esc(code)}</span><strong>${esc(s.state_name)}</strong></div><div class="tooltip-metrics">${metrics.map(m=>`<div><strong>${fmt(m.value)}</strong><span>${esc(m.label)}</span></div>`).join('')}</div><p class="tooltip-detail">${esc(compact(detail))}</p>${context?`<p class="tooltip-detail tooltip-context">${esc(compact(context))}</p>`:''}<span class="tooltip-hint">Open state briefing <span aria-hidden="true">↗</span></span>`;
+  return `<div class="tooltip-head"><span class="tooltip-code">${esc(code)}</span><strong>${esc(s.state_name)}</strong><span class="tooltip-arrow" aria-hidden="true">↗</span></div><div class="tooltip-metrics">${metrics.map(m=>`<div><strong>${fmt(m.value)}</strong><span>${esc(m.label)}</span></div>`).join('')}</div><p class="tooltip-detail">${esc(cleanText(detail))}</p>`;
 }
 function showTooltip(code,clientX,clientY){
   const tip=$('#map-tooltip');if(!statesByCode.has(code))return;
@@ -224,12 +233,12 @@ function sourceHTML(record){return `<ul class="source-list">${sourcesFor(record)
 function pollingContext(code=state.code){
   const rows=data.polls.filter(p=>p.state===code);if(!rows.length)return '';
   const groups=new Map();for(const r of rows){const key=[r.survey,r.question,r.condition||''].join('|');if(!groups.has(key))groups.set(key,[]);groups.get(key).push(r);}
-  return `<section class="poll-block"><details class="evidence"><summary>${code==='US'?'National public opinion':'Public opinion context'} <span>${rows.length} observations</span></summary><div class="evidence-body"><p class="microcopy">Survey estimates are separate from election returns. Different questions and field periods should not be treated as a trend.</p>${[...groups.values()].map(g=>{const p=g[0];return `<div class="poll-group"><h4>${esc(p.survey)}</h4><p class="microcopy">${esc(cleanText(p.question))}${p.condition?` · ${esc(p.condition)}`:''}</p><div class="poll-grid">${g.map(r=>`<div class="poll-chip"><strong>${Number.isFinite(r.percent)?esc(r.percent)+'%':'—'}</strong>${esc(r.response)}</div>`).join('')}</div><p class="microcopy">Field period: ${esc(p.survey_date||p.field_dates||'See source')}. Overall ${code==='US'?'national':'state'} sample: ${fmt(p.overall_survey_sample_n)}. Question-specific base: ${fmt(p.question_sample_n)}.</p>${sourceHTML(p)}</div>`;}).join('')}</div></details></section>`;
+  return `<section class="poll-block"><details class="evidence"><summary>${code==='US'?'National opinion':'Public opinion'} <span>${rows.length} observations</span></summary><div class="evidence-body"><p class="microcopy">Survey estimates are separate from election returns. Different questions and field periods should not be treated as a trend.</p>${[...groups.values()].map(g=>{const p=g[0];return `<div class="poll-group"><h4>${esc(p.survey)}</h4><p class="microcopy">${esc(cleanText(p.question))}${p.condition?` · ${esc(p.condition)}`:''}</p><div class="poll-grid">${g.map(r=>`<div class="poll-chip"><strong>${Number.isFinite(r.percent)?esc(r.percent)+'%':'—'}</strong>${esc(r.response)}</div>`).join('')}</div><p class="microcopy">Field period: ${esc(p.survey_date||p.field_dates||'See source')}. Overall ${code==='US'?'national':'state'} sample: ${fmt(p.overall_survey_sample_n)}. Question-specific base: ${fmt(p.question_sample_n)}.</p>${sourceHTML(p)}</div>`;}).join('')}</div></details></section>`;
 }
 function trackerPlaceholder(){
   const s=statesByCode.get(state.code);const count=s.tracker_result_rows||0,pos=s.tracker_nov3_position_rows||0;
   if(!count&&!pos)return '';
-  return `<section class="tracker-section" id="tracker-section"><h3>Additional tracked candidates</h3><p>A broader discovery layer from an external tracker. Its stances and results have not been independently verified. Raw vote totals are not supplied; aliases may overlap.</p><button class="tracker-toggle" id="load-tracker" type="button">Explore tracker records for ${esc(s.state_name)} <span aria-hidden="true"> →</span></button><div id="tracker-content"></div></section>`;
+  return `<section class="tracker-section" id="tracker-section"><details class="evidence"><summary>Candidate tracker <span aria-hidden="true">+</span></summary><div class="evidence-body"><p class="microcopy">External discovery records; stances and results are not independently verified. Raw vote totals are unavailable and aliases may overlap.</p><button class="tracker-toggle" id="load-tracker" type="button">Explore ${esc(s.state_name)} <span aria-hidden="true">→</span></button><div id="tracker-content"></div></div></details></section>`;
 }
 function renderPanel({keepScroll=false}={}){
   const panel=$('#panel-content'),old=panel.scrollTop,s=statesByCode.get(state.code);
@@ -239,8 +248,8 @@ function renderPanel({keepScroll=false}={}){
   $('#tab-ballot-count').textContent=counts.ballots;$('#tab-election-count').textContent=counts.elections;$('#tab-policy-count').textContent=counts.bills;
   for(const btn of $$('[data-tab]')){btn.classList.toggle('active',btn.dataset.tab===state.tab);if(btn.dataset.tab===state.tab)btn.setAttribute('aria-current','page');else btn.removeAttribute('aria-current');}
   panel.innerHTML=renderStatePanel({data,stateCode:state.code,tab:state.tab,period:state.period,topic:state.topic})+(state.tab==='overview'?pollingContext():'')+(state.tab==='elections'?trackerPlaceholder():'');
+  wirePanelInteractions(panel);
   panel.scrollTop=keepScroll?old:0;
-  if(state.tab==='bills')filterPolicies('');
   $('#selection-announcement').textContent=`${s.state_name} selected. ${counts.ballots} matching questions, ${counts.bills} selected policy records.`;
 }
 function selectState(code,fromMap=false){
@@ -252,15 +261,10 @@ function changeTab(tab){
   if(tab==='ballots')state.layer='ballots';if(tab==='elections')state.layer='leadership';if(tab==='bills')state.layer='policies';
   updateMap();renderPanel();writeURL();
 }
-function filterPolicies(value){
-  const needle=value.trim().toLowerCase();let visible=0;const cards=$$('#panel-content .policy-card');
-  for(const card of cards){const show=!needle||card.dataset.search.includes(needle);card.hidden=!show;if(show)visible++;}
-  const out=$('.policy-search-count');if(out)out.textContent=`${visible} of ${cards.length} policy records${needle?' match your search':''}.`;
-}
 function showToast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
 function buildMethodology(){
   const gaps=data.gaps||[];
-  $('#method-content').innerHTML=`<p class="method-highlight">A dated research inventory, not a live election feed. Evidence cutoff: <strong>13 November 2026</strong>. Results and legislation retain their individual source dates and qualifications.</p><h3>What is included</h3><table><thead><tr><th>Record family</th><th>Count</th></tr></thead><tbody><tr><td>November 3 questions, all included topics</td><td>56</td></tr><tr><td>Development questions / more restrictive outcomes</td><td>48 / 46</td></tr><tr><td>Earlier questions / scheduled questions</td><td>7 / 4</td></tr><tr><td>Selected policy records</td><td>138</td></tr><tr><td>Selected candidate contests / candidate choices</td><td>21 / 90</td></tr><tr><td>Recall officials / polling observations</td><td>10 / 89</td></tr><tr><td>Core source registry entries</td><td>316</td></tr></tbody></table><h3>Reading the three map layers</h3><ul><li><strong>AI Ballot:</strong> the crimson-to-coral scale shows the number of identified questions. It does not indicate support for AI or a political party. Use the topic filter to separate development, governance, surveillance and broader context.</li><li><strong>Elections:</strong> colours show documented leadership changes and holds in the selected research. Gray means no retained control-change record, not a Republican hold or verified absence of change. Prior-year Virginia context is labelled separately.</li><li><strong>Bills:</strong> the plum-to-rose scale shows the number of selected policy records. Proposals, laws and executive actions are different record types.</li></ul><h3>Counting and evidence rules</h3><ol>${data.metadata.counting_rules.map(t=>`<li>${esc(cleanText(t))}</li>`).join('')}</ol><p>Twenty-five ballot records have vote counts read in primary sources. A primary return can still be unofficial. Remaining records use cited secondary returns or have no available result. “No question identified” is a coverage statement rather than a certified zero.</p><h3>Candidate tracker limitations</h3><p>The optional discovery layer preserves all 1,064 result rows and 892 November position rows. It includes 75 position-only records, aliases, missing vote totals, and “leading” results. Its “370 winners” shorthand combines won and leading rows; it must not be displayed as 370 verified unique winners. Nine conflicts with selected election snapshots remain flagged.</p>${pollingContext('US')}<h3>Evidence gaps and refresh priorities</h3>${gaps.map(g=>`<details class="evidence"><summary>${esc(cleanText(g.issue||'Evidence gap'))}</summary><p>${esc(cleanText(g.impact||''))}</p><p><strong>Next refresh:</strong> ${esc(cleanText(g.next_step||''))}</p></details>`).join('')}<h3>Research files and map source</h3><p>The original research package uses the 13 November 2026 evidence cutoff.</p><ul class="source-list"><li><a href="downloads/ai_midterms_2026_dossier.docx" download>State-by-state dossier · DOCX</a></li><li><a href="downloads/ai_midterms_2026_workbook.xlsx" download>Research workbook · XLSX</a></li><li><a href="downloads/ai_midterms_2026_data.json" download>Full dataset · JSON</a></li><li><a href="downloads/ai_midterms_2026_dashboard_data.zip" download>Data export package · ZIP</a></li></ul><p>Map boundaries: <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">U.S. Census Bureau (2017), via us-atlas 3.0.1</a>. Alaska and Hawaii are repositioned insets. State borders are geographic outlines; they are not electoral-district boundaries. <a href="assets/us-atlas-LICENSE.txt" target="_blank" rel="noopener">Map redistribution licence</a>.</p>`;
+  $('#method-content').innerHTML=`<p class="method-highlight">A dated research inventory, not a live election feed. Evidence cutoff: <strong>13 November 2026</strong>. Results and legislation retain their individual source dates and qualifications.</p><h3>What is included</h3><table><thead><tr><th>Record family</th><th>Count</th></tr></thead><tbody><tr><td>November 3 questions, all included topics</td><td>56</td></tr><tr><td>Development questions / more restrictive outcomes</td><td>48 / 46</td></tr><tr><td>Earlier questions / scheduled questions</td><td>7 / 4</td></tr><tr><td>Selected policy records</td><td>138</td></tr><tr><td>Selected candidate contests / candidate choices</td><td>21 / 90</td></tr><tr><td>Recall officials / polling observations</td><td>10 / 89</td></tr><tr><td>Core source registry entries</td><td>316</td></tr></tbody></table><h3>Reading the three map layers</h3><ul><li><strong>AI Ballot:</strong> the muted mint scale shows the number of identified questions. It does not indicate support for AI or a political party. Use the topic filter to separate development, governance, surveillance and broader context.</li><li><strong>Elections:</strong> colours show documented leadership changes and holds in the selected research. Gray means no retained control-change record, not a Republican hold or verified absence of change. Prior-year Virginia context is labelled separately.</li><li><strong>Bills:</strong> the lavender scale shows the number of selected policy records. Proposals, laws and executive actions are different record types.</li></ul><h3>Counting and evidence rules</h3><ol>${data.metadata.counting_rules.map(t=>`<li>${esc(cleanText(t))}</li>`).join('')}</ol><p>Twenty-five ballot records have vote counts read in primary sources. A primary return can still be unofficial. Remaining records use cited secondary returns or have no available result. “No question identified” is a coverage statement rather than a certified zero.</p><h3>Candidate tracker limitations</h3><p>The optional discovery layer preserves all 1,064 result rows and 892 November position rows. It includes 75 position-only records, aliases, missing vote totals, and “leading” results. Its “370 winners” shorthand combines won and leading rows; it must not be displayed as 370 verified unique winners. Nine conflicts with selected election snapshots remain flagged.</p>${pollingContext('US')}<h3>Evidence gaps and refresh priorities</h3>${gaps.map(g=>`<details class="evidence"><summary>${esc(cleanText(g.issue||'Evidence gap'))}</summary><p>${esc(cleanText(g.impact||''))}</p><p><strong>Next refresh:</strong> ${esc(cleanText(g.next_step||''))}</p></details>`).join('')}<h3>Research files and map source</h3><p>The original research package uses the 13 November 2026 evidence cutoff.</p><ul class="source-list"><li><a href="downloads/ai_midterms_2026_dossier.docx" download>State-by-state dossier · DOCX</a></li><li><a href="downloads/ai_midterms_2026_workbook.xlsx" download>Research workbook · XLSX</a></li><li><a href="downloads/ai_midterms_2026_data.json" download>Full dataset · JSON</a></li><li><a href="downloads/ai_midterms_2026_dashboard_data.zip" download>Data export package · ZIP</a></li></ul><p>Map boundaries: <a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">U.S. Census Bureau (2017), via us-atlas 3.0.1</a>. Alaska and Hawaii are repositioned insets. State borders are geographic outlines; they are not electoral-district boundaries. <a href="assets/us-atlas-LICENSE.txt" target="_blank" rel="noopener">Map redistribution licence</a>.</p>`;
 }
 async function loadTracker(){
   const button=$('#load-tracker');if(button){button.disabled=true;button.textContent='Loading the candidate tracker…';}
@@ -295,7 +299,7 @@ function wireEvents(){
   $('#reset-button').addEventListener('click',()=>{state={code:'TX',layer:'ballots',tab:'overview',period:'nov3',topic:'all'};updateMap();renderPanel();writeURL();});
   $('#state-select').addEventListener('change',ev=>selectState(ev.target.value,true));
   $('#panel-content').addEventListener('click',ev=>{const tab=ev.target.closest('[data-panel-tab]');if(tab)changeTab(tab.dataset.panelTab);if(ev.target.closest('#load-tracker'))loadTracker();});
-  $('#panel-content').addEventListener('input',ev=>{if(ev.target.matches('[data-action="filter-policies"]'))filterPolicies(ev.target.value);if(ev.target.matches('#tracker-search'))renderTrackerRows(ev.target.value);});
+  $('#panel-content').addEventListener('input',ev=>{if(ev.target.matches('#tracker-search'))renderTrackerRows(ev.target.value);});
   const openMethod=()=>{hideTooltip();$('#method-dialog').showModal();};$('#methodology-button').addEventListener('click',openMethod);$('#close-method').addEventListener('click',()=>$('#method-dialog').close());
   $('#method-dialog').addEventListener('click',ev=>{if(ev.target===$('#method-dialog')){const r=ev.target.getBoundingClientRect();if(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom)ev.target.close();}});
   $('#copy-link').addEventListener('click',async()=>{writeURL();try{await navigator.clipboard.writeText(location.href);showToast(`Link to ${statesByCode.get(state.code).state_name} copied.`);}catch{showToast('Copy the current address from your browser to share this state view.');}});

@@ -34,7 +34,9 @@ function dateLabel(value) {
   return cleanText(value);
 }
 const tag = (text,tone='gray') => `<span class="tag tag--${tone}">${e(text)}</span>`;
-function empty(title, text) { return `<div class="empty-state"><span class="empty-state__icon" aria-hidden="true">—</span><h3>${e(title)}</h3><p>${e(text)}</p></div>`; }
+function empty(title,text) {
+  return `<div class="empty-state"><span class="empty-state__icon" aria-hidden="true">—</span><h3>${e(title)}</h3><details class="evidence evidence--small"><summary>Coverage <span aria-hidden="true">+</span></summary><p>${e(text)}</p></details></div>`;
+}
 
 export function matchesPeriod(record, period='nov3') {
   const date=record.election_date || record.date;
@@ -98,16 +100,44 @@ function genericDetails(value) {
 }
 
 function outcomeInfo(record) {
-  const raw=String(record.outcome||'');
-  if(record.election_date>'2026-11-13' || /scheduled/.test(raw))return {label:'Scheduled',tone:'blue'};
-  if(/approved|passed/.test(raw))return {label:'Approved',tone:'teal'};
-  if(/rejected|failed/.test(raw))return {label:'Rejected',tone:'amber'};
-  return {label:raw || 'Result not reported',tone:'gray'};
+  const raw=String(record.outcome||'').toLowerCase();
+  if(record.election_date>'2026-11-13' || /scheduled/.test(raw))return {id:'scheduled',label:'Scheduled',tone:'blue'};
+  if(/approved|passed/.test(raw))return {id:'approved',label:'Approved',tone:'teal'};
+  if(/rejected|failed/.test(raw))return {id:'rejected',label:'Rejected',tone:'amber'};
+  return {id:'unreported',label:'Unreported',tone:'gray'};
 }
+function resultQualifier(value) {
+  const status=String(value||'').toLowerCase();
+  if(/unofficial/.test(status))return 'Unofficial';
+  if(/not.*certif|certif.*not|certification.*established/.test(status))return 'Reported';
+  if(/certified_partial/.test(status))return 'Mixed sources';
+  if(/certified/.test(status))return 'Certified';
+  if(/official/.test(status))return 'Official return';
+  return status?'Reported':'';
+}
+function chartSegment(value,total,label,tone,attrs='') {
+  if(!Number.isFinite(value)||value<=0||!Number.isFinite(total)||total<=0)return '';
+  return `<button type="button" class="viz-segment" style="width:${100*value/total}%;--segment:var(--${tone})" data-viz-info="${e(label)}" title="${e(label)}" aria-label="${e(label)}" ${attrs}></button>`;
+}
+function readout(text) { return `<p class="viz-readout" data-default="${e(text)}" aria-live="polite">${e(text)}</p>`; }
+function ballotChart(records,{overview=false}={}) {
+  if(!records.length)return '';
+  const categories=[['approved','Approved','viz-mint'],['rejected','Rejected','viz-terracotta'],['scheduled','Scheduled','viz-lavender'],['unreported','Unreported','viz-neutral']].map(([id,label,tone])=>({id,label,tone,count:records.filter(r=>outcomeInfo(r).id===id).length})).filter(c=>c.count);
+  const attrs=c=>overview?'':`data-ballot-filter="${c.id}" aria-pressed="false"`;
+  return `<section class="viz-card viz-outcomes"><div class="viz-heading"><h3>Ballot outcomes</h3>${overview?'<button type="button" class="text-button" data-panel-tab="ballots" aria-label="Explore ballot records">↗</button>':`<strong>${num(records.length)}</strong>`}</div><div class="viz-track" role="group" aria-label="Question outcomes, counts of questions">${categories.map(c=>chartSegment(c.count,records.length,`${c.label}: ${num(c.count)} of ${num(records.length)} questions`,c.tone,attrs(c))).join('')}</div><div class="viz-legend">${categories.map(c=>`<button type="button" class="viz-filter" ${attrs(c)} data-viz-info="${e(`${c.label}: ${num(c.count)} questions`)}"><i style="--segment:var(--${c.tone})"></i><span>${e(c.label)}</span><strong>${num(c.count)}</strong></button>`).join('')}${overview?'':'<button type="button" class="viz-filter viz-filter--all" data-ballot-filter="all" aria-pressed="true">All</button>'}</div>${readout(`${num(records.length)} questions · counts, not vote totals`)}</section>`;
+}
+const POLICY_CHART_LABELS={prefiled:'Prefiled',pending:'Pending',proposal:'Proposals',enacted:'Enacted / issued',vetoed:'Vetoed',failed:'Did not advance',watchlist:'Watchlist',other:'Other'};
+function policyChart(policies,{overview=false}={}) {
+  if(!policies.length)return '';
+  const groups=Object.keys(POLICY_CHART_LABELS).map(id=>({id,label:POLICY_CHART_LABELS[id],count:policies.filter(p=>policyStage(p).id===id).length})).filter(g=>g.count);
+  const max=Math.max(...groups.map(g=>g.count));
+  return `<section class="viz-card viz-policy"><div class="viz-heading"><h3>Policy stages</h3>${overview?'<button type="button" class="text-button" data-panel-tab="bills" aria-label="Explore policy records">↗</button>':`<button type="button" class="viz-filter viz-filter--all" data-policy-filter="all" aria-pressed="true">All ${num(policies.length)}</button>`}</div><div class="viz-bars" role="group" aria-label="Policy records by recorded stage">${groups.map(g=>`<button type="button" class="viz-bar-row" ${overview?'':`data-policy-filter="${g.id}" aria-pressed="false"`} data-viz-info="${e(`${g.label}: ${num(g.count)} policy records`)}" aria-label="${e(`${g.label}: ${num(g.count)} policy records${overview?'':'. Filter records.'}`)}"><span>${e(g.label)}</span><span class="viz-bar-track"><i style="width:${100*g.count/max}%;--segment:var(--${g.id==='enacted'?'viz-mint':g.id==='vetoed'?'viz-terracotta':'viz-lavender'})"></i></span><strong>${num(g.count)}</strong></button>`).join('')}</div>${readout('Across recorded sessions')}</section>`;
+}
+
 function voteBar(yes,no,yesLabel='Yes',noLabel='No') {
-  if(!Number.isFinite(yes)||!Number.isFinite(no)||yes+no<=0)return '<p class="result-unavailable">Exact vote tally unavailable.</p>';
-  const y=100*yes/(yes+no),n=100-y;
-  return `<div class="vote-values"><div><span>${e(yesLabel)}</span><strong>${pct(y)}</strong><small>${num(yes)} votes</small></div><div><span>${e(noLabel)}</span><strong>${pct(n)}</strong><small>${num(no)} votes</small></div></div><div class="vote-bar" role="img" aria-label="${e(yesLabel)} ${pct(y)}, ${num(yes)} votes. ${e(noLabel)} ${pct(n)}, ${num(no)} votes."><span class="vote-bar__yes" style="width:${y.toFixed(6)}%"></span><span class="vote-bar__no" style="width:${n.toFixed(6)}%"></span></div><p class="microcopy denominator">Share of ${num(yes+no)} valid ${e(yesLabel.toLowerCase())}/${e(noLabel.toLowerCase())} votes.</p>`;
+  if(!Number.isFinite(yes)||!Number.isFinite(no)||yes+no<=0)return '<p class="result-unavailable">Tally unavailable</p>';
+  const total=yes+no,y=100*yes/total,n=100-y;
+  return `<div class="viz-group viz-vote"><div class="viz-value-line"><span>${e(yesLabel)} <strong>${pct(y)}</strong></span><span>${e(noLabel)} <strong>${pct(n)}</strong></span></div><div class="viz-track viz-track--votes" role="group" aria-label="${e(yesLabel)} and ${e(noLabel)} shares of valid votes">${chartSegment(yes,total,`${yesLabel}: ${num(yes)} votes · ${pct(y)}`,'viz-mint')}${chartSegment(no,total,`${noLabel}: ${num(no)} votes · ${pct(n)}`,'viz-terracotta')}</div>${readout(`${num(total)} valid ${yesLabel.toLowerCase()}/${noLabel.toLowerCase()} votes`)}</div>`;
 }
 
 export function renderBallotCard(record,data,{compact=false}={}) {
@@ -130,15 +160,14 @@ export function renderBallotCard(record,data,{compact=false}={}) {
     ['Yes means',{restrict:'Support restrictions',permit:'Support permission / development',other:'Institutional or other change'}[record.yes_effect]||record.yes_effect]
   ];
   const nested=[['County components',record.county_components],['Component returns',record.component_returns],['Vote modes',record.vote_modes],['Precinct results',record.precinct_results],['Previous snapshots',record.historical_versions]].filter(([,v])=>v && (Array.isArray(v)?v.length:Object.keys(v).length));
-  return `<article class="record-card ballot-card${compact?' record-card--compact':''}" data-record-id="${escapeHTML(record.record_id)}" data-scope="${escapeHTML(record.scope_group)}">
-    <div class="card-kicker"><span>${e(record.jurisdiction)}</span><time datetime="${escapeHTML(record.election_date||'')}">${e(dateLabel(record.election_date))}</time></div>
-    <div class="record-title-row"><h3>${e(record.measure_title||record.measure_id||'Ballot question')}</h3>${tag(outcome.label,outcome.tone)}</div>
-    <div class="tag-row">${tag(legal)}${tag(SCOPE_LABELS[record.scope_group]||'Related question')}</div>
-    <p class="policy-summary">${e(record.policy_summary)}</p>
-    ${record.result_status?`<p class="result-status">${e(record.result_status)}</p>`:''}
-    ${scheduled?'<p class="scheduled-message">No election result at the evidence cutoff.</p>':voteBar(record.yes_votes,record.no_votes)}
-    ${restriction?`<p class="outcome-note">${e(restriction)}${legal==='Advisory'?' · Advisory preference':''}</p>`:''}
-    <details class="evidence"><summary>Evidence &amp; vote details <span aria-hidden="true">+</span></summary><div class="evidence-body">
+  return `<article class="record-card ballot-card${compact?' record-card--compact':''}" data-record-id="${escapeHTML(record.record_id)}" data-scope="${escapeHTML(record.scope_group)}" data-outcome="${outcome.id}">
+    <div class="card-kicker"><span>${e(record.jurisdiction)}</span>${tag(outcome.label,outcome.tone)}</div>
+    <div class="record-title-row"><h3>${e(record.measure_title||record.measure_id||'Ballot question')}</h3></div>
+    <div class="viz-mini-meta"><span>${e(legal)}</span>${record.result_status&&!scheduled?`<span>${e(resultQualifier(record.result_status))}</span>`:''}<time datetime="${escapeHTML(record.election_date||'')}">${e(dateLabel(record.election_date))}</time></div>
+    ${scheduled?'<p class="scheduled-message">Vote pending</p>':voteBar(record.yes_votes,record.no_votes)}
+    <details class="evidence"><summary>Details &amp; sources <span aria-hidden="true">+</span></summary><div class="evidence-body">
+      <p class="policy-summary">${e(record.policy_summary)}</p><p class="microcopy">${e(SCOPE_LABELS[record.scope_group]||'Related question')}</p>
+      ${restriction?`<p class="outcome-note">${e(restriction)}${legal==='Advisory'?' · Advisory preference':''}</p>`:''}
       ${factRows(facts)}${notesHTML(record.notes)}
       ${nested.map(([label,value])=>`<details class="nested-evidence"><summary>${e(label)}</summary>${genericDetails(value)}</details>`).join('')}
       ${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p>
@@ -148,76 +177,80 @@ export function renderBallotCard(record,data,{compact=false}={}) {
 
 function renderChambers(chambers,data) {
   return chambers.map(c=>{
-    const total=(c.D||0)+(c.R||0)+(c.other||0)+(c.uncalled||0);
-    return `<div class="chamber-row"><div class="chamber-heading"><strong>${e(c.chamber)}</strong><span><b class="text-dem">${num(c.D)} D</b> · <b class="text-rep">${num(c.R)} R</b>${c.other?` · ${num(c.other)} other`:''}${c.uncalled?` · ${num(c.uncalled)} open`:''}</span></div>${total?`<div class="chamber-bar" role="img" aria-label="${e(c.chamber)}: ${num(c.D)} Democratic, ${num(c.R)} Republican${c.uncalled?`, ${num(c.uncalled)} uncalled`:''}"><span class="chamber-bar__dem" style="width:${100*(c.D||0)/total}%"></span><span class="chamber-bar__rep" style="width:${100*(c.R||0)/total}%"></span>${c.other?`<span class="chamber-bar__other" style="width:${100*c.other/total}%"></span>`:''}${c.uncalled?`<span class="chamber-bar__open" style="width:${100*c.uncalled/total}%"></span>`:''}</div>`:''}<p class="microcopy">${e(c.as_of)}</p><details class="evidence evidence--small"><summary>Seat-count source <span aria-hidden="true">+</span></summary><div class="evidence-body">${notesHTML(c.note)}${sourcesHTML(c,data)}</div></details></div>`;
+    const groups=[['D',c.D,'dem'],['R',c.R,'rep'],['Other',c.other,'viz-neutral'],['Open',c.uncalled,'viz-lavender']].filter(([,count])=>Number.isFinite(count)&&count>0);
+    const total=groups.reduce((sum,[,count])=>sum+count,0);
+    const known=Number.isFinite(c.D)&&Number.isFinite(c.R);
+    return `<div class="chamber-row viz-group"><div class="chamber-heading"><strong>${e(c.chamber)}</strong><span><b class="text-dem">${num(c.D)} D</b> · <b class="text-rep">${num(c.R)} R</b>${c.other?` · ${num(c.other)} other`:''}${c.uncalled?` · ${num(c.uncalled)} open`:''}</span></div>${known&&total?`<div class="viz-track viz-track--seats" role="group" aria-label="${e(c.chamber)} seats">${groups.map(([label,count,tone])=>chartSegment(count,total,`${c.chamber} · ${label}: ${num(count)} seats`,tone)).join('')}</div>${readout(c.uncalled?`${num(c.uncalled)} seats uncalled`:`${num(total)} seats · recorded snapshot`)}`:'<p class="viz-note">Seat totals unavailable</p>'}<details class="evidence evidence--small"><summary>Source <span aria-hidden="true">+</span></summary><div class="evidence-body"><p class="microcopy">${e(c.as_of)}</p>${notesHTML(c.note)}${sourcesHTML(c,data)}</div></details></div>`;
   }).join('');
 }
+
 function controlBlock(data,stateCode) {
   const state=(data.states||[]).find(s=>s.state===stateCode);
+  const summary=(data.state_summaries||[]).find(s=>s.state===stateCode);
   const controls=(data.control_changes||[]).filter(r=>r.state===stateCode);
   const chambers=(data.chamber_snapshots||[]).filter(r=>r.state===stateCode);
-  return `<section class="control-summary"><div class="section-heading"><h3>Leadership &amp; legislature</h3><span>Incoming picture</span></div><p class="control-context">${e(state?.control_context||'No leadership-change record retained for this state in the selected inventory.')}</p>${controls.length?`<div class="control-list">${controls.map(c=>`<div class="control-row"><span>${e(c.office)}</span><strong><span class="party-pill party-pill--${c.before==='R'?'rep':c.before==='D'?'dem':'other'}">${e(c.before)}</span><span class="control-arrow" aria-hidden="true">→</span><span class="party-pill party-pill--${c.after==='R'?'rep':c.after==='D'?'dem':'other'}">${e(c.after)}</span></strong></div>${c.election_date && c.election_date<'2026-01-01'?`<p class="microcopy">Prior-year election: ${e(dateLabel(c.election_date))}</p>`:''}`).join('')}</div>`:''}${renderChambers(chambers,data)}${controls.length?`<details class="evidence"><summary>Leadership sources &amp; context <span aria-hidden="true">+</span></summary><div class="evidence-body">${controls.map(c=>`<div class="control-evidence"><strong>${e(c.office)}</strong>${notesHTML(c.note)}${sourcesHTML(c,data)}</div>`).join('')}</div></details>`:''}</section>`;
+  const label=summary?.leadership?.label||'No retained change record';
+  return `<section class="control-summary viz-card"><div class="viz-heading"><h3>Balance of power</h3></div>${controls.length?`<div class="control-list">${controls.map(c=>`<div class="control-row"><span>${e(c.office)}</span><strong><span class="party-pill party-pill--${c.before==='R'?'rep':c.before==='D'?'dem':'other'}">${e(c.before)}</span><span class="control-arrow" aria-hidden="true">→</span><span class="party-pill party-pill--${c.after==='R'?'rep':c.after==='D'?'dem':'other'}">${e(c.after)}</span></strong></div>${c.election_date&&c.election_date<'2026-01-01'?`<p class="viz-note">${e(dateLabel(c.election_date))} · prior-year change</p>`:''}`).join('')}</div>`:''}<p class="viz-note">${e(label)}</p>${renderChambers(chambers,data)}<details class="evidence"><summary>Context &amp; sources <span aria-hidden="true">+</span></summary><div class="evidence-body"><p>${e(state?.control_context||'No leadership-change record retained for this state in the selected inventory.')}</p>${controls.map(c=>`<div class="control-evidence"><strong>${e(c.office)}</strong>${notesHTML(c.note)}${sourcesHTML(c,data)}</div>`).join('')}</div></details></section>`;
 }
 
 function candidateRows(choices,total,winner) {
   return choices.map(choice=>{
-    const isWinner=choice.winner===true || (typeof winner==='string' && winner===choice.name);
+    const isWinner=choice.winner===true||(typeof winner==='string'&&winner===choice.name);
     const share=Number.isFinite(choice.votes)&&Number.isFinite(total)&&total>0?choice.votes/total*100:null;
     const party=String(choice.party||'');
-    const tone=party==='D'||/^Democratic/.test(party)?'dem':party==='R'||/^Republican/.test(party)?'rep':'other';
-    return `<div class="candidate-row${isWinner?' candidate-row--winner':''}"><div class="candidate-heading"><div><span class="candidate-name">${e(choice.name)}</span>${party?`<span class="candidate-party">${e(party)}</span>`:''}${isWinner?'<span class="winner-label">Elected</span>':''}</div><div class="candidate-numbers"><strong>${share===null?'—':pct(share)}</strong><small>${num(choice.votes)}${Number.isFinite(choice.votes)?' votes':''}</small></div></div>${share!==null?`<div class="candidate-bar"><span class="candidate-bar__${tone}" style="width:${Math.max(0,Math.min(100,share))}%"></span></div>`:''}${choice.zero_value_note?`<p class="microcopy source-zero-note">${e(choice.zero_value_note)}</p>`:''}</div>`;
+    const tone=party==='D'||/^Democratic/.test(party)?'dem':party==='R'||/^Republican/.test(party)?'rep':'viz-neutral';
+    const info=`${choice.name}: ${num(choice.votes)}${Number.isFinite(choice.votes)?' votes':''}${share===null?'':` · ${pct(share)} of listed selections`}`;
+    return `<div class="candidate-row viz-group${isWinner?' candidate-row--winner':''}"><div class="candidate-heading"><div><span class="candidate-name">${e(choice.name)}</span>${party?`<span class="candidate-party">${e(party)}</span>`:''}${isWinner?'<span class="winner-label" title="Reported winner" aria-label="Reported winner">✓</span>':''}</div><div class="candidate-numbers"><strong>${share===null?'—':pct(share)}</strong></div></div>${share!==null?`<button type="button" class="viz-candidate-bar" data-viz-info="${e(info)}" aria-label="${e(info)}" title="${e(info)}"><i style="width:${Math.max(0,Math.min(100,share))}%;--segment:var(--${tone})"></i></button>`:''}${readout(`${num(choice.votes)}${Number.isFinite(choice.votes)?' votes':''}`)}${choice.zero_value_note?`<details class="evidence evidence--small"><summary>Source note</summary><p>${e(choice.zero_value_note)}</p></details>`:''}</div>`;
   }).join('');
 }
+
 function renderElection(record,data) {
-  const choices=record.choices||[];
+  const choices=[...(record.choices||[])].sort((a,b)=>(Number.isFinite(b.votes)?b.votes:-1)-(Number.isFinite(a.votes)?a.votes:-1));
   const total=Number.isFinite(record.valid_listed_votes)?record.valid_listed_votes:choices.every(c=>Number.isFinite(c.votes))?choices.reduce((sum,c)=>sum+c.votes,0):null;
-  const conflicts=(data.source_conflicts||[]).filter(c=>c.state===record.state && choices.some(choice=>choice.name===c.candidate));
-  return `<article class="record-card election-card" data-record-id="${escapeHTML(record.record_id)}"><div class="card-kicker"><span>${e(record.jurisdiction||record.state)}</span><time>${e(dateLabel(record.election_date))}</time></div><div class="record-title-row"><h3>${e(record.office)}</h3>${record.party_transition?tag(record.party_transition,'blue'):''}</div><p class="result-status">${e(record.status)}</p><div class="candidate-list">${candidateRows(choices,total,record.winner)}</div><p class="microcopy denominator">${num(total)} listed candidate selections. Percentages calculated from these selections.</p>${conflicts.length?`<p class="data-warning">${conflicts.length} candidate share${conflicts.length===1?'':'s'} differ from the external tracker. The snapshots remain separate.</p>`:''}<details class="evidence"><summary>Election sources &amp; qualifications <span aria-hidden="true">+</span></summary><div class="evidence-body">${factRows([['Result snapshot',record.snapshot],['Denominator',record.denominator_note]])}${notesHTML(record.notes)}${record.nested_writein_breakdown?.length?`<details class="nested-evidence"><summary>Write-in components already included in the aggregate</summary><p class="microcopy">Do not add these to the candidate total a second time.</p>${genericDetails(record.nested_writein_breakdown)}</details>`:''}${conflicts.length?`<details class="nested-evidence"><summary>Conflicting tracker snapshots</summary>${conflicts.map(c=>`<div class="conflict-row"><strong>${e(c.candidate)}</strong><p>Selected result: ${pct(c.selected_share)}. Tracker: ${pct(c.tracker_share)} (${e(c.tracker_status)}).</p><p class="microcopy">${e(c.interpretation)}</p></div>`).join('')}</details>`:''}${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p></div></details></article>`;
+  const conflicts=(data.source_conflicts||[]).filter(c=>c.state===record.state&&choices.some(choice=>choice.name===c.candidate));
+  return `<article class="record-card election-card" data-record-id="${escapeHTML(record.record_id)}"><div class="card-kicker"><span>${e(record.jurisdiction||record.state)}</span>${tag(resultQualifier(record.status))}</div><div class="record-title-row"><h3>${e(record.office)}</h3>${record.party_transition?tag(record.party_transition,'blue'):''}</div><div class="candidate-list">${candidateRows(choices.slice(0,2),total,record.winner)}</div>${choices.length>2?`<details class="nested-evidence candidate-more"><summary>${choices.length-2} more candidate${choices.length===3?'':'s'}</summary>${candidateRows(choices.slice(2),total,record.winner)}</details>`:''}<p class="viz-note">Shares of listed candidate selections</p>${conflicts.length?`<p class="data-warning">${conflicts.length} source conflict${conflicts.length===1?'':'s'}</p>`:''}<details class="evidence"><summary>Details &amp; sources <span aria-hidden="true">+</span></summary><div class="evidence-body">${factRows([['Election date',dateLabel(record.election_date)],['Recorded status',record.status],['Result snapshot',record.snapshot],['Listed candidate selections',Number.isFinite(total)?num(total):null],['Denominator',record.denominator_note]])}<p class="microcopy">Percentages use the listed candidate selections; multi-seat selections are not unique voters.</p>${notesHTML(record.notes)}${record.nested_writein_breakdown?.length?`<details class="nested-evidence"><summary>Write-in components</summary><p class="microcopy">Already included in the aggregate. Do not add them to the candidate total.</p>${genericDetails(record.nested_writein_breakdown)}</details>`:''}${conflicts.length?`<details class="nested-evidence"><summary>Conflicting tracker snapshots</summary>${conflicts.map(c=>`<div class="conflict-row"><strong>${e(c.candidate)}</strong><p>Selected result: ${pct(c.selected_share)}. Tracker: ${pct(c.tracker_share)} (${e(c.tracker_status)}).</p><p class="microcopy">${e(c.interpretation)}</p></div>`).join('')}</details>`:''}${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p></div></details></article>`;
 }
+
 function renderRecall(record,data) {
   const yesNo=Number.isFinite(record.yes)&&Number.isFinite(record.no);
   const choices=record.choices||[];
-  const total=record.total_valid_votes || choices.reduce((s,c)=>s+(c.votes||0),0);
-  return `<article class="record-card recall-card" data-record-id="${escapeHTML(record.record_id)}"><div class="card-kicker"><span>${e(record.jurisdiction)}</span><time>${e(dateLabel(record.election_date))}</time></div><div class="record-title-row"><h3>${e(record.official)}</h3>${tag(yesNo?'Recall vote':'Replacement contest','amber')}</div>${record.office?`<p class="microcopy">${e(record.office)}</p>`:''}<p class="policy-summary">${e(record.issue)}</p>${yesNo?voteBar(record.yes,record.no,'Recall','Retain'):`<div class="candidate-list">${candidateRows(choices,total,null)}</div>`}${record.replacement?.length?`<details class="nested-evidence"><summary>Replacement result${record.replacement.length===1?'':'s'}</summary>${candidateRows(record.replacement,record.replacement.reduce((s,c)=>s+c.votes,0),null)}</details>`:''}<details class="evidence"><summary>Recall evidence <span aria-hidden="true">+</span></summary><div class="evidence-body">${factRows([['Recorded status',record.status],['Ballots cast',Number.isFinite(record.ballots_cast)?num(record.ballots_cast):null],['Registered voters',Number.isFinite(record.registered_voters)?num(record.registered_voters):null],['Reported turnout',Number.isFinite(record.turnout_percent)?pct(record.turnout_percent):null],['Overvotes',Number.isFinite(record.overvotes)?num(record.overvotes):null],['Undervotes',Number.isFinite(record.undervotes)?num(record.undervotes):null]])}${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p></div></details></article>`;
+  const total=Number.isFinite(record.total_valid_votes)?record.total_valid_votes:choices.every(c=>Number.isFinite(c.votes))?choices.reduce((s,c)=>s+c.votes,0):null;
+  return `<article class="record-card recall-card" data-record-id="${escapeHTML(record.record_id)}"><div class="card-kicker"><span>${e(record.jurisdiction)}</span>${tag(yesNo?'Recall':'Replacement','amber')}</div><div class="record-title-row"><h3>${e(record.official)}</h3></div>${yesNo?voteBar(record.yes,record.no,'Recall','Retain'):`<div class="candidate-list">${candidateRows(choices,total,null)}</div>`}<details class="evidence"><summary>Details &amp; sources <span aria-hidden="true">+</span></summary><div class="evidence-body"><p>${e(record.issue)}</p>${factRows([['Office',record.office],['Election date',dateLabel(record.election_date)],['Recorded status',record.status],['Ballots cast',Number.isFinite(record.ballots_cast)?num(record.ballots_cast):null],['Registered voters',Number.isFinite(record.registered_voters)?num(record.registered_voters):null],['Reported turnout',Number.isFinite(record.turnout_percent)?pct(record.turnout_percent):null],['Overvotes',Number.isFinite(record.overvotes)?num(record.overvotes):null],['Undervotes',Number.isFinite(record.undervotes)?num(record.undervotes):null]])}${record.replacement?.length?`<details class="nested-evidence"><summary>Replacement result${record.replacement.length===1?'':'s'}</summary>${candidateRows(record.replacement,record.replacement.every(c=>Number.isFinite(c.votes))?record.replacement.reduce((s,c)=>s+c.votes,0):null,null)}</details>`:''}${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p></div></details></article>`;
 }
 
 export function renderPolicyCard(record,data,{compact=false}={}) {
   const stage=policyStage(record);
-  const caption=/caption/.test(record.verification||'') || record.priority==='caption_verified';
+  const caption=/caption/.test(record.verification||'')||record.priority==='caption_verified';
   const votes=record.legislative_votes;
-  return `<article class="record-card policy-card${compact?' record-card--compact':''}" data-record-id="${escapeHTML(record.record_id)}" data-policy-stage="${stage.id}" data-search="${escapeHTML(cleanText([record.instrument,record.title,record.summary,record.sponsors,...arr(record.topics)].join(' ')).toLowerCase())}"><div class="card-kicker"><span>${e(record.session||'Session not recorded')}</span>${record.status_date?`<time>${e(dateLabel(record.status_date))}</time>`:''}</div><div class="record-title-row"><h3>${e(record.instrument||record.title||'Policy record')}</h3>${tag(stage.label,stage.tone)}</div>${record.title && record.title!==record.instrument && record.title!==record.summary?`<p class="policy-title">${e(record.title)}</p>`:''}<p class="policy-summary">${e(record.summary)}</p><p class="policy-status"><strong>Recorded status:</strong> ${e(record.status)}</p>${caption?'<p class="verification-note">Caption-level review · operative clauses not fully checked</p>':''}<details class="evidence"><summary>Policy detail &amp; sources <span aria-hidden="true">+</span></summary><div class="evidence-body">${factRows([['Sponsor(s)',record.sponsors],['Recorded action date',record.status_date?dateLabel(record.status_date):null],['Effective date',record.effective_date?dateLabel(record.effective_date):null],['Verification',record.verification],['Topics',arr(record.topics).join(' · ')]])}${notesHTML(record.notes)}${votes && (typeof votes==='string'||votes.length)?`<div class="legislative-votes"><h4>Legislative votes</h4><p class="microcopy">Votes by legislators, separate from public ballot returns.</p>${typeof votes==='string'?`<p>${e(votes)}</p>`:votes.map(v=>`<p><strong>${e(v.chamber||'Chamber')}</strong>${v.date?` · ${e(dateLabel(v.date))}`:''}${Number.isFinite(v.yes)?` · ${num(v.yes)} yes / ${num(v.no)} no`:''}${v.stage?` · ${e(v.stage)}`:''}</p>`).join('')}</div>`:''}${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p></div></details></article>`;
+  return `<article class="record-card policy-card${compact?' record-card--compact':''}" data-record-id="${escapeHTML(record.record_id)}" data-policy-stage="${stage.id}" data-search="${escapeHTML(cleanText([record.instrument,record.title,record.summary,record.sponsors,...arr(record.topics)].join(' ')).toLowerCase())}"><div class="record-title-row"><h3>${e(record.instrument||record.title||'Policy record')}</h3>${tag(POLICY_CHART_LABELS[stage.id]||stage.label,stage.tone)}</div>${record.title&&record.title!==record.instrument?`<p class="policy-title">${e(record.title)}</p>`:''}<div class="viz-mini-meta">${record.status_date?`<time>${e(dateLabel(record.status_date))}</time>`:''}${caption?'<span>Caption review</span>':''}</div><details class="evidence"><summary>Details &amp; sources <span aria-hidden="true">+</span></summary><div class="evidence-body"><p class="policy-summary">${e(record.summary)}</p>${factRows([['Session',record.session],['Recorded status',record.status],['Sponsor(s)',record.sponsors],['Recorded action date',record.status_date?dateLabel(record.status_date):null],['Effective date',record.effective_date?dateLabel(record.effective_date):null],['Verification',record.verification],['Topics',arr(record.topics).join(' · ')]])}${caption?'<p class="verification-note">Caption-level review; operative clauses not fully checked.</p>':''}${notesHTML(record.notes)}${votes&&(typeof votes==='string'||votes.length)?`<div class="legislative-votes"><h4>Legislative votes</h4><p class="microcopy">Votes by legislators, separate from public ballot returns.</p>${typeof votes==='string'?`<p>${e(votes)}</p>`:votes.map(v=>`<p><strong>${e(v.chamber||'Chamber')}</strong>${v.date?` · ${e(dateLabel(v.date))}`:''}${Number.isFinite(v.yes)?` · ${num(v.yes)} yes / ${num(v.no)} no`:''}${v.stage?` · ${e(v.stage)}`:''}</p>`).join('')}</div>`:''}${sourcesHTML(record,data)}<p class="record-id">Record ${escapeHTML(record.record_id)}</p></div></details></article>`;
 }
 
 function ballotPanel(data,stateCode,period,topic) {
   const all=(data.ballots||[]).filter(r=>r.state===stateCode);
   const records=all.filter(r=>matchesBallot(r,period,topic)).sort((a,b)=>a.election_date.localeCompare(b.election_date)||a.jurisdiction.localeCompare(b.jurisdiction));
-  return `<div class="panel-section-intro"><p>${records.length} question${records.length===1?'':'s'} matching the current filters.</p><span>Yes/no shares use valid votes. Binding and advisory questions are labelled separately.</span></div>${records.length?records.map(r=>renderBallotCard(r,data)).join(''):empty('No matching ballot question',all.length?`${all.length} question${all.length===1?' is':'s are'} retained for this state across all periods and topics. Change the filters to explore them.`:'No qualifying direct question was identified for this state in the reviewed sources. This is a coverage statement, not a certified zero.')}`;
+  return records.length?`${ballotChart(records)}<p class="viz-note ballot-filter-count" aria-live="polite">${records.length} questions</p><div class="ballot-records">${records.map(r=>renderBallotCard(r,data)).join('')}</div>`:empty('No matching questions',all.length?`${all.length} questions are retained across other periods or topics. Adjust the map filters.`:'No qualifying question was identified in the reviewed sources. This is a coverage statement, not a certified zero.');
 }
+
 function electionPanel(data,stateCode,period) {
-  const elections=(data.elections||[]).filter(r=>r.state===stateCode && matchesPeriod(r,period));
-  const recalls=(data.recalls||[]).filter(r=>r.state===stateCode && matchesPeriod(r,period));
-  return `${controlBlock(data,stateCode)}<div class="section-heading"><h3>Selected candidate contests</h3><span>${elections.length}</span></div><p class="section-note">Retained source snapshots for ${e(PERIOD_LABELS[period]||PERIOD_LABELS.nov3)}. A candidate vote cannot isolate support for an AI policy.</p>${elections.length?elections.map(r=>renderElection(r,data)).join(''):empty('No selected candidate result','No candidate contest with a retained vote tally matches this state and period. Leadership-change records and the external tracker may still provide context.')}<div class="section-heading section-heading--spaced"><h3>Recalls &amp; replacements</h3><span>${recalls.length}</span></div>${recalls.length?`<p class="section-note">Removal and replacement contests have different vote formats; neither automatically reverses a development approval.</p>${recalls.map(r=>renderRecall(r,data)).join('')}`:empty('No matching recall','No actual recall or recall-replacement election is retained for this state and selected period.')}`;
+  const elections=(data.elections||[]).filter(r=>r.state===stateCode&&matchesPeriod(r,period));
+  const recalls=(data.recalls||[]).filter(r=>r.state===stateCode&&matchesPeriod(r,period));
+  return `${controlBlock(data,stateCode)}<div class="section-heading"><h3>Selected contests</h3><span>${elections.length}</span></div>${elections.length?elections.map(r=>renderElection(r,data)).join(''):empty('No selected result','No candidate contest with a retained vote tally matches this state and period.')}<div class="section-heading section-heading--spaced"><h3>Recalls</h3><span>${recalls.length}</span></div>${recalls.length?recalls.map(r=>renderRecall(r,data)).join(''):empty('No matching recall','No recall or replacement election is retained for this state and selected period.')}<details class="evidence"><summary>Reading these results <span aria-hidden="true">+</span></summary><p>Retained source snapshots for ${e(PERIOD_LABELS[period]||PERIOD_LABELS.nov3)}. Candidate votes do not isolate support for an AI policy. Recall and replacement contests use different vote formats; neither automatically reverses a development approval.</p></details>`;
 }
+
 function billPanel(data,stateCode) {
   const policies=(data.policies||[]).filter(r=>r.state===stateCode);
   const order={prefiled:0,pending:1,proposal:2,enacted:3,vetoed:4,failed:5,watchlist:6,other:7};
-  const sorted=[...policies].sort((a,b)=>order[policyStage(a).id]-order[policyStage(b).id] || (b.status_date||'').localeCompare(a.status_date||'') || (a.instrument||'').localeCompare(b.instrument||'',undefined,{numeric:true}));
-  return `<div class="panel-section-intro"><p>${policies.length} selected policy record${policies.length===1?'':'s'}.</p><span>Includes proposals, existing laws and executive actions. The ballot-date filter does not change this policy inventory.</span></div>${policies.length?`<label class="panel-search"><span>Find a bill or topic</span><input type="search" id="policy-search" placeholder="Bill number, water, AI, tax…" autocomplete="off" data-action="filter-policies"></label><p class="microcopy policy-search-count" aria-live="polite"></p><div class="policy-records">${sorted.map(r=>renderPolicyCard(r,data)).join('')}</div>`:empty('No selected policy record','No bill or policy record is retained for this state in the selected inventory. This does not establish that the state has no relevant legislation.')}`;
+  const sorted=[...policies].sort((a,b)=>order[policyStage(a).id]-order[policyStage(b).id]||(b.status_date||'').localeCompare(a.status_date||'')||(a.instrument||'').localeCompare(b.instrument||'',undefined,{numeric:true}));
+  return policies.length?`${policyChart(policies)}<label class="panel-search"><span class="sr-only">Find a bill or topic</span><input type="search" id="policy-search" placeholder="Search bills…" aria-label="Find a bill or topic" autocomplete="off" data-action="filter-policies"></label><p class="viz-note policy-search-count" aria-live="polite">${policies.length} records</p><div class="policy-records">${sorted.map(r=>renderPolicyCard(r,data)).join('')}</div><div class="policy-empty-filter" hidden>${empty('No matching bills','Try another stage or search term.')}</div><details class="evidence"><summary>Coverage <span aria-hidden="true">+</span></summary><p>Includes selected proposals, laws and executive actions across recorded sessions. The ballot-date filter does not change this inventory.</p></details>`:empty('No selected policy record','No policy record is retained for this state in the selected inventory. This does not establish an absence of relevant legislation.');
 }
+
 function overviewPanel(data,stateCode,period,topic) {
   const state=(data.states||[]).find(s=>s.state===stateCode);
-  const ballots=(data.ballots||[]).filter(r=>r.state===stateCode && matchesBallot(r,period,topic));
+  const ballots=(data.ballots||[]).filter(r=>r.state===stateCode&&matchesBallot(r,period,topic));
   const policies=(data.policies||[]).filter(r=>r.state===stateCode);
-  const elections=(data.elections||[]).filter(r=>r.state===stateCode && matchesPeriod(r,period));
-  const recalls=(data.recalls||[]).filter(r=>r.state===stateCode && matchesPeriod(r,period));
-  const featuredBallots=[...ballots].sort((a,b)=>(a.scope_group==='ai_governance'?-1:0)-(b.scope_group==='ai_governance'?-1:0)||a.jurisdiction.localeCompare(b.jurisdiction)).slice(0,2);
-  const priority=['TX_SB296','TX_SB293','TX_SB32'];
-  const featuredPolicies=[...policies].sort((a,b)=>{
-    const ai=priority.indexOf(a.record_id),bi=priority.indexOf(b.record_id);
-    if(ai>=0||bi>=0)return (ai<0?99:ai)-(bi<0?99:bi);
-    return (a.priority==='caption_verified'?1:0)-(b.priority==='caption_verified'?1:0);
-  }).slice(0,3);
-  return `<div class="state-metrics"><div><strong>${ballots.length}</strong><span>Matching questions</span></div><div><strong>${policies.length}</strong><span>Policy records</span></div><div><strong>${elections.length}</strong><span>Selected contests</span></div><div><strong>${recalls.length}</strong><span>Recall officials</span></div></div>${controlBlock(data,stateCode)}<div class="section-heading section-heading--spaced"><h3>On the ballot</h3>${ballots.length?`<button type="button" class="text-button" data-panel-tab="ballots">All ${ballots.length} →</button>`:''}</div>${featuredBallots.length?featuredBallots.map(r=>renderBallotCard(r,data,{compact:true})).join(''):empty('No matching direct question',ballots.length===0 && (data.ballots||[]).some(r=>r.state===stateCode)?'Other periods or topics contain records for this state. Adjust the filters to see them.':state?.coverage_statement||'No qualifying direct question identified in the reviewed inventory; this is not a certified zero.')}<div class="section-heading section-heading--spaced"><h3>Policy agenda</h3>${policies.length?`<button type="button" class="text-button" data-panel-tab="bills">All ${policies.length} →</button>`:''}</div>${featuredPolicies.length?featuredPolicies.map(r=>renderPolicyCard(r,data,{compact:true})).join(''):empty('No selected policy record','The dossier retains no bill record for this state. Refer to the coverage notes before interpreting this as absence of policy activity.')}<p class="coverage-footnote">Research snapshot: November 13, 2026. The inventory is not a certified census of every municipal election.</p>`;
+  const elections=(data.elections||[]).filter(r=>r.state===stateCode&&matchesPeriod(r,period));
+  const recalls=(data.recalls||[]).filter(r=>r.state===stateCode&&matchesPeriod(r,period));
+  return `<div class="viz-stats"><button type="button" data-panel-tab="ballots"><strong>${ballots.length}</strong><span>Ballots</span></button><button type="button" data-panel-tab="elections"><strong>${elections.length+recalls.length}</strong><span>Contests / recalls</span></button><button type="button" data-panel-tab="bills"><strong>${policies.length}</strong><span>Policy records</span></button></div>${ballots.length?ballotChart(ballots,{overview:true}):empty('No matching questions',state?.coverage_statement||'No question identified in the reviewed inventory; this is not a certified zero.')}${controlBlock(data,stateCode)}${policies.length?policyChart(policies,{overview:true}):empty('No selected policy record','No policy record is retained for this state.')}<details class="evidence"><summary>Coverage <span aria-hidden="true">+</span></summary><p>Research snapshot: November 13, 2026. Selected candidate contests and recalls are separate record types; these counts are not an inventory of every election. ${e(state?.coverage_statement||'')}</p></details>`;
 }
 
 /** Render the detail-panel body. The caller owns the state heading, tabs and events. */
@@ -225,4 +258,35 @@ export function renderStatePanel({data,stateCode,tab='overview',period='nov3',to
   if(!data || !(data.states||[]).some(s=>s.state===stateCode))return empty('Select a state','Choose a state on the map or use the state selector.');
   const content=tab==='ballots'?ballotPanel(data,stateCode,period,topic):tab==='elections'?electionPanel(data,stateCode,period):tab==='bills'?billPanel(data,stateCode):overviewPanel(data,stateCode,period,topic);
   return `<div class="state-panel-body" data-state="${escapeHTML(stateCode)}" data-panel-view="${escapeHTML(tab)}">${content}</div>`;
+}
+
+/** Attach chart and filtering behavior only to this newly rendered panel body. */
+export function wirePanelInteractions(container) {
+  const root=container.querySelector('.state-panel-body');
+  if(!root||root.dataset.chartsWired==='true')return;
+  root.dataset.chartsWired='true';
+  let ballotFilter='all',policyFilter='all';
+  const readoutFor=target=>target.closest('.viz-group,.viz-card')?.querySelector('.viz-readout');
+  const showInfo=target=>{const trigger=target.closest('[data-viz-info]');if(trigger){const output=readoutFor(trigger);if(output)output.textContent=trigger.dataset.vizInfo;}};
+  const resetInfo=target=>{const output=readoutFor(target);if(output)output.textContent=output.dataset.default||'';};
+  function filterPolicies() {
+    const needle=(root.querySelector('#policy-search')?.value||'').trim().toLowerCase();
+    const cards=[...root.querySelectorAll('.policy-records .policy-card')];let visible=0;
+    for(const card of cards){const show=(policyFilter==='all'||card.dataset.policyStage===policyFilter)&&(!needle||card.dataset.search.includes(needle));card.hidden=!show;if(show)visible++;}
+    const count=root.querySelector('.policy-search-count');if(count)count.textContent=`${visible} of ${cards.length} records`;
+    const emptyState=root.querySelector('.policy-empty-filter');if(emptyState)emptyState.hidden=visible>0;
+    for(const btn of root.querySelectorAll('[data-policy-filter]'))btn.setAttribute('aria-pressed',String(btn.dataset.policyFilter===policyFilter));
+  }
+  root.addEventListener('click',ev=>{
+    showInfo(ev.target);
+    const ballot=ev.target.closest('[data-ballot-filter]');
+    if(ballot){ballotFilter=ballot.dataset.ballotFilter;let count=0;const cards=[...root.querySelectorAll('.ballot-records .ballot-card')];for(const card of cards){const show=ballotFilter==='all'||card.dataset.outcome===ballotFilter;card.hidden=!show;if(show)count++;}for(const btn of root.querySelectorAll('[data-ballot-filter]'))btn.setAttribute('aria-pressed',String(btn.dataset.ballotFilter===ballotFilter));const out=root.querySelector('.ballot-filter-count');if(out)out.textContent=`${count} of ${cards.length} questions`;}
+    const policy=ev.target.closest('[data-policy-filter]');if(policy){policyFilter=policy.dataset.policyFilter;filterPolicies();}
+  });
+  root.addEventListener('input',ev=>{if(ev.target.matches('[data-action="filter-policies"]'))filterPolicies();});
+  root.addEventListener('pointerover',ev=>showInfo(ev.target));
+  root.addEventListener('focusin',ev=>showInfo(ev.target));
+  root.addEventListener('pointerout',ev=>{const chart=ev.target.closest('.viz-group,.viz-card');if(chart&&!chart.contains(ev.relatedTarget))resetInfo(ev.target);});
+  root.addEventListener('focusout',ev=>{const chart=ev.target.closest('.viz-group,.viz-card');if(chart&&!chart.contains(ev.relatedTarget))resetInfo(ev.target);});
+  if(root.querySelector('#policy-search'))filterPolicies();
 }
